@@ -32,7 +32,7 @@ body {
  border: 1px solid black;
  width: 12%;
  height: 60px;
- background-color:white;
+ background-color:#bdbdbd;
  float:left;
 } 
 
@@ -40,23 +40,28 @@ body {
  border: 1px solid black;
  width: 12%;
  height: 60px;
- background-color:#787878;
+ background-color:#444445;
  float:left;
 }
 
 #container {
- margin-top:20%;
+ margin-top:17%;
+ padding: 30px;
  margin-left:10%;
  margin-right:10%;
  margin-bottom:5%;
- border:solid px;
+ width:85%;
+ border:solid 1px;
+ display:inline-block;
+ background-color: gray;
 }
 
 #footer {
- border:solid 2px;
- padding: 110px;
- margin:auto;
- display:block;
+ position:fixed;
+ border:solid 1px;
+ padding: 10px;
+ margin: 12%;
+ width:100%;
 }
 
 img {
