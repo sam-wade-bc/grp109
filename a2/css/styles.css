@@ -45,12 +45,12 @@ body {
 }
 
 #container {
- margin-top:10%;
+ margin-top:80px;
  padding: 30px;
  margin-left:10%;
  margin-right:10%;
- margin-bottom:5%;
- width:85%;
+ margin-bottom:1%;
+ width:75%;
  border:solid 1px;
  display:inline-block;
  background-color: gray;
