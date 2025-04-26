@@ -1,1 +1,65 @@
+#title {
+ position:fixed;
+ top:0px;
+ left:0px; 
+ padding:10px;
+ margin:0px;
+ width:100%;
+ background-color:lightyellow;
+ text-align:center; 
+ z-index:10;
+ font-family: 'JustLettersMedium'; 
+ font-weight: normal; 
+ font-style: normal; 
+ font-size:36px;
+}
 
+body {
+ background-image:url("https://static.vecteezy.com/system/resources/previews/005/692/268/large_2x/rocky-mountain-scenery-and-the-sea-or-the-night-river-full-moon-yellow-gold-reflection-on-the-water-surface-there-is-a-faint-mist-on-the-water-clear-sky-many-stars-at-night-3d-rendering-free-photo.jpg");
+}
+
+.row{
+ position:relative;
+ margin-left:10%;
+ margin-right:10%;
+ 
+}
+
+.clear{
+}
+
+.white{
+ border: 1px solid black;
+ width: 12%;
+ height: 60px;
+ background-color:white;
+ float:left;
+} 
+
+.black{
+ border: 1px solid black;
+ width: 12%;
+ height: 60px;
+ background-color:#787878;
+ float:left;
+}
+
+#container {
+ margin-top:20%;
+ margin-left:10%;
+ margin-right:10%;
+ margin-bottom:5%;
+ border:solid px;
+}
+
+#footer {
+ border:solid 2px;
+ padding: 110px;
+ margin:auto;
+ display:block;
+}
+
+img {
+ margin-left: 5px;
+ margin-top:10px;
+ }
