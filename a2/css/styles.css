@@ -45,7 +45,7 @@ body {
 }
 
 #container {
- margin-top:17%;
+ margin-top:10%;
  padding: 30px;
  margin-left:10%;
  margin-right:10%;
@@ -57,10 +57,9 @@ body {
 }
 
 #footer {
- position:fixed;
  border:solid 1px;
  padding: 10px;
- margin: 12%;
+ margin: 1%;
  width:100%;
 }
 
