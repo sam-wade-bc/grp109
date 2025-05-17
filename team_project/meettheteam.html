@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meet the Team</title>
+  <link id="themeStylesheet" rel="stylesheet" href="style-alice.css">
+</head>
+<body>
+  
+  <header>
+    <div id="logo">GAIN TOWN</div>
+    <nav>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/teamwbs.html">Team WBS</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">Meet the Team</a>
+    </nav>
+  </header>
+
+<h1>Meet the Team!</h1>
+  <h2>Select a team member to change the style of this page.</h2>
+
+  <select id="personSelector">
+    <option value="samW">Sam W</option>
+    <option value="navdeepS">Navdeep S</option>
+    <option value="quinnN">Quinn N</option>
+  </select>
+
+  <p>This page changes its style based on who you select from the dropdown.</p>
+
+  <script>
+    const selector = document.getElementById('personSelector');
+    const stylesheet = document.getElementById('themeStylesheet');
+
+    selector.addEventListener('change', function () {
+      const person = this.value;
+      stylesheet.href = `style-${person}.css`;
+    });
+  </script>
+
+ <!-- Team Member Sections -->
+<div class="team-member" id="sam-section">
+<img src="images/samW.png" alt="Sam W">
+    <h2>Sam W</h2>
+    <p>Sam is a very passionate artsit with a heavy intrest in cutting edge technology. His hobbies include Gaming, Hiking, and Baking. </p>
+  </div>
+
+<div class="team-member" id="navdeep-section">
+<img src="images/navdeepS.jpg" alt="Navdeep S">
+    <h2>Navdeep S</h2>
+    <p> TEXT HERE</p>
+  </div>
+
+<div class="team-member" id="quinn-section">
+<img src="images/quinnN.jpg" alt="Quinn N">
+    <h2>TEXT HERE</h2>
+    <p></p>
+  </div>
+
+</body>
+</html>
