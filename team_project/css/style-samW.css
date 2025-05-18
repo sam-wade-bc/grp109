@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+
 body {
   background-color: #121212;
   color: #f0f0f0;
@@ -5,8 +7,14 @@ body {
   margin: 2em;
 }
 
+#logo{
+font-size: 200%;
+font-family: "Badeen Display", system-ui;
+font-weight:.5%;
+}
+
 header {
-  background-color: var(--primary);
+  background-color: #F17300;
   color: white;
   padding: 1rem 2rem;
   display: flex;
@@ -44,6 +52,11 @@ select {
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid #888;
+}
+
+#sam-section{
+  background-color: #ffe0a9;
+  color: #000000;
 }
 
 .team-member:hover {
