@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Meet the Team</title>
-  <link id="themeStylesheet" rel="stylesheet" href="style-samW.css">
+  <link id="themeStylesheet" href="style-samW.css" rel="stylesheet" type="text/css" >
 </head>
 <body>
   
@@ -23,23 +24,24 @@
 <h1>Meet the Team!</h1>
   <h2>Select a team member to change the style of this page.</h2>
 
-  <select id="personSelector">
-    <option value="samW">Sam W</option>
-    <option value="navdeepS">Navdeep S</option>
-    <option value="quinnN">Quinn N</option>
+ <select id="themeSelector">
+    <option value="style-samW.css">Theme 1</option>
+    <option value="style-navdeepS.css">Theme 2</option>
+    <option value="style-quinnN.css">Theme 3</option>
+
   </select>
 
   <p>This page changes its style based on who you select from the dropdown.</p>
 
-  <script>
-    const selector = document.getElementById('personSelector');
-    const stylesheet = document.getElementById('themeStylesheet');
+    <script>
+        const selector = document.getElementById('themeSelector');
+        const themeLink = document.getElementById('themeStylesheet');
 
-    selector.addEventListener('change', function () {
-      const person = this.value;
-      stylesheet.href = `style-${person}.css`;
-    });
-  </script>
+        selector.addEventListener('change', function () {
+            const selectedTheme = this.value;
+            themeLink.href = selectedTheme;
+        });
+    </script>
 
  <!-- Team Member Sections -->
 <div class="team-member" id="sam-section">
