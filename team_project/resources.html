@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>RESOURCES-GAINTOWN</title>
+<link rel="stylesheet" href="css/ResourcesStylesheet.css">
+</head>
+
+</head>
+<body>
+    <!-- Navigation -->
+  <header>
+    <div id="logo">GAIN TOWN</div>
+    <nav>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/teamwbs.html">Team WBS</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">Meet the Team</a>
+    </nav>
+  </header>
+
+  <h1>Resource Finder</h1>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search resources...">
+    <button onclick="filterResources()">Search</button>
+  </div>
+
+  <div class="filters">
+    <button onclick="setFilter('All')" class="active">All</button>
+    <button onclick="setFilter('Upper Body')">Upper Body</button>
+    <button onclick="setFilter('Strength')">Strength</button>
+    <button onclick="setFilter('Flexability')">Flexability</button>
+    <button onclick="setFilter('Stamina')">Stamina</button>
+  </div>
+
+  <div class="results" id="resultsContainer">
+    <!-- Resource items will be populated here -->
+  </div>
+
+  <script>
+    // === Sample Resource Data ===
+    // Developers: Add more resources here following this format
+    const resources = [
+      {
+        title: "Upper Body Strength",
+        description: "Exercises",
+        tags: ["Upper Body", "Strength"]
+      },
+      {
+        title: "Upper Body Stretches",
+        description: "Exercises",
+        tags: ["Upper Body", "Flexability"]
+      },
+      {
+        title: "Upper Body Endurance",
+        description: "Exercises",
+        tags: ["Upper Body", "Stamina"]
+      },
+    ];
+
+    let currentFilter = "All";
+
+    function setFilter(tag) {
+      currentFilter = tag;
+      document.querySelectorAll(".filters button").forEach(btn => {
+        btn.classList.remove("active");
+        if (btn.textContent === tag) btn.classList.add("active");
+      });
+      filterResources();
+    }
+
+    function filterResources() {
+      const keyword = document.getElementById("searchInput").value.toLowerCase();
+      const resultsContainer = document.getElementById("resultsContainer");
+      resultsContainer.innerHTML = "";
+
+      const filtered = resources.filter(resource => {
+        const matchesKeyword = resource.title.toLowerCase().includes(keyword) ||
+                               resource.description.toLowerCase().includes(keyword);
+        const matchesFilter = currentFilter === "All" || resource.tags.includes(currentFilter);
+        return matchesKeyword && matchesFilter;
+      });
+
+      if (filtered.length === 0) {
+        resultsContainer.innerHTML = "<p>No results found.</p>";
+        return;
+      }
+
+      filtered.forEach(resource => {
+        const div = document.createElement("div");
+        div.className = "resource";
+        div.innerHTML = `
+          <div class="resource-title">${resource.title}</div>
+          <div class="resource-description">${resource.description}</div>
+          <div class="resource-tags">Tags: ${resource.tags.join(", ")}</div>
+        `;
+        resultsContainer.appendChild(div);
+      });
+    }
+
+    // Initial display
+    filterResources();
+  </script>
+
+</body>
+</html>
