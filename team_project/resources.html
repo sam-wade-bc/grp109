@@ -32,12 +32,21 @@
     <button onclick="setFilter('All')" class="active">All</button>
     <button onclick="setFilter('Upper Body')">Upper Body</button>
     <button onclick="setFilter('Strength')">Strength</button>
-    <button onclick="setFilter('Flexability')">Flexability</button>
+    <button onclick="setFilter('Flexability')">Flexibility</button>
     <button onclick="setFilter('Stamina')">Stamina</button>
   </div>
 
   <div class="results" id="resultsContainer">
     <!-- Resource items will be populated here -->
+  </div>
+
+  <div class="theme-switcher">
+    <label for="theme">Change Theme: </label>
+    <select id="theme" onchange="changeTheme(this.value)">
+      <option value="css/SamWResources.css">Sam</option>
+      <option value="css/NavdeepSResources.css">Navdeep</option>
+      <option value="css/QuinnNResources.css">Quinn</option>
+    </select>
   </div>
 
   <script>
@@ -52,7 +61,7 @@
       {
         title: "Upper Body Stretches",
         description: "Exercises",
-        tags: ["Upper Body", "Flexability"]
+        tags: ["Upper Body", "Flexibility"]
       },
       {
         title: "Upper Body Endurance",
@@ -99,6 +108,18 @@
         `;
         resultsContainer.appendChild(div);
       });
+
+function changeTheme(file) {
+      document.getElementById("theme-style").setAttribute("href", file);
+    }
+
+    // Close dropdown on outside click
+    window.addEventListener("click", function (event) {
+      const dropdown = document.querySelector(".dropdown");
+      if (!dropdown.contains(event.target)) {
+        document.getElementById("dropdown-menu").style.display = "none";
+      }
+    });
     }
 
     // Initial display
