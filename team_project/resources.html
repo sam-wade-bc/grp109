@@ -37,7 +37,8 @@
   </div>
 
   <div class="results" id="resultsContainer">
-    <!-- Resource items will be populated here -->
+    <!-- Resources show up here -->
+    <!-- NEED TO MAKE THE TAGS A JS SCRIPT SO THAT THE TAGS ACTIVELY REFLECT ANY ARTICLES PLACED IN THE DATABASE -->
   </div>
 
   <div class="theme-switcher">
@@ -50,9 +51,8 @@
   </div>
 
   <script>
-    // === Sample Resource Data ===
-    // Developers: Add more resources here following this format
-    const resources = [
+    // NEED TO SWITCH THIS SCRIPT TO ITS OWN JS FILE AND USE A DATABASE IMPORT TO MAKE THE WEBSITE EASIER TO SET UP
+    var resources = [
       {
         title: "Upper Body Strength",
         description: "Exercises",
@@ -82,14 +82,14 @@
     }
 
     function filterResources() {
-      const keyword = document.getElementById("searchInput").value.toLowerCase();
-      const resultsContainer = document.getElementById("resultsContainer");
+      var keyword = document.getElementById("searchInput").value.toLowerCase();
+      var resultsContainer = document.getElementById("resultsContainer");
       resultsContainer.innerHTML = "";
 
-      const filtered = resources.filter(resource => {
-        const matchesKeyword = resource.title.toLowerCase().includes(keyword) ||
+      var filtered = resources.filter(resource => {
+        var matchesKeyword = resource.title.toLowerCase().includes(keyword) ||
                                resource.description.toLowerCase().includes(keyword);
-        const matchesFilter = currentFilter === "All" || resource.tags.includes(currentFilter);
+        var matchesFilter = currentFilter === "All" || resource.tags.includes(currentFilter);
         return matchesKeyword && matchesFilter;
       });
 
@@ -99,7 +99,7 @@
       }
 
       filtered.forEach(resource => {
-        const div = document.createElement("div");
+        var div = document.createElement("div");
         div.className = "resource";
         div.innerHTML = `
           <div class="resource-title">${resource.title}</div>
@@ -115,7 +115,7 @@ function changeTheme(file) {
 
     // Close dropdown on outside click
     window.addEventListener("click", function (event) {
-      const dropdown = document.querySelector(".dropdown");
+      var dropdown = document.querySelector(".dropdown");
       if (!dropdown.contains(event.target)) {
         document.getElementById("dropdown-menu").style.display = "none";
       }
