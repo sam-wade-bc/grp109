@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Custom Workout</title>
+<link rel="Stylesheet" href="css/samWCustomWorkout.css">
+
+</head>
+<body>
+
+  <header>
+    <div id="logo">GAIN TOWN</div>
+    <nav>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/teamwbs.html">Team WBS</a>
+       <a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">Meet the Team</a>
+    </nav>
+  </header>
+
+  <h1>Create your Custom Workout</h1>
+
+  <div class="form-group">
+    <label for="area">Choose Body Area</label>
+    <select id="area">
+      <option value="">-- Select --</option>
+      <option value="Upper Body">Upper Body</option>
+      <option value="Mid Body">Mid Body</option>
+      <option value="Lower Body">Lower Body</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="goal">Choose Your Goal</label>
+    <select id="goal">
+      <option value="">-- Select --</option>
+      <option value="Strength">Strength</option>
+      <option value="Stamina">Stamina</option>
+      <option value="Flexibility">Flexibility</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="time">Daily Time Commitment</label>
+    <select id="time">
+      <option value="">-- Select --</option>
+      <option value="15-30 mins">15-30 mins</option>
+      <option value="45 mins - 1 hr">45 mins - 1 hr</option>
+      <option value="2+ hrs">2+ hrs</option>
+    </select>
+  </div>
+
+  <button onclick="generateTags()">Show My Workout</button>
+
+  <div class="tags" id="tagsContainer"></div>
+  <div id="videoContainer"></div>
+
+<script src="customWorkoutMaker.js"></script>
+
+</body>
+</html>
