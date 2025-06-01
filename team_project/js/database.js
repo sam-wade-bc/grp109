@@ -1,4 +1,4 @@
-// resources.js
+// database.js
 
 var resources = [
   {
@@ -33,4 +33,4 @@ var resources = [
   }
 ];
 
-export default resources;
+export var resources;
