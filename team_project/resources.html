@@ -40,15 +40,28 @@
     <!-- Resources show up here -->
   </div>
 
-  <div class="theme-switcher">
-    <label for="theme">Change Theme: </label>
-    <select id="theme" onchange="changeTheme(this.value)">
-      <option value="css/SamWResources.css">Sam</option>
-      <option value="css/NavdeepSResources.css">Navdeep</option>
-      <option value="css/QuinnNResources.css">Quinn</option>
-    </select>
-  </div>
+   <footer>
+<hr>
+ &copy; 2025 GAIN TOWN. All rights reserved.
+<br>
+<p>Change the style of this page:</p>
+<select id="themeSelector">
+    <option value="css/samWCustomWorkout.css">Sam W</option>
+    <option value="css/navdeepSCustomWorkout.css">Navdeep S</option>
+    <option value="css/quinnNCustomWorkout.css">Quinn N</option>
 
+</select>
+
+    <script>
+        const selector = document.getElementById('themeSelector');
+        const themeLink = document.getElementById('themeStylesheet');
+
+        selector.addEventListener('change', function () {
+            const selectedTheme = this.value;
+            themeLink.href = selectedTheme;
+        });
+    </script>
+  </footer>
 <script type="module" src="js/resourcesPage.js"></script>
 
 </body>
