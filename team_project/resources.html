@@ -27,7 +27,7 @@
     <input type="text" id="searchInput" placeholder="Search resources...">
     <button onclick="filterResources()">Search</button>
   </div>
-
+  <!-- NEED TO MAKE THE TAGS A JS SCRIPT SO THAT THE TAGS ACTIVELY REFLECT ANY ARTICLES PLACED IN THE DATABASE -->
   <div class="filters">
     <button onclick="setFilter('All')" class="active">All</button>
     <button onclick="setFilter('Upper Body')">Upper Body</button>
@@ -38,7 +38,6 @@
 
   <div class="results" id="resultsContainer">
     <!-- Resources show up here -->
-    <!-- NEED TO MAKE THE TAGS A JS SCRIPT SO THAT THE TAGS ACTIVELY REFLECT ANY ARTICLES PLACED IN THE DATABASE -->
   </div>
 
   <div class="theme-switcher">
@@ -51,24 +50,8 @@
   </div>
 
   <script>
-    // NEED TO SWITCH THIS SCRIPT TO ITS OWN JS FILE AND USE A DATABASE IMPORT TO MAKE THE WEBSITE EASIER TO SET UP
-    var resources = [
-      {
-        title: "Upper Body Strength",
-        description: "Exercises",
-        tags: ["Upper Body", "Strength"]
-      },
-      {
-        title: "Upper Body Stretches",
-        description: "Exercises",
-        tags: ["Upper Body", "Flexibility"]
-      },
-      {
-        title: "Upper Body Endurance",
-        description: "Exercises",
-        tags: ["Upper Body", "Stamina"]
-      },
-    ];
+    // Script takes resources from the database and filters them
+    import resources from './js/database.js';
 
     let currentFilter = "All";
 
@@ -102,7 +85,7 @@
         var div = document.createElement("div");
         div.className = "resource";
         div.innerHTML = `
-          <div class="resource-title">${resource.title}</div>
+          <div class="resource-title"><a href="${resource.link}" target="_blank">${resource.title}</a></div>
           <div class="resource-description">${resource.description}</div>
           <div class="resource-tags">Tags: ${resource.tags.join(", ")}</div>
         `;
