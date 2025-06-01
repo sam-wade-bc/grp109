@@ -4,8 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Custom Workout</title>
-<link rel="Stylesheet" href="css/samWCustomWorkout.css">
-
+<link rel="stylesheet" id="themeStylesheet" href="css/samWCustomWorkout.css">
 </head>
 <body>
 
@@ -54,12 +53,34 @@
     </select>
   </div>
 
-  <button onclick="generateTags()">Show My Workout</button>
+<button id="generateButton">Find My Workout</button>
 
   <div class="tags" id="tagsContainer"></div>
   <div id="videoContainer"></div>
 
-<script src="customWorkoutMaker.js"></script>
+<script type="module" src="js/customWorkoutMaker.js"></script>
 
+  <footer>
+<hr>
+ &copy; 2025 GAIN TOWN. All rights reserved.
+<br>
+<p>Change the style of this page:</p>
+<select id="themeSelector">
+    <option value="css/style-samW.css">Sam W</option>
+    <option value="css/style-navdeepS.css">Navdeep S</option>
+    <option value="css/style-quinnN.css">Quinn N</option>
+
+</select>
+
+    <script>
+        const selector = document.getElementById('themeSelector');
+        const themeLink = document.getElementById('themeStylesheet');
+
+        selector.addEventListener('change', function () {
+            const selectedTheme = this.value;
+            themeLink.href = selectedTheme;
+        });
+    </script>
+  </footer>
 </body>
 </html>
