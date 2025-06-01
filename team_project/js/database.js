@@ -1,6 +1,5 @@
 // database.js
-
-var resources = [
+export var resources = [
   {
     title: "Upper Body Strength Workout",
     description: "A 30-minute dumbbell workout to build upper body strength.",
@@ -32,5 +31,3 @@ var resources = [
     tags: ["Lower Body", "Strength", "2+ hrs"]
   }
 ];
-
-export var resources;
