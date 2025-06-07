@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Custom Workout</title>
-<link rel="stylesheet" id="themeStylesheet" href="css/samWCustomWorkout.css">
+<link rel="stylesheet" id="themeStylesheet" href="css/samwcustomworkout.css">
 </head>
 <body>
 
@@ -22,9 +22,10 @@
 
   <h1>Create your Custom Workout</h1>
 
+<form id="workoutForm" action="#" method="get">
   <div class="form-group">
     <label for="area">Choose Body Area</label>
-    <select id="area">
+    <select id="area" name="area" required>
       <option value="">-- Select --</option>
       <option value="Upper Body">Upper Body</option>
       <option value="Mid Body">Mid Body</option>
@@ -34,7 +35,7 @@
 
   <div class="form-group">
     <label for="goal">Choose Your Goal</label>
-    <select id="goal">
+    <select id="goal" name="goal" required>
       <option value="">-- Select --</option>
       <option value="Strength">Strength</option>
       <option value="Stamina">Stamina</option>
@@ -44,7 +45,7 @@
 
   <div class="form-group">
     <label for="time">Daily Time Commitment</label>
-    <select id="time">
+    <select id="time" name="time" required>
       <option value="">-- Select --</option>
       <option value="15-30 mins">15-30 mins</option>
       <option value="45 mins - 1 hr">45 mins - 1 hr</option>
@@ -52,34 +53,35 @@
     </select>
   </div>
 
-<button id="generateButton">Find My Workout</button>
+  <button type="submit">Find My Workout</button>
+</form>
 
-  <div class="tags" id="tagsContainer"></div>
-  <div id="videoContainer"></div>
+<div class="tags" id="tagsContainer"></div>
+<div id="videoContainer"></div>
 
 <script type="module" src="js/customWorkoutMaker.js"></script>
 
+  <!-- Footer -->
   <footer>
 <hr>
- &copy; 2025 GAIN TOWN. All rights reserved.
-<br>
-<p>Change the style of this page:</p>
+<p>Change the style of this page:
 <select id="themeSelector">
-    <option value="css/samWCustomWorkout.css">Sam W</option>
-    <option value="css/navdeepSCustomWorkout.css">Navdeep S</option>
-    <option value="css/quinnNCustomWorkout.css">Quinn N</option>
-
+    <option value="css/samwcustomworkout.css">Sam W</option>
+    <option value="css/navdeepscustomworkout.css">Navdeep S</option>
+    <option value=css/accessiblecustomworkout.css>High Contrast</option>
 </select>
+</p>
 
     <script>
-        const selector = document.getElementById('themeSelector');
-        const themeLink = document.getElementById('themeStylesheet');
+        var selector = document.getElementById('themeSelector');
+        var themeLink = document.getElementById('themeStylesheet');
 
         selector.addEventListener('change', function () {
-            const selectedTheme = this.value;
-            themeLink.href = selectedTheme;
+        var selectedTheme = this.value;
+        themeLink.href = selectedTheme;
         });
-    </script>
+     </script>
+    &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
 </body>
 </html>
