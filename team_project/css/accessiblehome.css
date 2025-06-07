@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+
+:root {
+  --primary: #000000;
+  --accent: #FFD700; 
+  --bg: #000000;     
+  --text: #FFFFFF;    
+  --card-bg: #1A1A1A;
+  --highlight: #00FFFF; 
+  --button-bg: #FFD700;
+  --button-text: #000000;
+  --link-hover: #00FF00;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+header {
+  background-color: var(--primary);
+  color: var(--accent);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: bold;
+  display: inline-block;
+  padding: 12px 8px;       /* Add vertical padding */
+  min-height: 44px;        /* Ensure at least 44px height */
+  line-height: 1.4;
+}
+
+nav a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(90deg, #000000, #333333);
+  color: var(--accent);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.section {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section h2 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--highlight);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: #222;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  background-color: #111;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--link-hover);
+  color: #000;
+}
+
+#logo {
+  font-size: 200%;
+  font-family: "Badeen Display", system-ui;
+  color: var(--accent);
+}
+
+#custom-input {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 600px;
+}
+
+#custom-input input, #custom-input button {
+  padding: 0.6rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  width: 70%;
+  max-width: 300px;
+}
+
+#custom-input input {
+  background-color: #111;
+  color: #FFF;
+  border: 1px solid var(--accent);
+}
+
+#custom-input button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 12px 16px;
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 1rem;
+}
+
+#custom-input button:hover {
+  background-color: var(--link-hover);
+  color: #000;
+}
+
+#output {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--highlight);
+}
+
+select {
+  background-color: #111;
+  color: #FFF;
+  border: 1px solid var(--accent);
+  padding: 0.4rem;
+}
+
+p{
+  line-height:1.5;
+}
