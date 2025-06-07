@@ -1,28 +1,32 @@
-import resources from "./js/database.js";
+// Load the resources data from a local file using CommonJS require
+var resources = require("./js/database.js");
 
-document.addEventListener("DOMContentLoaded", () => {
-  var button = document.getElementById("generateButton");
+// Wait until the HTML document is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  var form = document.getElementById("workoutForm");
 
-  button.addEventListener("click", () => {
-    var area = document.getElementById('area').value;
-    var goal = document.getElementById('goal').value;
-    var time = document.getElementById('time').value;
+  // Get URL parameters from the browser address bar
+  var params = new URLSearchParams(window.location.search);
 
-    if (!area || !goal || !time) {
-      alert("Please fill in all fields!");
-      return;
-    }
+  // Extract selected workout values
+  var area = params.get("area");
+  var goal = params.get("goal");
+  var time = params.get("time");
 
+  // If all required fields are filled
+  if (area && goal && time) {
     var tags = [area, goal, time];
     displayTags(tags);
     loadMatchingResources(tags);
-  });
+  }
 });
 
+// Show selected tags on the page
 function displayTags(tags) {
   var container = document.getElementById("tagsContainer");
   container.innerHTML = "";
-  tags.forEach(tag => {
+
+  tags.forEach(function (tag) {
     var span = document.createElement("span");
     span.className = "tag";
     span.textContent = tag;
@@ -30,13 +34,22 @@ function displayTags(tags) {
   });
 }
 
+// Display matching workout resources
 function loadMatchingResources(tags) {
   var container = document.getElementById("videoContainer");
   container.innerHTML = "";
 
-  var matches = resources.filter(resource =>
-    tags.every(tag => resource.tags.includes(tag))
-  );
+  if (!Array.isArray(resources)) {
+    container.innerHTML = "<p>Error loading workout resources.</p>";
+    console.error("Resources is not an array:", resources);
+    return;
+  }
+
+  var matches = resources.filter(function (resource) {
+    return tags.every(function (tag) {
+      return resource.tags.indexOf(tag) !== -1;
+    });
+  });
 
   var topResults = matches.slice(0, 2);
 
@@ -45,14 +58,19 @@ function loadMatchingResources(tags) {
     return;
   }
 
-  topResults.forEach(resource => {
+  topResults.forEach(function (resource) {
     var div = document.createElement("div");
     div.className = "resource";
-    div.innerHTML = `
-      <h3><a href="${resource.link}" target="_blank">${resource.title}</a></h3>
-      <p>${resource.description}</p>
-      <p><strong>Tags:</strong> ${resource.tags.join(", ")}</p>
-    `;
+    div.innerHTML =
+      '<h3><a href="' + resource.link + '" target="_blank">' + resource.title + '</a></h3>' +
+      '<p>' + resource.description + '</p>' +
+      '<p><strong>Tags:</strong> ' + resource.tags.join(", ") + '</p>';
     container.appendChild(div);
   });
 }
+
+// CommonJS export in ES5 syntax
+module.exports = {
+  displayTags: displayTags,
+  loadMatchingResources: loadMatchingResources
+};
