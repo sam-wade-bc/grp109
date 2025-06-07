@@ -1,6 +1,6 @@
      @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
-  :root {
+:root {
       --primary: #F17300;
       --accent:#607196 ;
       --bg: #f2e4d3;
@@ -13,6 +13,7 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: var(--bg);
       color: var(--text);
+      text-align: center;
     
     }
 
@@ -32,18 +33,13 @@
       font-weight: bold;
     }
 
+
     #logo{
       font-size: 200%;
       font-family: "Badeen Display", system-ui;
       font-weight:.5%;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      padding: 30px;
-      text-align: center;
-    }
     .form-group {
       margin-bottom: 20px;
     }
