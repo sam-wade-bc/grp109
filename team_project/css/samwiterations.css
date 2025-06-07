@@ -1,0 +1,104 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+
+  :root {
+      --primary: #F17300;
+      --accent:#607196 ;
+      --bg: #f2e4d3;
+      --text: #AF3E4D;
+      --card-bg: #F1F0EA;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    
+    }
+    #logo{
+      font-size: 200%;
+      font-family: "Badeen Display", system-ui;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .title{
+      text-align:center;
+      
+      text-decoration:underline;
+      margin-bottom: 2px;
+      margin-top: 20px;
+    }
+     
+    h1{
+    font-size: 225%;
+    }
+
+
+    .iteration {
+      border-bottom: 1px solid #ccc;
+      padding: 20px;
+    }
+
+   .contentsection {
+     background-color: #f9f3eb;
+     padding: 10px;
+     padding-left: 20px;
+     margin-top:15px;
+   }
+   
+   .sam{
+     color: #2596be;
+     background:#da6941;
+     font-weight:bold;
+   }
+
+  .navdeep{
+    color:#A183E0;
+    background:#C2E083;
+    font-weight:bold;
+  
+   }
+  
+  .both{
+   color:#000000;
+   background:#ffffff;
+   font-weight:bold;
+  }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.2s ease-in-out;
+     }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+   }
