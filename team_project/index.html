@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAIN TOWN</title>
-  <link rel="stylesheet" href="css/homestylesheet.css">
+  <link id="themeStylesheet" rel="stylesheet" href="css/samwhome.css">
 </head>
 <body>
 
@@ -94,15 +94,29 @@
         <h3>NAVDEEP SINGH</h3>
         <p>Design Leader, Layout, Subscriptions.</p>
       </div>
-      <div class="card">
-        <h3>QUINN NGUYEN</h3>
-        <p>Unresponsive</p>
-      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
+<hr>
+<p>Change the style of this page:
+<select id="themeSelector">
+    <option value="css/samwhome.css">Sam W</option>
+    <option value="css/navdeepshome.css">Navdeep S</option>
+    <option value=css/accessiblehome.css>High Contrast</option>
+</select>
+</p>
+
+    <script>
+        var selector = document.getElementById('themeSelector');
+        var themeLink = document.getElementById('themeStylesheet');
+
+        selector.addEventListener('change', function () {
+        var selectedTheme = this.value;
+        themeLink.href = selectedTheme;
+        });
+     </script>
     &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
 <script src="js/homeInputExercise.js"></script>
