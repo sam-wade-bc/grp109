@@ -33,7 +33,6 @@
       font-weight: bold;
     }
 
-
     #logo{
       font-size: 200%;
       font-family: "Badeen Display", system-ui;
@@ -76,21 +75,10 @@
       margin: 5px;
       font-size: 14px;
     }
-    iframe {
-      margin-top: 20px;
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-      border: none;
-    }
 
     footer {
       text-align: center;
       padding: 2rem;
       font-size: 0.9rem;
       color: #888;
-    }
-
-    themeSelector{
-      resize: auto;  
     }
