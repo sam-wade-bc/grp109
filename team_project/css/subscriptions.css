@@ -1,3 +1,5 @@
+  @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
@@ -11,6 +13,12 @@ header {
   color: white;
   padding: 20px;
   text-align: center;
+}
+
+#logo{
+font-size: 200%;
+font-family: "Badeen Display", system-ui;
+font-weight:.5%;
 }
 
 nav a {
