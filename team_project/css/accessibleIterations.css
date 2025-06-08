@@ -1,12 +1,15 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
-
-  :root {
-      --primary: #0000;
-      --accent:#ffffff ;
-      --bg: #000000;
-      --text: #fff;
-      --card-bg: #fff;
+  
+    :root {
+      --primary: #000000;
+      --accent: #FFD700; 
+      --bg: #000000;     
+      --text: #FFFFFF;    
+      --card-bg: #1A1A1A;
+      --highlight: #00FFFF; 
+      --button-bg: #FFD700;
+      --button-text: #000000;
+      --link-hover: #00FF00;
     }
 
     body {
@@ -31,15 +34,16 @@
     }
 
     nav a {
-      color:var(--text);
+      color: var(--accent);
       text-decoration: none;
       margin-left: 1.5rem;
       font-weight: bold;
+      display: inline-block;
+      padding: 12px 8px;    
+      min-height: 44px; 
+      line-height: 1.4;
     }
 
-    nav{
-      font-size:44px;
-    }
     
     .title{
       text-align:center;
@@ -47,9 +51,10 @@
       margin-bottom: 2px;
       margin-top: 20px;
     }
+
      
     h1{
-    font-size: 225%;
+      font-size: 225%;
     }
 
 
@@ -59,26 +64,28 @@
     }
 
    .contentsection {
-     background-color:var(--primary);
+     background-color:#262626;
      padding: 10px;
      padding-left: 20px;
      margin-top:15px;
    }
 
    ul li::marker{
-    color: var(--primary); 
+    color:#fff;
    }
 
    .sam{
      color:var(--text);
      background:#800080;
      font-weight:bold;
+     border: 1px solid #cccccc;
    }
 
   .navdeep{
     color:#000;
     background:#ffff00;
     font-weight:bold;
+    border: 1px solid #cccccc;
   
    }
   
@@ -86,6 +93,7 @@
    color:#000;
    background:#fff;
    font-weight:bold;
+   border: 1px solid #cccccc;
   }
 
   .cards {
@@ -95,18 +103,18 @@
   }
 
   .card {
-    background-color:var(--card-bg);
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent);
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     padding: 1.5rem;
     text-align: center;
-    transition: transform 0.2s ease-in-out;
-    color:#000;
-   }
+    color: var(--text);
+    box-shadow: 0 0 8px var(--accent);
+  }
 
-   p{
+  p{
     line-height:1.5;
-   }
+  }
 
   footer {
     text-align: center;
