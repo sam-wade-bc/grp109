@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Subscriptions | Gain Town</title>
-  <link rel="stylesheet" href="css/subscriptions.css">
+  <link rel="stylesheet" href="css/subscriptions.css" />
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <div id="logo">GAIN TOWN</div>
+    <div id="logo"><a href="index.html">GAIN TOWN</a></div>
     <nav>
       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
        <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
@@ -21,12 +21,11 @@
     </nav>
   </header>
 
-  <!-- Main Container -->
+  <!-- Main Content -->
   <div class="container">
     <h1>Our Subscriptions</h1>
     <p>Simple plans for every fitness goal. No hidden fees. Cancel anytime.</p>
 
-    <!-- Plans -->
     <div class="plan">
       <h3>Starter (Free)</h3>
       <p class="price">$0/month</p>
@@ -77,10 +76,10 @@
           const plan = button.closest(".plan").querySelector("h3").innerText;
           alert(You selected the "${plan}" plan! Redirecting soon...);
 
-          // Optional: store selection
+          // Save plan for later use
           sessionStorage.setItem("selectedPlan", plan);
 
-          // Optional: redirect
+          // Optional redirect (uncomment when ready)
           // window.location.href = checkout.html?plan=${encodeURIComponent(plan)};
         });
       });
