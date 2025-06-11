@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Custom Workout</title>
-<link rel="stylesheet" id="themeStylesheet" href="css/samwcustomworkout.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Custom Workout | Gain Town</title>
+  <link rel="stylesheet" id="themeStylesheet" href="css/customworkout.css" />
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <div id="logo"><a href="index.html">GAIN TOWN</a></div>
     <nav>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
+     <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
        <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
        <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
        <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
@@ -20,68 +21,73 @@
     </nav>
   </header>
 
-  <h1>Create your Custom Workout</h1>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Create Your Custom Workout</h1>
+    <p>Tailor your fitness journey to fit your goals, your body, and your schedule.</p>
+  </section>
 
-<form id="workoutForm" action="customworkout.html" method="get">
-  <div class="form-group">
-    <label for="area">Choose Body Area</label>
-    <select id="area" name="area" required>
-      <option value="">-- Select --</option>
-      <option value="Upper Body">Upper Body</option>
-      <option value="Mid Body">Mid Body</option>
-      <option value="Lower Body">Lower Body</option>
-    </select>
-  </div>
+  <!-- Workout Form -->
+  <form id="workoutForm" action="customworkout.html" method="get">
+    <div class="form-group">
+      <label for="area">Choose Body Area</label>
+      <select id="area" name="area" required>
+        <option value="">-- Select --</option>
+        <option value="Upper Body">Upper Body</option>
+        <option value="Mid Body">Mid Body</option>
+        <option value="Lower Body">Lower Body</option>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label for="goal">Choose Your Goal</label>
-    <select id="goal" name="goal" required>
-      <option value="">-- Select --</option>
-      <option value="Strength">Strength</option>
-      <option value="Stamina">Stamina</option>
-      <option value="Flexibility">Flexibility</option>
-    </select>
-  </div>
+    <div class="form-group">
+      <label for="goal">Choose Your Goal</label>
+      <select id="goal" name="goal" required>
+        <option value="">-- Select --</option>
+        <option value="Strength">Strength</option>
+        <option value="Stamina">Stamina</option>
+        <option value="Flexibility">Flexibility</option>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label for="time">Daily Time Commitment</label>
-    <select id="time" name="time" required>
-      <option value="">-- Select --</option>
-      <option value="15-30 mins">15-30 mins</option>
-      <option value="45 mins - 1 hr">45 mins - 1 hr</option>
-      <option value="2+ hrs">2+ hrs</option>
-    </select>
-  </div>
+    <div class="form-group">
+      <label for="time">Daily Time Commitment</label>
+      <select id="time" name="time" required>
+        <option value="">-- Select --</option>
+        <option value="15-30 mins">15–30 mins</option>
+        <option value="45 mins - 1 hr">45 mins – 1 hr</option>
+        <option value="2+ hrs">2+ hrs</option>
+      </select>
+    </div>
 
-  <button type="submit">Find My Workout</button>
-</form>
+    <button type="submit">Find My Workout</button>
+  </form>
 
-<div class="tags" id="tagsContainer"></div>
-<div id="videoContainer"></div>
-
-<script type="module" src="js/customWorkoutMaker.js"></script>
+  <!-- Results -->
+  <div class="tags" id="tagsContainer"></div>
+  <div id="videoContainer"></div>
 
   <!-- Footer -->
   <footer>
-<hr>
-<p>Change the style of this page:
-<select id="themeSelector">
-    <option value="css/samwcustomworkout.css">Sam W</option>
-    <option value="css/navdeepscustomworkout.css">Navdeep S</option>
-    <option value=css/accessiblecustomworkout.css>High Contrast</option>
-</select>
-</p>
-
-    <script>
-        var selector = document.getElementById('themeSelector');
-        var themeLink = document.getElementById('themeStylesheet');
-
-        selector.addEventListener('change', function () {
-        var selectedTheme = this.value;
-        themeLink.href = selectedTheme;
-        });
-     </script>
+    <hr>
+    <p>Change the style of this page:</p>
+    <select id="themeSelector">
+      <option value="css/customworkout.css">Default</option>
+      <option value="css/navdeepscustomworkout.css">Navdeep S</option>
+      <option value="css/accessiblecustomworkout.css">High Contrast</option>
+    </select>
+    <br><br>
     &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/customWorkoutMaker.js"></script>
+  <script>
+    const selector = document.getElementById('themeSelector');
+    const themeLink = document.getElementById('themeStylesheet');
+
+    selector.addEventListener('change', function () {
+      themeLink.href = this.value;
+    });
+  </script>
 </body>
 </html>
