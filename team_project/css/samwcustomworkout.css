@@ -1,86 +1,141 @@
-     @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
 :root {
-      --primary: #F17300;
-      --accent:#607196 ;
-      --bg: #f2e4d3;
-      --text: #AF3E4D;
-      --card-bg: #F1F0EA;
-    }
+  --primary: #F17300;
+  --accent: #607196;
+  --bg: #f9f9f9;
+  --text: #333;
+  --card-bg: #ffffff;
+}
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      text-align: center;
-    
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+}
 
-    header {
-      background-color: var(--primary);
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+header {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: bold;
-    }
+#logo a {
+  font-size: 2rem;
+  font-family: 'Badeen Display', system-ui;
+  color: white;
+  text-decoration: none;
+}
 
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: bold;
+}
 
-    #logo{
-      font-size: 200%;
-      font-family: "Badeen Display", system-ui;
-      font-weight:.5%;
-    }
+.hero {
+  background: linear-gradient(to right, #f17300, #f2e4d3);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+}
 
-    .form-group {
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-    select {
-      padding: 10px;
-      width: 100%;
-      max-width: 300px;
-    }
-    button {
-      padding: 12px 24px;
-      background: var(--primary);
-      border: none;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #218838;
-    }
-    .tags {
-      margin-top: 20px;
-    }
-    .tag {
-      display: inline-block;
-      background: #007bff;
-      color: white;
-      padding: 8px 14px;
-      border-radius: 20px;
-      margin: 5px;
-      font-size: 14px;
-    }
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
 
+.hero p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
-    }
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+select, button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d25a00;
+}
+
+.tags, #videoContainer {
+  max-width: 900px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.tag {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+footer {
+  background-color: #f1f1f1;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+select#themeSelector {
+  margin-top: 0.5rem;
+  padding: 6px;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    margin: 0.5rem 0;
+  }
+}
