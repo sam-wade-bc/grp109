@@ -1,1 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
+:root {
+  --primary: #F17300;
+  --accent: #607196;
+  --bg: #f2e4d3;
+  --text: #AF3E4D;
+  --card-bg: #F1F0EA;
+  --button-hover: #e65c50;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+header {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo {
+  font-size: 200%;
+  font-family: "Badeen Display", system-ui;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: bold;
+}
+
+.container {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.plan {
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 350px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.plan:hover {
+  transform: translateY(-5px);
+}
+
+.plan h3 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+.price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin: 1rem 0;
+}
+
+.plan ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.plan ul li {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: var(--accent);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  min-height: 44px;
+  min-width: 120px;
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #888;
+  background-color: var(--card-bg);
+}
