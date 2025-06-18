@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAIN TOWN</title>
   <link id="themeStylesheet" rel="stylesheet" href="css/samwhome.css">
+  <script src="js/homepagecaro.js"></script>
 </head>
 <body>
 
   <!-- Navigation -->
   <header>
-    <div id="logo"><a href="index.html">GAIN TOWN</a></div>
+    <a id="logo" href="index.html">GAIN TOWN</a>
     <nav>
        <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
        <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
@@ -31,24 +32,24 @@
 <!-- Featured Workouts -->
 <section class="section" id="workouts">
 <h2>FEATURED WORKOUTS</h2>
-<div class="cards">
-<div class="card">
+ <div class="cards">
 
-<h3>YOGA</h3>
-<p>Stretch and energize your body with this gentle 20-minute sequence.</p>
+  <div class="card">
+   <h3>YOGA</h3>
+   <p>Stretch and energize your body with this gentle 20-minute sequence.</p>
+  </div>
+
+  <div class="card">
+   <h3>HEAVY WEIGHTS</h3>
+   <p>A fast-paced, heavy weight workout to get your heart pumping.</p>
+  </div>
+
+  <div class="card">
+   <h3>DANCE</h3>
+   <p>Burn calories and boost mood with a fun dance cardio session.</p>
+  </div>
+
  </div>
-<div class="card">
-
-<h3>HEAVY WEIGHTS</h3>
-<p>A fast-paced, no-equipment workout to get your heart pumping.</p>
-</div>
-<div class="card">
-
-<h3>DANCE</h3>
-<p>Burn calories and boost mood with a fun dance cardio session.</p>
-
-</div>
-</div>
 
 </section>
 
@@ -70,32 +71,31 @@
       </div>
     </div>
   </section>
-
-<!-- User Input Section -->
-<section class="section" id="custom-input">
-  <h2>FIND YOUR STARTING POINT</h2>
-  <p>Tell us your fitness goal or favorite type of exercise:</p>
-  <form id="goalForm">
-    <input type="text" id="userInput" placeholder="e.g. 'Build muscle'" required>
-    <button type="submit">Submit</button>
-  </form>
-  <div id="output"></div>
-</section>
   
 <!-- Group Members -->
-  <section class="section" id="group-members">
-    <h2>GROUP MEMBERS</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>SAM WADE</h3>
-        <p>Team Leader, Home Page, Subscriptions, Custom Workouts.</p>
-      </div>
-      <div class="card">
-        <h3>NAVDEEP SINGH</h3>
-        <p>Design Leader, Layout, Subscriptions.</p>
-      </div>
+<section id="carousel">  
+  <h2>MEET THE TEAM</h2> 
+
+  <div id="controls" class="slidebox">
+    <div class="input">
+      <input id="auto" type="checkbox">Run automatically
     </div>
-  </section>
+    <div id="timer">Automatic Slides Paused</div>
+  </div>
+  
+  <div id="container">      
+    <div id="slide">
+      <button id="previous">&#10094;</button>
+      <img id="slideshow" src="https://sam-wade-bc.github.io/grp109/team_project/images/samW.png" 
+           alt="Cat with a sword">
+      <button id="next">&#10095;</button> 
+    </div>     
+
+    <br>
+    <div id="caption" class="slidebox">Sam Wade: Team Leader, Home Page, Subscriptions, Custom Workouts</div> 
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer>
