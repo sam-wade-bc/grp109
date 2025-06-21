@@ -1,1 +1,85 @@
 
+
+.container {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.container h1 {
+  font-family: "Badeen Display", system-ui;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.container p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+/* Subscription Card */
+.plan {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.plan h3 {
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.plan ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+}
+
+.plan ul li {
+  margin: 0.5rem 0;
+  color: #444;
+  font-size: 1rem;
+}
+
+.btn {
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d25a00;
+}
+
+/* Footer consistency */
+footer {
+  margin-top: 4rem;
+  background-color: #f1f1f1;
+  padding: 2rem;
+  text-align: center;
+  color: #555;
+  font-size: 0.95rem;
+}
+
