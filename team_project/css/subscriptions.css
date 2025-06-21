@@ -1,130 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
-:root {
-  --primary: #F17300;
-  --accent: #607196;
-  --bg: #f2e4d3;
-  --text: #AF3E4D;
-  --card-bg: #F1F0EA;
-  --button-hover: #e65c50;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
 }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-header {
-  background-color: var(--primary);
-  color: white;
-  padding: 1rem 2rem;
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-buttons {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin-top: 15px;
 }
 
-#logo {
-  font-size: 200%;
-  font-family: "Badeen Display", system-ui;
+.modal-buttons button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#logo a {
+.btn-confirm {
+  background-color: #0077cc;
   color: white;
-  text-decoration: none;
 }
 
-#logo a:hover {
-  text-decoration: underline;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 1.5rem;
-  font-weight: bold;
-}
-
-.container {
-  padding: 3rem 2rem;
-  max-width: 1100px;
-  margin: auto;
-  text-align: center;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: var(--primary);
-  margin-bottom: 1rem;
-}
-
-p {
-  font-size: 1.1rem;
-  color: #444;
-}
-
-.plan {
-  background-color: var(--card-bg);
-  border: 2px solid var(--accent);
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem auto;
-  max-width: 350px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.plan:hover {
-  transform: translateY(-5px);
-}
-
-.plan h3 {
-  margin-top: 0;
-  font-size: 1.8rem;
-  color: var(--text);
-}
-
-.price {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: var(--primary);
-  margin: 1rem 0;
-}
-
-.plan ul {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.plan ul li {
-  margin: 0.5rem 0;
-  color: #555;
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: var(--accent);
-  color: white;
-  padding: 0.8rem 1.5rem;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  min-height: 44px;
-  min-width: 120px;
-}
-
-.btn:hover {
-  background-color: var(--button-hover);
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #888;
-  background-color: var(--card-bg);
+.btn-cancel {
+  background-color: #ccc;
 }
