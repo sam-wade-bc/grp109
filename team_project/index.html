@@ -2,60 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GAIN TOWN</title>
   <link id="themeStylesheet" rel="stylesheet" href="css/samwhome.css">
-  <script src="js/homepagecaro.js"></script>
+  <script src="js/homepagecaro.js" defer></script>
 </head>
 <body>
 
   <!-- Navigation -->
   <header>
     <a id="logo" href="index.html">GAIN TOWN</a>
-    <nav>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations & changelog</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">Meet the Team</a>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+      </ul>
     </nav>
   </header>
 
-<!-- Hello Section -->
-<section class="hero">
-<h1>Find Your Flow, From Home</h1>
-<p>Discover new workouts, stay active, and feel amazing – all from your living room.</p>
-<a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html" class="cta-button">Create Your Custom Workout</a>
-</section>
+  <!-- Hello Section -->
+  <section class="hero">
+    <h1>Find Your Flow, From Home</h1>
+    <p>Discover new workouts, stay active, and feel amazing – all from your living room.</p>
+    <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html" class="cta-button">Create Your Custom Workout</a>
+  </section>
 
-<!-- Featured Workouts -->
-<section class="section" id="workouts">
-<h2>FEATURED WORKOUTS</h2>
- <div class="cards">
+  <!-- Featured Workouts -->
+  <section class="section" id="workouts">
+    <h2>FEATURED WORKOUTS</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>YOGA</h3>
+        <p>Stretch and energize your body with this gentle 20-minute sequence.</p>
+      </div>
+      <div class="card">
+        <h3>HEAVY WEIGHTS</h3>
+        <p>A fast-paced, heavy weight workout to get your heart pumping.</p>
+      </div>
+      <div class="card">
+        <h3>DANCE</h3>
+        <p>Burn calories and boost mood with a fun dance cardio session.</p>
+      </div>
+    </div>
+  </section>
 
-  <div class="card">
-   <h3>YOGA</h3>
-   <p>Stretch and energize your body with this gentle 20-minute sequence.</p>
-  </div>
-
-  <div class="card">
-   <h3>HEAVY WEIGHTS</h3>
-   <p>A fast-paced, heavy weight workout to get your heart pumping.</p>
-  </div>
-
-  <div class="card">
-   <h3>DANCE</h3>
-   <p>Burn calories and boost mood with a fun dance cardio session.</p>
-  </div>
-
- </div>
-
-</section>
-
-<!-- Resources -->
-<section class="section" id="resources">
-<h2>HELPFUL RESOURCES</h2>
+  <!-- Resources -->
+  <section class="section" id="resources">
+    <h2>HELPFUL RESOURCES</h2>
     <div class="cards">
       <div class="card">
         <h3>Small-Space Setup Tips</h3>
@@ -71,55 +74,74 @@
       </div>
     </div>
   </section>
-  
-<!-- Group Members -->
-<section id="carousel">  
-  <h2>MEET THE TEAM</h2> 
 
-  <div id="controls" class="slidebox">
-    <div class="input">
-      <input id="auto" type="checkbox">Run automatically
+  <!-- Group Members -->
+  <section id="carousel">
+    <h2>MEET THE TEAM</h2>
+
+    <div id="controls" class="slidebox">
+      <div class="input">
+        <input id="auto" type="checkbox">Run automatically
+      </div>
+      <div id="timer">Automatic Slides Paused</div>
     </div>
-    <div id="timer">Automatic Slides Paused</div>
-  </div>
-  
-  <div id="container">      
-    <div id="slide">
-      <button id="previous">&#10094;</button>
-      <img id="slideshow" src="https://sam-wade-bc.github.io/grp109/team_project/images/samW.png" 
-           alt="Cat with a sword">
-      <button id="next">&#10095;</button> 
-    </div>     
 
-    <br>
-    <div id="caption" class="slidebox">Sam Wade: Team Leader, Home Page, Subscriptions, Custom Workouts</div> 
-  </div>
-</section>
+    <div id="container">
+      <div id="slide">
+        <button id="previous">&#10094;</button>
+        <img
+          id="slideshow"
+          src="https://sam-wade-bc.github.io/grp109/team_project/images/samW.png"
+          alt="Picture of Sam Wade">
+        <button id="next">&#10095;</button>
+      </div>
 
+      <br>
+      <div id="caption" class="slidebox">
+        Sam Wade: Team Leader, Home Page, Subscriptions, Custom Workouts
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-<hr>
-<p>Change the style of this page:
-<select id="themeSelector">
-    <option value="css/samwhome.css">Sam W</option>
-    <option value="css/navdeepshome.css">Navdeep S</option>
-    <option value=css/accessiblehome.css>High Contrast</option>
-</select>
-</p>
+    <hr>
+    <p>
+      Change the style of this page:
+      <select id="themeSelector">
+        <option value="css/samwhome.css">Sam W</option>
+        <option value="css/navdeepshome.css">Navdeep S</option>
+        <option value="css/accessiblehome.css">High Contrast</option>
+      </select>
+    </p>
 
-    <script>
-        var selector = document.getElementById('themeSelector');
-        var themeLink = document.getElementById('themeStylesheet');
-
-        selector.addEventListener('change', function () {
-        var selectedTheme = this.value;
-        themeLink.href = selectedTheme;
-        });
-     </script>
     &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
-<script src="js/homeInputExercise.js"></script>
 
+  <script src="js/homeInputExercise.js" defer></script>
+
+  <script>
+    var selector = document.getElementById("themeSelector");
+    var themeLink = document.getElementById("themeStylesheet");
+
+    selector.addEventListener("change", function () {
+      themeLink.href = this.value;
+    });
+
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
+
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 </body>
 </html>
