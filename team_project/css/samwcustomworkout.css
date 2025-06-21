@@ -26,7 +26,6 @@ body {
 /* ============================= */
 /*          HEADER / NAV         */
 /* ============================= */
-
 header {
   background-color: var(--primary);
   color: white;
@@ -38,22 +37,13 @@ header {
 }
 
 #logo {
-  font-size: 2rem;
-  font-family: 'Badeen Display', system-ui;
+  font-size: 200%;
+  font-family: "Badeen Display", system-ui;
   color: white;
   text-decoration: none;
 }
 
-#navToggle {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-nav#mainNav {
+nav {
   flex-grow: 1;
 }
 
@@ -84,7 +74,16 @@ nav#mainNav {
   outline: none;
 }
 
-/* ===== Responsive Navigation ===== */
+#navToggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Responsive navigation */
 @media (max-width: 768px) {
   #navToggle {
     display: block;
@@ -121,6 +120,7 @@ nav#mainNav {
     padding: 0.75rem 0;
   }
 }
+
 
 /* ============================= */
 /*            HERO               */
