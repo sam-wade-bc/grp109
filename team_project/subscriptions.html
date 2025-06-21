@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Subscriptions | Gain Town</title>
   <link rel="stylesheet" href="css/subscriptions.css" />
+  <link rel="stylesheet" href="css/payment-modal.css" />
 </head>
 <body>
 
@@ -12,12 +13,12 @@
   <header>
     <div id="logo"><a href="index.html">GAIN TOWN</a></div>
     <nav>
-      <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations & changelog</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">Meet the Team</a>
+      <a href="index.html">Home</a>
+      <a href="subscriptions.html">Subscriptions</a>
+      <a href="customworkout.html">Custom Workout</a>
+      <a href="resources.html">Resources</a>
+      <a href="iterations.html">Iterations & changelog</a>
+      <a href="meettheteam.html">Meet the Team</a>
     </nav>
   </header>
 
@@ -60,6 +61,22 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <h2>Enter Payment Details</h2>
+      <p id="planSelected"></p>
+      <input type="text" placeholder="Card Number" maxlength="19" />
+      <input type="text" placeholder="Name on Card" />
+      <input type="text" placeholder="Expiry (MM/YY)" maxlength="5" />
+      <input type="text" placeholder="CVV" maxlength="4" />
+      <div class="modal-buttons">
+        <button class="btn-confirm">Confirm</button>
+        <button class="btn-cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     &copy; 2025 GAIN TOWN. All rights reserved.
@@ -68,21 +85,39 @@
   <!-- JavaScript -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      const modal = document.getElementById("paymentModal");
+      const planDisplay = document.getElementById("planSelected");
       const buttons = document.querySelectorAll(".btn");
 
       buttons.forEach(button => {
         button.addEventListener("click", event => {
           event.preventDefault();
           const plan = button.closest(".plan").querySelector("h3").innerText;
-          alert(You selected the "${plan}" plan! Redirecting soon...);
 
-          // Save plan for later use
-          sessionStorage.setItem("selectedPlan", plan);
-
-          // Optional redirect (uncomment when ready)
-          // window.location.href = checkout.html?plan=${encodeURIComponent(plan)};
+          if (plan === "Plus" || plan === "Coach") {
+            planDisplay.innerText = `Plan: ${plan}`;
+            modal.style.display = "block";
+            sessionStorage.setItem("selectedPlan", plan);
+          } else {
+            alert(`You selected the "${plan}" plan!`);
+          }
         });
       });
+
+      document.querySelector(".btn-cancel").onclick = () => {
+        modal.style.display = "none";
+      };
+
+      document.querySelector(".btn-confirm").onclick = () => {
+        modal.style.display = "none";
+        alert("Payment submitted successfully! Welcome aboard.");
+      };
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
     });
   </script>
 
