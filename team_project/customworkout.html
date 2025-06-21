@@ -96,20 +96,13 @@
       themeLink.href = this.value;
     });
 
-    var navToggle = document.getElementById("navToggle");
-    var mainNav = document.getElementById("mainNav");
+   var navToggle = document.getElementById("navToggle");
+   var mainNav = document.getElementById("mainNav");
 
-    navToggle.addEventListener("click", function () {
-      var isOpen = mainNav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", isOpen);
-    });
-
-    document.addEventListener("click", function (e) {
-      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        mainNav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      }
-    });
+   navToggle.addEventListener("click", () => {
+   var isOpen = mainNav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen);
+   });
   </script>
 </body>
 </html>
