@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
+/* ============================= */
+/*           VARIABLES           */
+/* ============================= */
+
 :root {
   --primary: #F17300;
   --accent: #607196;
@@ -8,12 +12,20 @@
   --card-bg: #ffffff;
 }
 
+/* ============================= */
+/*            BASE               */
+/* ============================= */
+
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   background-color: var(--bg);
   color: var(--text);
 }
+
+/* ============================= */
+/*          HEADER / NAV         */
+/* ============================= */
 
 header {
   background-color: var(--primary);
@@ -25,19 +37,94 @@ header {
   flex-wrap: wrap;
 }
 
-#logo a {
+#logo {
   font-size: 2rem;
   font-family: 'Badeen Display', system-ui;
   color: white;
   text-decoration: none;
 }
 
-nav a {
+#navToggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+nav#mainNav {
+  flex-grow: 1;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+
+.nav-list li a {
   color: white;
   text-decoration: none;
-  margin-left: 1.5rem;
   font-weight: bold;
+  padding: 0.5rem 0.75rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  border-radius: 6px;
 }
+
+.nav-list li a:hover,
+.nav-list li a:focus {
+  background-color: var(--accent);
+  outline: none;
+}
+
+/* ===== Responsive Navigation ===== */
+@media (max-width: 768px) {
+  #navToggle {
+    display: block;
+  }
+
+  nav#mainNav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 220px;
+    background-color: var(--primary);
+    padding-top: 4rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav#mainNav.open {
+    transform: translateX(0);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  .nav-list li a {
+    font-size: 1.2rem;
+    padding: 0.75rem 0;
+  }
+}
+
+/* ============================= */
+/*            HERO               */
+/* ============================= */
 
 .hero {
   background: linear-gradient(to right, #f17300, #f2e4d3);
@@ -56,6 +143,10 @@ nav a {
   max-width: 700px;
   margin: 0 auto;
 }
+
+/* ============================= */
+/*           FORM STYLES         */
+/* ============================= */
 
 form {
   max-width: 600px;
@@ -77,7 +168,8 @@ label {
   margin-bottom: 0.5rem;
 }
 
-select, button {
+select,
+button {
   width: 100%;
   padding: 12px;
   font-size: 1rem;
@@ -97,7 +189,12 @@ button:hover {
   background-color: #d25a00;
 }
 
-.tags, #videoContainer {
+/* ============================= */
+/*   Tags and Video Container    */
+/* ============================= */
+
+.tags,
+#videoContainer {
   max-width: 900px;
   margin: 2rem auto;
   text-align: center;
@@ -113,6 +210,9 @@ button:hover {
   font-size: 14px;
 }
 
+/* ============================= */
+/*           FOOTER              */
+/* ============================= */
 footer {
   background-color: #f1f1f1;
   padding: 2rem;
@@ -127,7 +227,10 @@ select#themeSelector {
   font-size: 1rem;
 }
 
-/* Responsive */
+/* ================================ */
+/* Small Screen Navigation Fallback */
+/* ================================ */
+
 @media (max-width: 600px) {
   nav {
     display: flex;
