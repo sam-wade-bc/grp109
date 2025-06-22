@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Goal</title>
+  <link href="css/samwgoal.css" id="themeStylesheet" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header>
+    <a id="logo" href="index.html">GAIN TOWN</a>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Goals</h1>
+
+
+    <!-- Group Project goals -->
+<section id="Goals">
+  
+  <div class="info-box">
+    <h2>Original Goals</h2>
+
+     <h3>Project Description</h3>
+      A website dedicated to pulling together and specializing workout resources. Kinda like a recipe website but for exercise.
+ 
+     <h3>Project Purpose</h3>
+      Shows the user helpful images and videos of potential exercises. Has a feature to find specific combinations of exercise types based on needs.   
+  <br><br>
+      <table>
+       <tr>
+         <th>Feature</th>
+         <th>Description</th>
+         <th>Met?</th>
+       </tr>
+       <tr>
+        <td>Subscriptions Page</td>
+        <td> Page for useers to go and select a package deal, and will then prompty a credit card form  for the user to fill out.</td>
+        <td>&#9989;</td>
+       </tr>
+
+       <tr>
+        <td>Custom workout feature</td>
+        <td>Takes user input and spits out a custome workout routine for the user that fits their inputs.</td>
+        <td>&#9989;</td>
+       </tr>
+
+       <tr>
+        <td>Resources Page</td>
+        <td>Sortable web database style page with resources the user can look at.</td>
+        <td>&#9989;</td>
+       </tr>
+
+       <tr>
+        <td>Home page</td>
+        <td>Interactive home page with beautifula landing and call to action for user.</td>
+        <td>&#9989;</td>
+       </tr>
+      </table>
+<br>  
+  </div>
+
+  <div class="info-box">
+    <h2>Missed Goals</h2>
+    There were some ideas that we had floating around that did not get achecived. While all the main ideas were completed, here are the ones that we could not add. 
+      <br><br>
+      <table>
+       <tr>
+         <th>Feature</th>
+         <th>Description</th>
+         <th>Reason not added</th>
+       </tr>
+       <tr>
+        <td>User Login</td>
+        <td> Page for useers to log into their account</td>
+        <td>Time restraints, too advanced</td>
+       </tr>
+
+       <tr>
+        <td>Transitions between pages</td>
+        <td>Animates the transition between pages and making pages more seamless.</td>
+        <td>Too advanced</td>
+       </tr>
+
+      </table>
+    <br>
+    
+  </div>
+
+  </section>
+  </main>
+
+  <footer>
+    <hr>
+    <p>
+      Change the style of this page:
+      <select id="themeSelector">
+        <option value="css/samwgoal.css">Sam W</option>
+        <option value="css/navdeepsgoal.css">Navdeep S</option>
+        <option value="css/accessiblegoal.css">High Contrast</option>
+      </select>
+    </p>
+
+    &copy; 2025 GAIN TOWN. All rights reserved.
+  </footer>
+
+  <script src="js/homeInputExercise.js" defer></script>
+
+  <script>
+    var selector = document.getElementById("themeSelector");
+    var themeLink = document.getElementById("themeStylesheet");
+
+    selector.addEventListener("change", function () {
+      themeLink.href = this.value;
+    });
+
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
+
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+
+</body>
+</html>
