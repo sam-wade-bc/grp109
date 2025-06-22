@@ -11,20 +11,15 @@
   <!-- Navigation -->
   <header>
     <a id="logo" href="index.html">GAIN TOWN</a>
-
-    <!-- Hamburger menu button for small screens -->
-    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
-      &#9776;
-    </button>
-
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
     <nav id="mainNav" aria-label="Primary navigation">
       <ul class="nav-list">
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subscriptions.html">Subscriptions</a></li>
+        <li><a href="customworkout.html">Custom Workout</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="iterations.html">Iterations & changelog</a></li>
+        <li><a href="meettheteam.html">About</a></li>
       </ul>
     </nav>
   </header>
@@ -36,7 +31,7 @@
   </section>
 
   <!-- Workout Form -->
-  <form id="workoutForm" action="customworkout.html" method="get">
+  <form id="workoutForm">
     <div class="form-group">
       <label for="area">Choose Body Area</label>
       <select id="area" name="area" required>
@@ -71,7 +66,6 @@
   </form>
 
   <!-- Results -->
-  <div class="tags" id="tagsContainer"></div>
   <div id="videoContainer"></div>
 
   <!-- Footer -->
@@ -88,21 +82,47 @@
   </footer>
 
   <!-- Scripts -->
-  <script>
-    var selector = document.getElementById("themeSelector");
-    var themeLink = document.getElementById("themeStylesheet");
+  <script type="module">
+    import { workoutResources } from './js/workoutResources.js';
 
-    selector.addEventListener("change", function () {
-      themeLink.href = this.value;
+    document.getElementById("themeSelector").addEventListener("change", function () {
+      document.getElementById("themeStylesheet").href = this.value;
     });
 
-   var navToggle = document.getElementById("navToggle");
-   var mainNav = document.getElementById("mainNav");
+    document.getElementById("navToggle").addEventListener("click", () => {
+      const nav = document.getElementById("mainNav");
+      const isOpen = nav.classList.toggle("open");
+      document.getElementById("navToggle").setAttribute("aria-expanded", isOpen);
+    });
 
-   navToggle.addEventListener("click", () => {
-   var isOpen = mainNav.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", isOpen);
-   });
+    document.getElementById("workoutForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const area = document.getElementById("area").value;
+      const goal = document.getElementById("goal").value;
+      const time = document.getElementById("time").value;
+      const container = document.getElementById("videoContainer");
+
+      const matches = workoutResources.filter(item =>
+        item.area === area && item.goal === goal && item.time === time
+      );
+
+      container.innerHTML = "";
+
+      if (matches.length === 0) {
+        container.innerHTML = "<p>No matching workouts found. Try different options.</p>";
+        return;
+      }
+
+      matches.forEach(match => {
+        container.innerHTML += `
+          <div class="workout-card">
+            <h3>${match.title}</h3>
+            <iframe width="560" height="315" src="${match.video}" frameborder="0" allowfullscreen></iframe>
+          </div>
+        `;
+      });
+    });
   </script>
 </body>
 </html>
