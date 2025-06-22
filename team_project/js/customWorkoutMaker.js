@@ -1,10 +1,11 @@
-var resources = require('./database.js');
+// js/customWorkoutMaker.js
+import { resources } from './database.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   var form = document.getElementById('workoutForm');
 
   form.addEventListener('submit', function (e) {
-    e.preventDefault(); // Stop the form from reloading the page
+    e.preventDefault();
 
     var area = document.getElementById('area').value;
     var goal = document.getElementById('goal').value;
