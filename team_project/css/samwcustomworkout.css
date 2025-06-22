@@ -4,12 +4,17 @@
 /*           VARIABLES           */
 /* ============================= */
 :root {
-  --primary: #F17300;
-  --accent: #607196;
-  --bg: #f9f9f9;
-  --text: #333;
-  --card-bg: #ffffff;
-  --button-hover: #d25a00;
+  --primary: #000000;
+  --accent: #FFD700;
+  --bg: #000000;
+  --text: #FFFFFF;
+  --card-bg: #1A1A1A;
+  --button-hover: #00FF00;
+  --input-border: #444;
+  --white: #FFFFFF;
+  --tag-bg: #FFD700;
+  --tag-text: #000000;
+  --shadow: rgba(255, 255, 255, 0.1);
 }
 
 /* ============================= */
@@ -33,19 +38,21 @@ body {
 /* ============================= */
 header {
   background-color: var(--primary);
-  color: white;
+  color: var(--accent);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  border-bottom: 2px solid var(--accent);
 }
 
 #logo {
   font-size: 2rem;
   font-family: "Badeen Display", system-ui;
-  color: white;
+  color: var(--accent);
   text-decoration: none;
+  text-shadow: 0 0 6px var(--accent);
 }
 
 nav {
@@ -62,7 +69,7 @@ nav {
 }
 
 .nav-list li a {
-  color: white;
+  color: var(--accent);
   text-decoration: none;
   font-weight: bold;
   padding: 0.5rem 0.75rem;
@@ -75,7 +82,8 @@ nav {
 
 .nav-list li a:hover,
 .nav-list li a:focus {
-  background-color: var(--accent);
+  background-color: var(--button-hover);
+  color: var(--primary);
   outline: none;
 }
 
@@ -87,7 +95,7 @@ nav {
   font-size: 2rem;
   background: none;
   border: none;
-  color: white;
+  color: var(--accent);
   cursor: pointer;
 }
 
@@ -106,7 +114,7 @@ nav {
     padding-top: 4rem;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+    box-shadow: -2px 0 8px var(--accent);
     z-index: 9999;
     display: flex;
     flex-direction: column;
@@ -132,15 +140,17 @@ nav {
 /*            HERO               */
 /* ============================= */
 .hero {
-  background: linear-gradient(to right, #f17300, #f2e4d3);
+  background: linear-gradient(to right, var(--primary), #333);
   padding: 3rem 2rem;
   text-align: center;
-  color: white;
+  color: var(--accent);
+  box-shadow: inset 0 -2px 6px var(--shadow);
 }
 
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  text-shadow: 0 0 8px var(--accent);
 }
 
 .hero p {
@@ -158,7 +168,7 @@ form {
   background-color: var(--card-bg);
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 12px var(--accent);
 }
 
 .form-group {
@@ -170,6 +180,7 @@ label {
   display: block;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: var(--accent);
 }
 
 select,
@@ -178,12 +189,14 @@ button {
   padding: 12px;
   font-size: 1rem;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  background-color: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--input-border);
 }
 
 button {
-  background-color: var(--primary);
-  color: white;
+  background-color: var(--accent);
+  color: var(--primary);
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -191,6 +204,7 @@ button {
 
 button:hover {
   background-color: var(--button-hover);
+  color: var(--primary);
 }
 
 /* ============================= */
@@ -206,24 +220,31 @@ button:hover {
 
 .tag {
   display: inline-block;
-  background: #007bff;
-  color: white;
+  background: var(--tag-bg);
+  color: var(--tag-text);
   padding: 8px 14px;
   border-radius: 20px;
   margin: 5px;
   font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.tag:hover {
+  background-color: var(--button-hover);
+  color: var(--primary);
 }
 
 /* ============================= */
 /*           FOOTER              */
 /* ============================= */
 footer {
-  background-color: #f1f1f1;
+  background-color: #111;
   padding: 2rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #444;
-  border-top: 1px solid #ddd;
+  color: var(--accent);
+  border-top: 1px solid var(--accent);
 }
 
 /* ============================= */
@@ -233,6 +254,10 @@ select#themeSelector {
   margin-top: 0.5rem;
   padding: 6px;
   font-size: 1rem;
+  border-radius: 6px;
+  background-color: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--accent);
 }
 
 /* ================================ */
