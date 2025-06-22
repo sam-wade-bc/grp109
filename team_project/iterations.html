@@ -7,15 +7,26 @@
     <link id="themeStylesheet" rel="stylesheet" href="css/samwiterations.css">
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div id="logo"><a href="index.html">GAIN TOWN</a></div>
-    <nav>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations & Changelog</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">Meet the Team</a>
+    <a id="logo" href="index.html">GAIN TOWN</a>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -119,7 +130,6 @@
         <li class="sam">Added presentation page</li>
         <li class="sam">Added site improve for remaining pages.</li>         
       </ul>
-
     </section>   
    <br>
     
@@ -167,13 +177,8 @@
     </div>
 
     </div>
-
-
-    </section>
-    
+    </section>   
     </main>
-
-
 
   <!-- Footer -->
   <footer>
@@ -185,17 +190,34 @@
     <option value=css/accessibleIterations.css>High Contrast</option>
 </select>
 </p>
+</footer>
+  
+  <!-- Script -->
+  <script src="js/customWorkoutMaker.js" defer></script>
 
-    <script>
-        var selector = document.getElementById('themeSelector');
-        var themeLink = document.getElementById('themeStylesheet');
+<script>
+    var selector = document.getElementById("themeSelector");
+    var themeLink = document.getElementById("themeStylesheet");
 
-        selector.addEventListener('change', function () {
-        var selectedTheme = this.value;
-        themeLink.href = selectedTheme;
-        });
-     </script>
-    &copy; 2025 GAIN TOWN. All rights reserved.
-  </footer>
+    selector.addEventListener("change", function () {
+      themeLink.href = this.value;
+    });
+
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
+
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+</script>
+
 </body>
 </html>
