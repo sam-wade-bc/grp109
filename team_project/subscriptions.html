@@ -6,24 +6,29 @@
   <title>Subscriptions | Gain Town</title>
   <link href="https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap" rel="stylesheet">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+
     :root {
-      --primary: #F17300;
-      --accent: #607196;
-      --bg: #f2e4d3;
-      --text: #AF3E4D;
-      --card-bg: #F1F0EA;
+      --primary: #000000;
+      --accent: #FFD700;
+      --bg: #000000;
+      --text: #FFFFFF;
+      --card-bg: #1A1A1A;
+      --button-bg: #FFD700;
+      --button-text: #000000;
+      --link-hover: #00FF00;
     }
 
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
+      margin: 0;
       background-color: var(--bg);
       color: var(--text);
     }
 
     header {
       background-color: var(--primary);
-      color: white;
+      color: var(--accent);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -34,19 +39,45 @@
     #logo a {
       font-size: 2rem;
       font-family: "Badeen Display", system-ui;
-      color: white;
+      color: var(--accent);
       text-decoration: none;
     }
 
-    nav a {
-      margin-left: 20px;
-      color: white;
+    nav#mainNav {
+      flex-grow: 1;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.5rem;
+    }
+
+    .nav-list li a {
+      color: var(--accent);
       text-decoration: none;
       font-weight: bold;
+      padding: 0.5rem 0.75rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      border-radius: 6px;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .nav-list li a:hover,
+    .nav-list li a:focus {
+      background-color: var(--link-hover);
+      color: var(--primary);
+      outline: none;
+    }
+
+    .nav-list li a.active {
+      background-color: var(--accent);
+      color: var(--primary);
     }
 
     .container {
@@ -61,7 +92,7 @@
       margin: 1rem auto;
       padding: 1.5rem;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
       max-width: 350px;
     }
 
@@ -72,7 +103,7 @@
     .price {
       font-size: 1.5rem;
       font-weight: bold;
-      color: var(--primary);
+      color: var(--accent);
     }
 
     ul {
@@ -88,8 +119,8 @@
       display: inline-block;
       margin-top: 1rem;
       padding: 0.6rem 1.2rem;
-      background-color: var(--accent);
-      color: white;
+      background-color: var(--button-bg);
+      color: var(--button-text);
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
@@ -97,7 +128,8 @@
     }
 
     .btn:hover {
-      background-color: #4a5e85;
+      background-color: var(--link-hover);
+      color: var(--primary);
     }
 
     .modal {
@@ -113,13 +145,14 @@
     }
 
     .modal-content {
-      background-color: #fff;
+      background-color: var(--card-bg);
       margin: 10% auto;
       padding: 20px;
       border-radius: 10px;
       width: 90%;
       max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 10px var(--accent);
+      color: var(--text);
     }
 
     .modal-content h2 {
@@ -132,7 +165,9 @@
       padding: 10px;
       margin: 10px 0;
       font-size: 16px;
-      border: 1px solid #ccc;
+      border: 1px solid var(--accent);
+      background-color: #111;
+      color: var(--text);
       border-radius: 5px;
     }
 
@@ -151,21 +186,22 @@
     }
 
     .btn-confirm {
-      background-color: var(--primary);
-      color: white;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      font-weight: bold;
     }
 
     .btn-cancel {
-      background-color: #ccc;
+      background-color: #444;
+      color: white;
     }
 
     footer {
-      text-align: center;
+      background-color: #111;
       padding: 2rem;
+      text-align: center;
       font-size: 0.9rem;
       color: #888;
-      background-color: var(--card-bg);
-      margin-top: 3rem;
     }
   </style>
 </head>
@@ -173,13 +209,15 @@
 
   <header>
     <div id="logo"><a href="index.html">GAIN TOWN</a></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="subscriptions.html">Subscriptions</a>
-      <a href="customworkout.html">Custom Workout</a>
-      <a href="resources.html">Resources</a>
-      <a href="iterations.html">Iterations & changelog</a>
-      <a href="meettheteam.html">Meet the Team</a>
+    <nav id="mainNav">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
+        <li><a href="customworkout.html">Custom Workout</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="iterations.html">Iterations & changelog</a></li>
+        <li><a href="meettheteam.html">Meet the Team</a></li>
+      </ul>
     </nav>
   </header>
 
