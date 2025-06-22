@@ -3,62 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <title>Meet the Team</title>
-  <link href="css/style-samW.css" id="themeStylesheet" rel="stylesheet" type="text/css" >
+  <link href="css/style-samW.css" id="themeStylesheet" rel="stylesheet" type="text/css">
 </head>
 <body>
-  
   <header>
-    <div id="logo"><a href="index.html">GAIN TOWN</a></div>
-    <nav>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations & changelog</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">Meet the Team</a>
+    <a id="logo" href="index.html">GAIN TOWN</a>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+      </ul>
     </nav>
   </header>
 
-<h1>Meet the Team!</h1>
-  <h2>Select a team member to change the style of this page.</h2>
+  <main>
+    <h1>About Gain Town</h1>
 
- <select id="themeSelector">
-    <option value="css/style-samW.css">Sam W</option>
-    <option value="css/style-navdeepS.css">Navdeep S</option>
-    <option value="css/style-quinnN.css">Quinn N</option>
 
-  </select>
+    <!-- Group Project Description -->
+    <section id="project-description">
+  <h2>About the Project</h2>
 
-  <p>This page changes its style based on who you select from the dropdown.</p>
-
-    <script>
-        const selector = document.getElementById('themeSelector');
-        const themeLink = document.getElementById('themeStylesheet');
-
-        selector.addEventListener('change', function () {
-            const selectedTheme = this.value;
-            themeLink.href = selectedTheme;
-        });
-    </script>
-
- <!-- Team Member Sections -->
-<div class="team-member" id="sam-section">
-<img src="images/samW.png" alt="Sam W">
-    <h2>Sam W</h2>
-    <p>Sam is a very passionate artsit with a heavy intrest in cutting edge technology. His hobbies include Gaming, Hiking, and Baking. </p>
+  <div class="info-box">
+    <strong>What is the group project?</strong>
+    <p>Our group project is a fitness-focused website called <em>GAIN TOWN</em> that provides users with personalized workout plans, resource links, and if it was a fully fledged idea would provide subscriptions for exclusive content and access to personal trainers.</p>
   </div>
 
-<div class="team-member" id="navdeep-section">
-<img src="images/navdeepS.jpg" alt="Navdeep S">
-    <h2>Navdeep S</h2>
-    <p> TEXT HERE</p>
+  <div class="info-box">
+    <strong>What inspired the site?</strong>
+    <p>We were inspired by the rise in home fitness trends and the lack of reliable online exercise resources. We also saw a lot of existing sites that were stuck behind a paywall. </p>
   </div>
 
-<div class="team-member" id="quinn-section">
-<img src="images/quinnN.jpg" alt="Quinn N">
-    <h2>TEXT HERE</h2>
-    <p></p>
+  <div class="info-box">
+    <strong>What is the site’s purpose?</strong>
+    <p>The purpose of the site is to provide a user-friendly platform for individuals to build and manage their own workout routines and access curated resources.</p>
   </div>
+
+  <div class="info-box">
+    <strong>Who is the intended audience?</strong>
+    <p>Our goal is to attract primarily people who are new to fitness; however, the site should also appeal to those who wish to spice up their workout routines.</p> 
+  </div>
+
+  <div class="info-box">
+    <strong>What does the site do?</strong>
+    <p>The site uses user inputs and a database to find related resources. with further development the site will use traffic to promote popular programs and resources to users based on activity.</p>
+  </div>
+
+  <div class="info-box">
+    <strong>How does it fulfill the audience’s needs?</strong>
+    <p>The site provides a more seamless way for people to get into exercise by offering a hub of resources and tools. we use a database of resources to easily provide the user exercise content they want to gain from. </p>
+   </div>
+
+  <div class="info-box">
+    <strong>How and why is this site relevant today?</strong>
+    <p>Exercise never goes out of fashion, our site helps connect people to exercise for free without the shame and paywalls, and from the comfort of your home.</p>
+  </div>
+</section>
+      
+<section id="carousel">
+  <h2>Project Highlights</h2>
+  <div id="carouselContainer">
+    <button id="prevBtn" aria-label="Previous slide">&#10094;</button>
+
+    <div id="slide">
+      <img id="carouselImage" src="images/project1.jpg" alt="Man exercising with a GAIN TOWN watermark">
+      <div class="slide-description" id="carouselCaption">
+        Exercising using GAINTOWN!
+      </div>
+    </div>
+
+    <button id="nextBtn" aria-label="Next slide">&#10095;</button>
+  </div>
+
+  <div id="timer">0s</div>
+
+  <!-- Preload audio -->
+  <audio id="soundLeft" src="sounds/click.mp3" preload="auto"></audio>
+  <audio id="soundRight" src="sounds/click.mp3" preload="auto"></audio>
+</section>
+
+  </main>
+
+  <footer>
+    <hr>
+    <p>
+      Change the style of this page:
+      <select id="themeSelector">
+        <option value="css/samwabout.css">Sam W</option>
+        <option value="css/navdeepsabout.css">Navdeep S</option>
+        <option value="css/accessibleabout.css">High Contrast</option>
+      </select>
+    </p>
+
+    &copy; 2025 GAIN TOWN. All rights reserved.
+  </footer>
+
+  <script src="js/homeInputExercise.js" defer></script>
+
+  <script>
+    var selector = document.getElementById("themeSelector");
+    var themeLink = document.getElementById("themeStylesheet");
+
+    selector.addEventListener("change", function () {
+      themeLink.href = this.value;
+    });
+
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
+
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+<script>
+  var images = [
+    {
+      src: "images/project1.jpg",
+      alt: "Man exercising with a GAIN TOWN watermark",
+      caption: "Exercising using GAINTOWN!"
+    },
+    {
+      src: "images/project2.jpg",
+      alt: "Picture of a man eating cereal with a GAIN TOWN watermark",
+      caption: "Living using GAINTOWN!"
+    },
+    {
+      src: "images/project3.jpg",
+      alt: "A picture of a man at a fancy restaurant with a GAIN TOWN watermark", 
+      caption: "Loving using Gain town? <3"
+    }
+  ];
+
+  var currentIndex = 0;
+  var interval = 3000;
+  var timer = 0;
+  var autoScroll;
+  var counterInterval;
+
+  var img = document.getElementById("carouselImage");
+  var caption = document.getElementById("carouselCaption");
+  var timerDisplay = document.getElementById("timer");
+
+  var soundLeft = document.getElementById("soundLeft");
+  var soundRight = document.getElementById("soundRight");
+
+  function showSlide(index) {
+    img.src = images[index].src;
+    img.alt = images[index].alt;
+    caption.innerHTML = images[index].caption;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+    resetTimer();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showSlide(currentIndex);
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(autoScroll);
+    clearInterval(counterInterval);
+    timer = 0;
+    timerDisplay.innerHTML = timer + "s";
+    autoScroll = setInterval(nextSlide, interval);
+    counterInterval = setInterval(updateTimer, 1000);
+  }
+
+  function updateTimer() {
+    timer++;
+    timerDisplay.innerHTML = timer + "s";
+  }
+
+  document.getElementById("nextBtn").addEventListener("click", function () {
+    soundRight.play();
+    nextSlide();
+  });
+
+  document.getElementById("prevBtn").addEventListener("click", function () {
+    soundLeft.play();
+    prevSlide();
+  });
+
+  img.addEventListener("click", function (e) {
+    var rect = img.getBoundingClientRect();
+    var clickX = e.clientX - rect.left;
+    var middle = rect.width / 2;
+
+    if (clickX < middle) {
+      soundLeft.play();
+      prevSlide();
+    } else {
+      soundRight.play();
+      nextSlide();
+    }
+  });
+
+ 
+  window.onload = function () {
+    showSlide(currentIndex);
+    autoScroll = setInterval(nextSlide, interval);
+    counterInterval = setInterval(updateTimer, 1000);
+  };
+</script>
 
 </body>
 </html>
