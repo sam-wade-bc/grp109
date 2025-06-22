@@ -30,6 +30,4 @@ const resources = [
     tags: ["Lower Body", "Strength", "2+ hrs"]
   },
 
-];
-
 export default resources;
