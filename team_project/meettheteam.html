@@ -3,95 +3,245 @@
 <head>
   <meta charset="UTF-8">
   <title>Meet the Team</title>
-  <link href="css/samwabout.css" id="themeStylesheet" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap" rel="stylesheet">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+
+    :root {
+      --primary: #000000;
+      --accent: #FFD700;
+      --bg: #000000;
+      --text: #FFFFFF;
+      --card-bg: #1A1A1A;
+      --button-bg: #FFD700;
+      --button-text: #000000;
+      --link-hover: #00FF00;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      background-color: var(--primary);
+      color: var(--accent);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #logo {
+      font-size: 2rem;
+      font-family: "Badeen Display", system-ui;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    #navToggle {
+      font-size: 1.5rem;
+      background: none;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 5px;
+      padding: 0.4rem 0.6rem;
+      cursor: pointer;
+    }
+
+    nav#mainNav {
+      flex-grow: 1;
+    }
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.5rem;
+    }
+
+    .nav-list li a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 0.75rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      border-radius: 6px;
+    }
+
+    .nav-list li a:hover,
+    .nav-list li a:focus {
+      background-color: var(--link-hover);
+      color: var(--primary);
+      outline: none;
+    }
+
+    .info-box {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1rem 2rem;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--accent);
+    }
+
+    #carouselContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+
+    #slide {
+      position: relative;
+      width: 100%;
+      text-align: center;
+    }
+
+    #carouselImage {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .slide-description {
+      margin-top: 0.5rem;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    #prevBtn, #nextBtn {
+      font-size: 2rem;
+      background: none;
+      color: var(--accent);
+      border: none;
+      cursor: pointer;
+    }
+
+    #timer {
+      text-align: center;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: #111;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    select {
+      background-color: var(--card-bg);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.4rem;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        flex-direction: column;
+        display: none;
+        background-color: var(--primary);
+        padding: 1rem;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        z-index: 999;
+      }
+
+      .nav-list.open {
+        display: flex;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <a id="logo" href="index.html">GAIN TOWN</a>
-
-    <!-- Hamburger menu button for small screens -->
-    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
-      &#9776;
-    </button>
-
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
     <nav id="mainNav" aria-label="Primary navigation">
       <ul class="nav-list">
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="subscriptions.html">Subscriptions</a></li>
+        <li><a href="customworkout.html">Custom Workout</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="meettheteam.html">About</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <h1>About Gain Town</h1>
-
-
-    <!-- Group Project Description -->
     <section id="project-description">
-  <h2>About the Project</h2>
-
-  <div class="info-box">
-    <strong>What is the group project?</strong>
-    <p>Our group project is a fitness-focused website called <em>GAIN TOWN</em> that provides users with personalized workout plans, resource links, and if it was a fully fledged idea would provide subscriptions for exclusive content and access to personal trainers.</p>
-  </div>
-
-  <div class="info-box">
-    <strong>What inspired the site?</strong>
-    <p>We were inspired by the rise in home fitness trends and the lack of reliable online exercise resources. We also saw a lot of existing sites that were stuck behind a paywall. </p>
-  </div>
-
-  <div class="info-box">
-    <strong>What is the site’s purpose?</strong>
-    <p>The purpose of the site is to provide a user-friendly platform for individuals to build and manage their own workout routines and access curated resources.</p>
-  </div>
-
-  <div class="info-box">
-    <strong>Who is the intended audience?</strong>
-    <p>Our goal is to attract primarily people who are new to fitness; however, the site should also appeal to those who wish to spice up their workout routines.</p> 
-  </div>
-
-  <div class="info-box">
-    <strong>What does the site do?</strong>
-    <p>The site uses user inputs and a database to find related resources. with further development the site will use traffic to promote popular programs and resources to users based on activity.</p>
-  </div>
-
-  <div class="info-box">
-    <strong>How does it fulfill the audience’s needs?</strong>
-    <p>The site provides a more seamless way for people to get into exercise by offering a hub of resources and tools. we use a database of resources to easily provide the user exercise content they want to gain from. </p>
-   </div>
-
-  <div class="info-box">
-    <strong>How and why is this site relevant today?</strong>
-    <p>Exercise never goes out of fashion, our site helps connect people to exercise for free without the shame and paywalls, and from the comfort of your home.</p>
-  </div>
-</section>
-      
-<section id="carousel">
-  <h2>Project Highlights</h2>
-  <div id="carouselContainer">
-    <button id="prevBtn" aria-label="Previous slide">&#10094;</button>
-
-    <div id="slide">
-      <img id="carouselImage" src="images/project1.jpg" alt="Man exercising with a GAIN TOWN watermark">
-      <div class="slide-description" id="carouselCaption">
-        Exercising using GAINTOWN!
+      <h2>About the Project</h2>
+      <div class="info-box">
+        <strong>What is the group project?</strong>
+        <p>Our group project is a fitness-focused website called <em>GAIN TOWN</em> that provides users with personalized workout plans, resource links, and if it was a fully fledged idea would provide subscriptions for exclusive content and access to personal trainers.</p>
       </div>
-    </div>
+      <div class="info-box">
+        <strong>What inspired the site?</strong>
+        <p>We were inspired by the rise in home fitness trends and the lack of reliable online exercise resources. We also saw a lot of existing sites that were stuck behind a paywall. </p>
+      </div>
+      <div class="info-box">
+        <strong>What is the site’s purpose?</strong>
+        <p>The purpose of the site is to provide a user-friendly platform for individuals to build and manage their own workout routines and access curated resources.</p>
+      </div>
+      <div class="info-box">
+        <strong>Who is the intended audience?</strong>
+        <p>Our goal is to attract primarily people who are new to fitness; however, the site should also appeal to those who wish to spice up their workout routines.</p> 
+      </div>
+      <div class="info-box">
+        <strong>What does the site do?</strong>
+        <p>The site uses user inputs and a database to find related resources. With further development, the site will use traffic to promote popular programs and resources to users based on activity.</p>
+      </div>
+      <div class="info-box">
+        <strong>How does it fulfill the audience’s needs?</strong>
+        <p>The site provides a more seamless way for people to get into exercise by offering a hub of resources and tools. We use a database of resources to easily provide the user exercise content they want to gain from.</p>
+      </div>
+      <div class="info-box">
+        <strong>How and why is this site relevant today?</strong>
+        <p>Exercise never goes out of fashion. Our site helps connect people to exercise for free without the shame and paywalls, and from the comfort of your home.</p>
+      </div>
+    </section>
 
-    <button id="nextBtn" aria-label="Next slide">&#10095;</button>
-  </div>
-
-  <div id="timer">0s</div>
-
-  <!-- Preload audio -->
-  <audio id="soundLeft" src="sounds/click.mp3" preload="auto"></audio>
-  <audio id="soundRight" src="sounds/click.mp3" preload="auto"></audio>
-</section>
-
+    <section id="carousel">
+      <h2>Project Highlights</h2>
+      <div id="carouselContainer">
+        <button id="prevBtn" aria-label="Previous slide">&#10094;</button>
+        <div id="slide">
+          <img id="carouselImage" src="images/project1.jpg" alt="Man exercising with a GAIN TOWN watermark">
+          <div class="slide-description" id="carouselCaption">Exercising using GAINTOWN!</div>
+        </div>
+        <button id="nextBtn" aria-label="Next slide">&#10095;</button>
+      </div>
+      <div id="timer">0s</div>
+      <audio id="soundLeft" src="sounds/click.mp3" preload="auto"></audio>
+      <audio id="soundRight" src="sounds/click.mp3" preload="auto"></audio>
+    </section>
   </main>
 
   <footer>
@@ -104,130 +254,124 @@
         <option value="css/accessibleabout.css">High Contrast</option>
       </select>
     </p>
-
     &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
-
-  <script src="js/homeInputExercise.js" defer></script>
 
   <script>
     var selector = document.getElementById("themeSelector");
     var themeLink = document.getElementById("themeStylesheet");
 
     selector.addEventListener("change", function () {
-      themeLink.href = this.value;
+      if (themeLink) themeLink.href = this.value;
     });
 
     var navToggle = document.getElementById("navToggle");
     var mainNav = document.getElementById("mainNav");
 
     navToggle.addEventListener("click", function () {
-      var isOpen = mainNav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", isOpen);
+      mainNav.querySelector("ul").classList.toggle("open");
+      this.setAttribute("aria-expanded", mainNav.querySelector("ul").classList.contains("open"));
     });
 
     document.addEventListener("click", function (e) {
       if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        mainNav.classList.remove("open");
+        mainNav.querySelector("ul").classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
       }
     });
-  </script>
-<script>
-  var images = [
-    {
-      src: "images/project1.jpg",
-      alt: "Man exercising with a GAIN TOWN watermark",
-      caption: "Exercising using GAINTOWN!"
-    },
-    {
-      src: "images/project2.jpg",
-      alt: "Picture of a man eating cereal with a GAIN TOWN watermark",
-      caption: "Living using GAINTOWN!"
-    },
-    {
-      src: "images/project3.jpg",
-      alt: "A picture of a man at a fancy restaurant with a GAIN TOWN watermark", 
-      caption: "Loving using Gain town? <3"
+
+    var images = [
+      {
+        src: "images/project1.jpg",
+        alt: "Man exercising with a GAIN TOWN watermark",
+        caption: "Exercising using GAINTOWN!"
+      },
+      {
+        src: "images/project2.jpg",
+        alt: "Picture of a man eating cereal with a GAIN TOWN watermark",
+        caption: "Living using GAINTOWN!"
+      },
+      {
+        src: "images/project3.jpg",
+        alt: "A picture of a man at a fancy restaurant with a GAIN TOWN watermark",
+        caption: "Loving using Gain town? <3"
+      }
+    ];
+
+    var currentIndex = 0;
+    var interval = 3000;
+    var timer = 0;
+    var autoScroll;
+    var counterInterval;
+
+    var img = document.getElementById("carouselImage");
+    var caption = document.getElementById("carouselCaption");
+    var timerDisplay = document.getElementById("timer");
+
+    var soundLeft = document.getElementById("soundLeft");
+    var soundRight = document.getElementById("soundRight");
+
+    function showSlide(index) {
+      img.src = images[index].src;
+      img.alt = images[index].alt;
+      caption.innerHTML = images[index].caption;
     }
-  ];
 
-  var currentIndex = 0;
-  var interval = 3000;
-  var timer = 0;
-  var autoScroll;
-  var counterInterval;
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showSlide(currentIndex);
+      resetTimer();
+    }
 
-  var img = document.getElementById("carouselImage");
-  var caption = document.getElementById("carouselCaption");
-  var timerDisplay = document.getElementById("timer");
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showSlide(currentIndex);
+      resetTimer();
+    }
 
-  var soundLeft = document.getElementById("soundLeft");
-  var soundRight = document.getElementById("soundRight");
+    function resetTimer() {
+      clearInterval(autoScroll);
+      clearInterval(counterInterval);
+      timer = 0;
+      timerDisplay.innerHTML = timer + "s";
+      autoScroll = setInterval(nextSlide, interval);
+      counterInterval = setInterval(updateTimer, 1000);
+    }
 
-  function showSlide(index) {
-    img.src = images[index].src;
-    img.alt = images[index].alt;
-    caption.innerHTML = images[index].caption;
-  }
+    function updateTimer() {
+      timer++;
+      timerDisplay.innerHTML = timer + "s";
+    }
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % images.length;
-    showSlide(currentIndex);
-    resetTimer();
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showSlide(currentIndex);
-    resetTimer();
-  }
-
-  function resetTimer() {
-    clearInterval(autoScroll);
-    clearInterval(counterInterval);
-    timer = 0;
-    timerDisplay.innerHTML = timer + "s";
-    autoScroll = setInterval(nextSlide, interval);
-    counterInterval = setInterval(updateTimer, 1000);
-  }
-
-  function updateTimer() {
-    timer++;
-    timerDisplay.innerHTML = timer + "s";
-  }
-
-  document.getElementById("nextBtn").addEventListener("click", function () {
-    soundRight.play();
-    nextSlide();
-  });
-
-  document.getElementById("prevBtn").addEventListener("click", function () {
-    soundLeft.play();
-    prevSlide();
-  });
-
-  img.addEventListener("click", function (e) {
-    var rect = img.getBoundingClientRect();
-    var clickX = e.clientX - rect.left;
-    var middle = rect.width / 2;
-
-    if (clickX < middle) {
-      soundLeft.play();
-      prevSlide();
-    } else {
+    document.getElementById("nextBtn").addEventListener("click", function () {
       soundRight.play();
       nextSlide();
-    }
-  });
+    });
 
- 
-  window.onload = function () {
-    showSlide(currentIndex);
-    autoScroll = setInterval(nextSlide, interval);
-    counterInterval = setInterval(updateTimer, 1000);
-  };
-</script>
+    document.getElementById("prevBtn").addEventListener("click", function () {
+      soundLeft.play();
+      prevSlide();
+    });
 
+    img.addEventListener("click", function (e) {
+      var rect = img.getBoundingClientRect();
+      var clickX = e.clientX - rect.left;
+      var middle = rect.width / 2;
+
+      if (clickX < middle) {
+        soundLeft.play();
+        prevSlide();
+      } else {
+        soundRight.play();
+        nextSlide();
+      }
+    });
+
+    window.onload = function () {
+      showSlide(currentIndex);
+      autoScroll = setInterval(nextSlide, interval);
+      counterInterval = setInterval(updateTimer, 1000);
+    };
+  </script>
 </body>
 </html>
