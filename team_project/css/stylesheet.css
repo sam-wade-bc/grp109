@@ -4,49 +4,66 @@
 /*           VARIABLES           */
 /* ============================= */
 :root {
-  --primary: #2C666E;
-  --accent: #90DDF0;
-  --bg: #07393C;
-  --text: #F0EDEE;
-  --card1: #87bbcc;
-  --card2: #47A6B2;
-  --card3: #149FA7;
-  --feature: #90DDF0;
+  --primary: #000000;
+  --accent: #FFD700;
+  --bg: #000000;
+  --text: #FFFFFF;
+  --card1: #1C1C1C;
+  --card2: #2A2A2A;
+  --card3: #333333;
+  --feature: #1A1A1A;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --glow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 /* ============================= */
 /*           BASE STYLES         */
 /* ============================= */
 * {
-  font-family: 'DancingScriptOTRegular', cursive;
+  font-family: 'Segoe UI', sans-serif;
   color: var(--text);
   text-align: center;
+  box-sizing: border-box;
 }
 
 body {
   width: 90%;
   margin: 0 auto;
   background-color: var(--bg);
-  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/43d46b7c-12a7-43c9-9263-4c1e5c82852c/dewwykv-d0a3c206-e03d-424f-b452-31b8554637be.png/v1/fill/w_894,h_894/png___weathered_wood_texture___free_comm__use__by_infpoetics_dewwykv-pre.png");
+  background-image: url("https://www.transparenttextures.com/patterns/black-linen.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  line-height: 1.6;
 }
 
+/* ============================= */
+/*           HEADINGS            */
+/* ============================= */
 h1 {
-  font-family: 'Cal Sans', sans-serif;
-  font-style: normal;
-  font-size: 300%;
+  font-family: 'Badeen Display', cursive;
+  font-size: 3rem;
+  color: var(--accent);
+  margin: 1.5rem 0;
+  text-shadow: var(--glow);
 }
 
+/* ============================= */
+/*           STRUCTURE           */
+/* ============================= */
 #content {
   overflow: auto;
 }
 
-#nav, #feature, #footer {
+#nav,
+#feature,
+#footer {
   margin: 1%;
 }
 
+/* ============================= */
+/*          FEATURE BANNER       */
+/* ============================= */
 .section {
   background-color: var(--feature);
   background-size: contain;
@@ -55,12 +72,30 @@ h1 {
   height: 10em;
   margin-bottom: 1em;
   padding: 10px;
+  box-shadow: 0 0 10px var(--shadow);
+  border-left: 5px solid var(--accent);
 }
 
-.column1, .column2, .column3 {
+/* ============================= */
+/*           COLUMNS             */
+/* ============================= */
+.column1,
+.column2,
+.column3 {
   width: 31.3%;
   float: left;
   margin: 1%;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.column1:hover,
+.column2:hover,
+.column3:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 12px var(--accent);
 }
 
 .column1 {
@@ -73,24 +108,67 @@ h1 {
 
 .column3 {
   background-color: var(--card3);
-  margin-right: 0%;
+  margin-right: 0;
 }
 
-li {
-  display: inline;
-  padding: 0.5em;
-}
-
-#nav, #footer {
+/* ============================= */
+/*            NAV                */
+/* ============================= */
+#nav {
   background-color: var(--primary);
-  padding: 0.5em 0;
+  padding: 0.75em 0;
+  border-bottom: 2px solid var(--accent);
 }
 
+#nav li {
+  display: inline;
+  padding: 0.75em;
+}
+
+#nav li a {
+  color: var(--accent);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#nav li a:hover {
+  color: var(--text);
+}
+
+/* ============================= */
+/*           FOOTER              */
+/* ============================= */
+#footer {
+  background-color: var(--primary);
+  padding: 1em 0;
+  border-top: 1px solid var(--accent);
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+/* ============================= */
+/*          ARTICLE BLOCKS       */
+/* ============================= */
 .article {
   height: 10em;
   margin-bottom: 1em;
+  padding: 1rem;
+  background-color: var(--feature);
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 0 6px var(--shadow);
+  border-radius: 6px;
 }
 
+/* ============================= */
+/*          MISC LINKS           */
+/* ============================= */
 #boxinfo {
   text-decoration: none;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+#boxinfo:hover {
+  color: var(--link-hover);
 }
