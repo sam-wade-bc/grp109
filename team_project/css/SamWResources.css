@@ -4,16 +4,16 @@
 /*         VARIABLE THEME        */
 /* ============================= */
 :root {
-  --primary: #F17300;
-  --accent: #607196;
-  --bg: #f2e4d3;
-  --text: #AF3E4D;
-  --card-bg: #F1F0EA;
-  --white: #ffffff;
-  --shadow: rgba(0, 0, 0, 0.1);
-  --success: #4CAF50;
-  --gray-light: #eee;
-  --gray-dark: #555;
+  --primary: #000000;
+  --accent: #FFD700;
+  --bg: #000000;
+  --text: #FFFFFF;
+  --card-bg: #1A1A1A;
+  --white: #FFFFFF;
+  --shadow: rgba(255, 255, 255, 0.08);
+  --success: #00FF00;
+  --gray-light: #333333;
+  --gray-dark: #AAAAAA;
 }
 
 /* ============================= */
@@ -38,7 +38,7 @@ body {
 /* ============================= */
 header {
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--accent);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -51,13 +51,14 @@ header {
 #logo {
   font-family: 'Badeen Display', system-ui;
   font-size: 2rem;
-  color: var(--white);
+  color: var(--accent);
   text-decoration: none;
   letter-spacing: 1px;
+  text-shadow: 0 0 6px var(--accent);
 }
 
 nav a {
-  color: var(--white);
+  color: var(--accent);
   text-decoration: none;
   margin-left: 1.5rem;
   font-weight: bold;
@@ -65,7 +66,7 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--accent);
+  color: var(--success);
 }
 
 /* ============================= */
@@ -75,7 +76,8 @@ h1 {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 2rem;
-  color: var(--text);
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent);
 }
 
 /* ============================= */
@@ -88,6 +90,7 @@ h1 {
   box-shadow: 0 2px 5px var(--shadow);
   border-radius: 8px;
   overflow: hidden;
+  background-color: var(--card-bg);
 }
 
 .search-container input {
@@ -96,12 +99,14 @@ h1 {
   font-size: 16px;
   border: none;
   outline: none;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 .search-container button {
   padding: 12px 20px;
-  background-color: var(--success);
-  color: var(--white);
+  background-color: var(--accent);
+  color: var(--primary);
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -109,7 +114,8 @@ h1 {
 }
 
 .search-container button:hover {
-  background-color: #43a047;
+  background-color: var(--success);
+  color: var(--primary);
 }
 
 /* ============================= */
@@ -123,7 +129,7 @@ h1 {
 .filters button {
   padding: 10px 16px;
   margin: 6px;
-  background-color: var(--white);
+  background-color: var(--card-bg);
   border: 1px solid var(--accent);
   color: var(--accent);
   cursor: pointer;
@@ -134,12 +140,12 @@ h1 {
 
 .filters button:hover {
   background-color: var(--accent);
-  color: var(--white);
+  color: var(--primary);
 }
 
 .filters button.active {
   background-color: var(--success);
-  color: var(--white);
+  color: var(--primary);
   border-color: var(--success);
 }
 
@@ -168,7 +174,7 @@ h1 {
 .resource-title {
   font-size: 1.3rem;
   font-weight: bold;
-  color: var(--primary);
+  color: var(--accent);
   margin-bottom: 0.3rem;
 }
 
@@ -180,7 +186,7 @@ h1 {
 .resource-tags {
   margin-top: 10px;
   font-size: 0.85rem;
-  color: #777;
+  color: var(--gray-dark);
 }
 
 /* ============================= */
