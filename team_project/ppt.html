@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Presentation</title>
+  <link href="css/samwpresentation.css" id="themeStylesheet" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header>
+    <a id="logo" href="index.html">GAIN TOWN</a>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>PRESTENTATION</h1>
+
+
+    <!-- Group Project Description -->
+<section id="presentation">
+  
+  <div class="info-box">
+    <h3>Click the audio Button to Hear Commentary</h3>
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRLLMQX7S3ucisoCoYh83-fmeTlpdTwkjGuPnGYHFg1pt9lptvO7J27YZzWU4-o4oRJ1IChnBjvzllY/pubembed?start=false&loop=false&delayms=5000" frameborder="0" width="788" height="472" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+  </div>
+
+
+  </main>
+
+  <footer>
+    <hr>
+    <p>
+      Change the style of this page:
+      <select id="themeSelector">
+        <option value="css/samwpresentation.css">Sam W</option>
+        <option value="css/navdeepspresentation.css">Navdeep S</option>
+        <option value="css/accessiblepresentation.css">High Contrast</option>
+      </select>
+    </p>
+
+    &copy; 2025 GAIN TOWN. All rights reserved.
+  </footer>
+
+  <script src="js/homeInputExercise.js" defer></script>
+
+  <script>
+    var selector = document.getElementById("themeSelector");
+    var themeLink = document.getElementById("themeStylesheet");
+
+    selector.addEventListener("change", function () {
+      themeLink.href = this.value;
+    });
+
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
+
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
+
+</body>
+</html>
