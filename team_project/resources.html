@@ -44,7 +44,7 @@
     <button onclick="setFilter('Stamina')">Stamina</button>
   </div>
 
-  <main id="resourcesContainer"></main>
+  <main id="resultsContainer"></main>
 
 <!-- Footer -->
 <footer>
@@ -86,27 +86,6 @@
       }
     });
 </script>
-<script type="module">
-    import resources from './js/database.js';
-
-    var container = document.getElementById("resourcesContainer");
-    var countDisplay = document.getElementById("totalCount");
-
-    countDisplay.textContent = `Total Workouts: ${resources.length}`;
-
-    resources.forEach(res => {
-      var div = document.createElement("div");
-      div.className = "resource";
-      div.innerHTML = `
-        <h2>${res.title}</h2>
-        <p>${res.description}</p>
-        <p><strong>Tags:</strong> ${res.tags.join(', ')}</p>
-        <a href="${res.link}" target="_blank">Watch on YouTube</a>
-        <hr />
-      `;
-      container.appendChild(div);
-    });
-  </script>
 
 </body>
 </html>
