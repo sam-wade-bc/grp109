@@ -8,32 +8,28 @@
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Header -->
   <header>
     <a id="logo" href="index.html">GAIN TOWN</a>
-    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
-    <nav id="mainNav">
-      <ul class="nav-list">
+    <nav>
+      <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="subscriptions.html">Subscriptions</a></li>
         <li><a href="customworkout.html">Custom Workout</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="iterations.html">Iterations</a></li>
-        <li><a href="meettheteam.html">About</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="hero">
     <h1>Create Your Custom Workout</h1>
     <p>Tailor your fitness journey to fit your goals, your body, and your schedule.</p>
   </section>
 
   <!-- Form -->
-  <form id="workoutForm" action="customworkout.html" method="get">
+  <form id="workoutForm">
     <label for="area">Choose Body Area</label>
-    <select id="area" name="area" required>
+    <select id="area" required>
       <option value="">-- Select --</option>
       <option value="Upper Body">Upper Body</option>
       <option value="Mid Body">Mid Body</option>
@@ -41,7 +37,7 @@
     </select>
 
     <label for="goal">Choose Your Goal</label>
-    <select id="goal" name="goal" required>
+    <select id="goal" required>
       <option value="">-- Select --</option>
       <option value="Strength">Strength</option>
       <option value="Stamina">Stamina</option>
@@ -50,7 +46,7 @@
     </select>
 
     <label for="time">Daily Time Commitment</label>
-    <select id="time" name="time" required>
+    <select id="time" required>
       <option value="">-- Select --</option>
       <option value="<15 mins">&lt;15 mins</option>
       <option value="15-30 mins">15–30 mins</option>
@@ -62,22 +58,50 @@
     <button type="submit">Find My Workout</button>
   </form>
 
+  <!-- Output -->
   <div id="tagsContainer"></div>
   <div id="videoContainer"></div>
 
-  <!-- Footer -->
-  <footer>
-    <hr />
-    <p>Change the style of this page:</p>
-    <select id="themeSelector">
-      <option value="css/samwcustomworkout.css">Default</option>
-      <option value="css/navdeepscustomworkout.css">Navdeep S</option>
-      <option value="css/accessiblecustomworkout.css">High Contrast</option>
-    </select>
-    <br><br>
-    &copy; 2025 GAIN TOWN. All rights reserved.
-  </footer>
+  <!-- Script -->
+  <script type="module">
+    import resources from './js/database.js';
 
-  <script type="module" src="js/customWorkoutMaker.js"></script>
+    const form = document.getElementById("workoutForm");
+    const tagsContainer = document.getElementById("tagsContainer");
+    const videoContainer = document.getElementById("videoContainer");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const area = document.getElementById("area").value;
+      const goal = document.getElementById("goal").value;
+      const time = document.getElementById("time").value;
+
+      tagsContainer.innerHTML = `<p><strong>Showing workouts for:</strong> ${area}, ${goal}, ${time}</p>`;
+      videoContainer.innerHTML = "";
+
+      const matches = resources.filter(res =>
+        res.tags.includes(area) &&
+        res.tags.includes(goal) &&
+        res.tags.includes(time)
+      );
+
+      if (matches.length === 0) {
+        videoContainer.innerHTML = "<p>No matching workouts found. Try adjusting your selections.</p>";
+      } else {
+        matches.forEach(res => {
+          const div = document.createElement("div");
+          div.innerHTML = `
+            <h3>${res.title}</h3>
+            <p>${res.description}</p>
+            <a href="${res.link}" target="_blank">Watch on YouTube</a>
+            <hr />
+          `;
+          videoContainer.appendChild(div);
+        });
+      }
+    });
+  </script>
+
 </body>
 </html>
