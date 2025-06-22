@@ -1,31 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Workout Resources | Gain Town</title>
-  <link rel="stylesheet" href="css/samwcustomworkout.css" />
+  <meta charset="utf-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources | Gain Town</title>
+  <link rel="stylesheet" href="css/samwcustomworkout.css">
 </head>
 <body>
-
+  <!-- Header -->
   <header>
-    <h1>All Workout Resources</h1>
-    <a href="index.html">← Back to Home</a>
-    <p id="totalCount"></p>
+    <a id="logo" href="index.html">GAIN TOWN</a>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
+      </ul>
+    </nav>
   </header>
+  <h1>Resource Finder</h1>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search resources...">
+    <button onclick="filterResources()">Search</button>
+  </div>
+  <!-- NEED TO MAKE THE TAGS A JS SCRIPT SO THAT THE TAGS ACTIVELY REFLECT ANY ARTICLES PLACED IN THE DATABASE -->
+  <div class="filters">
+    <button onclick="setFilter('All')" class="active">All</button>
+    <button onclick="setFilter('Upper Body')">Upper Body</button>
+    <button onclick="setFilter('Strength')">Strength</button>
+    <button onclick="setFilter('Flexability')">Flexibility</button>
+    <button onclick="setFilter('Stamina')">Stamina</button>
+  </div>
 
   <main id="resourcesContainer"></main>
 
-  <script type="module">
+<!-- Footer -->
+<footer>
+<hr>
+  <p>
+      Change the style of this page:
+      <select id="themeSelector">
+        <option value="css/samwresources.css">Sam W</option>
+        <option value="css/navdeepsresources.css">Navdeep S</option>
+        <option value="css/accessibleresources.css">High Contrast</option>
+      </select>
+    </p>
+
+    &copy; 2025 GAIN TOWN. All rights reserved.
+  </footer>
+  
+<!-- Script -->
+<script type="module" src="js/resourcesPage.js"></script>
+<script>
+    var selector = document.getElementById("themeSelector");
+    var themeLink = document.getElementById("themeStylesheet");
+
+    selector.addEventListener("change", function () {
+      themeLink.href = this.value;
+    });
+
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
+
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+</script>
+<script type="module">
     import resources from './js/database.js';
 
-    const container = document.getElementById("resourcesContainer");
-    const countDisplay = document.getElementById("totalCount");
+    var container = document.getElementById("resourcesContainer");
+    var countDisplay = document.getElementById("totalCount");
 
     countDisplay.textContent = `Total Workouts: ${resources.length}`;
 
     resources.forEach(res => {
-      const div = document.createElement("div");
+      var div = document.createElement("div");
+      div.className = "resource";
       div.innerHTML = `
         <h2>${res.title}</h2>
         <p>${res.description}</p>
