@@ -1,16 +1,21 @@
 var resources = require('./database.js');
 
 document.addEventListener('DOMContentLoaded', function () {
-  var params = new URLSearchParams(window.location.search);
-  var area = params.get('area');
-  var goal = params.get('goal');
-  var time = params.get('time');
+  var form = document.getElementById('workoutForm');
 
-  if (area && goal && time) {
-    var tags = [area, goal, time];
-    displayTags(tags);
-    loadMatchingResources(tags);
-  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // Stop the form from reloading the page
+
+    var area = document.getElementById('area').value;
+    var goal = document.getElementById('goal').value;
+    var time = document.getElementById('time').value;
+
+    if (area && goal && time) {
+      var tags = [area, goal, time];
+      displayTags(tags);
+      loadMatchingResources(tags);
+    }
+  });
 });
 
 function displayTags(tags) {
