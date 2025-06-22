@@ -1,4 +1,4 @@
-import { resources } from './database.js';
+import resources from './database.js';
 
 let currentFilter = "All";
 
@@ -12,14 +12,14 @@ window.setFilter = function(tag) {
 };
 
 window.filterResources = function() {
-  var keyword = document.getElementById("searchInput").value.toLowerCase();
-  var resultsContainer = document.getElementById("resultsContainer");
+  const keyword = document.getElementById("searchInput").value.toLowerCase();
+  const resultsContainer = document.getElementById("resultsContainer");
   resultsContainer.innerHTML = "";
 
-  var filtered = resources.filter(resource => {
-    var matchesKeyword = resource.title.toLowerCase().includes(keyword) ||
-                         resource.description.toLowerCase().includes(keyword);
-    var matchesFilter = currentFilter === "All" || resource.tags.includes(currentFilter);
+  const filtered = resources.filter(resource => {
+    const matchesKeyword = resource.title.toLowerCase().includes(keyword) ||
+                           resource.description.toLowerCase().includes(keyword);
+    const matchesFilter = currentFilter === "All" || resource.tags.includes(currentFilter);
     return matchesKeyword && matchesFilter;
   });
 
@@ -29,7 +29,7 @@ window.filterResources = function() {
   }
 
   filtered.forEach(resource => {
-    var div = document.createElement("div");
+    const div = document.createElement("div");
     div.className = "resource";
     div.innerHTML = `
       <div class="resource-title"><a href="${resource.link}" target="_blank">${resource.title}</a></div>
@@ -40,5 +40,4 @@ window.filterResources = function() {
   });
 };
 
-// Run once when the page loads
 document.addEventListener("DOMContentLoaded", filterResources);
