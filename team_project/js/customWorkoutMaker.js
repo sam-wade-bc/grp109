@@ -1,23 +1,23 @@
-import resources from './database.js';
+var resources = require('./database.js');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const area = params.get('area');
-  const goal = params.get('goal');
-  const time = params.get('time');
+document.addEventListener('DOMContentLoaded', function () {
+  var params = new URLSearchParams(window.location.search);
+  var area = params.get('area');
+  var goal = params.get('goal');
+  var time = params.get('time');
 
   if (area && goal && time) {
-    const tags = [area, goal, time];
+    var tags = [area, goal, time];
     displayTags(tags);
     loadMatchingResources(tags);
   }
 });
 
 function displayTags(tags) {
-  const container = document.getElementById('tagsContainer');
+  var container = document.getElementById('tagsContainer');
   container.innerHTML = '';
-  tags.forEach(tag => {
-    const span = document.createElement('span');
+  tags.forEach(function (tag) {
+    var span = document.createElement('span');
     span.className = 'tag';
     span.textContent = tag;
     container.appendChild(span);
@@ -25,27 +25,27 @@ function displayTags(tags) {
 }
 
 function loadMatchingResources(tags) {
-  const container = document.getElementById('videoContainer');
+  var container = document.getElementById('videoContainer');
   container.innerHTML = '';
 
-  const matches = resources.filter(resource =>
-    tags.every(tag => resource.tags.includes(tag))
-  ).slice(0, 2);
+  var matches = resources.filter(function (resource) {
+    return tags.every(function (tag) {
+      return resource.tags.includes(tag);
+    });
+  }).slice(0, 2);
 
   if (matches.length === 0) {
     container.innerHTML = '<p>No matching resources found.</p>';
     return;
   }
 
-  matches.forEach(resource => {
-    const div = document.createElement('div');
+  matches.forEach(function (resource) {
+    var div = document.createElement('div');
     div.className = 'resource';
-    div.innerHTML = `
-      <h3><a href="${resource.link}" target="_blank">${resource.title}</a></h3>
-      <p>${resource.description}</p>
-      <p><strong>Tags:</strong> ${resource.tags.join(', ')}</p>
-    `;
+    div.innerHTML =
+      '<h3><a href="' + resource.link + '" target="_blank">' + resource.title + '</a></h3>' +
+      '<p>' + resource.description + '</p>' +
+      '<p><strong>Tags:</strong> ' + resource.tags.join(', ') + '</p>';
     container.appendChild(div);
   });
 }
-
