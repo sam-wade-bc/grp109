@@ -6,10 +6,21 @@
 :root {
   --primary: #000000;
   --accent: #FFD700;
-  --bg: #121212;
-  --text: #f0f0f0;
-  --card-bg: #1e1e1e;
-  --highlight: #90caf9;
+  --bg: #000000;
+  --text: #FFFFFF;
+  --card-bg: #1A1A1A;
+  --highlight: #FFEF9F;
+  --hover-dark: #2A2A2A;
+  --shadow: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================= */
+/*             BASE              */
+/* ============================= */
+* {
+  box-sizing: border-box;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  text-align: center;
 }
 
 body {
@@ -19,13 +30,20 @@ body {
   margin: 2em;
 }
 
+/* ============================= */
+/*            LOGO               */
+/* ============================= */
 #logo {
-  font-size: 200%;
+  font-size: 2rem;
   font-family: "Badeen Display", system-ui;
-  font-weight: 0.5%;
+  font-weight: normal;
   color: var(--accent);
+  text-shadow: 0 0 6px var(--accent);
 }
 
+/* ============================= */
+/*           HEADER              */
+/* ============================= */
 header {
   background-color: var(--primary);
   color: var(--accent);
@@ -33,6 +51,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid var(--accent);
 }
 
 nav a {
@@ -40,26 +59,42 @@ nav a {
   text-decoration: none;
   margin-left: 1.5rem;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
+nav a:hover {
+  color: var(--text);
+}
+
+/* ============================= */
+/*         SELECT DROPDOWN       */
+/* ============================= */
 select {
   background-color: var(--card-bg);
   color: var(--text);
-  border: 1px solid #333;
+  border: 1px solid var(--accent);
   padding: 0.5em;
   border-radius: 4px;
   font-size: 1em;
 }
 
+/* ============================= */
+/*         TEAM MEMBERS          */
+/* ============================= */
 .team-member {
   background-color: var(--card-bg);
-  border: 1px solid #333;
-  border-radius: 8px;
+  border: 1px solid var(--accent);
+  border-radius: 10px;
   padding: 1.5em;
   margin-bottom: 1.5em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: background-color 0.3s ease, transform 0.3s ease;
   color: var(--text);
+}
+
+.team-member:hover {
+  background-color: var(--hover-dark);
+  transform: translateY(-5px);
 }
 
 .team-member img {
@@ -68,28 +103,31 @@ select {
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid var(--accent);
+  margin-bottom: 1rem;
 }
 
+/* ============================= */
+/*      SAM SECTION HIGHLIGHT    */
+/* ============================= */
 #sam-section {
   background-color: var(--accent);
   color: var(--primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px var(--accent);
 }
 
-.team-member:hover {
-  background-color: #2a2a2a;
-}
-
-h1, h2 {
+/* ============================= */
+/*        HEADINGS & TEXT        */
+/* ============================= */
+h1,
+h2 {
   color: var(--highlight);
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 p {
   line-height: 1.6;
-}
-
-* {
-  box-sizing: border-box;
-  transition: color 0.2s ease, background-color 0.2s ease;
-  text-align: center;
+  margin-bottom: 1rem;
 }
