@@ -11,11 +11,22 @@
   <!-- Header -->
   <header>
     <a id="logo" href="index.html">GAIN TOWN</a>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="customworkout.html">Custom Workout</a></li>
-        <li><a href="resources.html">Resources</a></li>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
       </ul>
     </nav>
   </header>
@@ -63,42 +74,28 @@
   <div id="videoContainer"></div>
 
   <!-- Script -->
-  <script type="module">
-    import resources from './js/database.js';
+  <script src="js/customWorkoutMaker.js" defer></script>
 
-    const form = document.getElementById("workoutForm");
-    const tagsContainer = document.getElementById("tagsContainer");
-    const videoContainer = document.getElementById("videoContainer");
+  <script>
+    var selector = document.getElementById("themeSelector");
+    var themeLink = document.getElementById("themeStylesheet");
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
+    selector.addEventListener("change", function () {
+      themeLink.href = this.value;
+    });
 
-      const area = document.getElementById("area").value;
-      const goal = document.getElementById("goal").value;
-      const time = document.getElementById("time").value;
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
 
-      tagsContainer.innerHTML = `<p><strong>Showing workouts for:</strong> ${area}, ${goal}, ${time}</p>`;
-      videoContainer.innerHTML = "";
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
 
-      const matches = resources.filter(res =>
-        res.tags.includes(area) &&
-        res.tags.includes(goal) &&
-        res.tags.includes(time)
-      );
-
-      if (matches.length === 0) {
-        videoContainer.innerHTML = "<p>No matching workouts found. Try adjusting your selections.</p>";
-      } else {
-        matches.forEach(res => {
-          const div = document.createElement("div");
-          div.innerHTML = `
-            <h3>${res.title}</h3>
-            <p>${res.description}</p>
-            <a href="${res.link}" target="_blank">Watch on YouTube</a>
-            <hr />
-          `;
-          videoContainer.appendChild(div);
-        });
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
       }
     });
   </script>
