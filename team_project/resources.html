@@ -1,67 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>RESOURCES-GAINTOWN</title>
-<link rel="stylesheet" href="css/SamWResources.css">
-</head>
-
+  <title>Resources | Gain Town</title>
+  <link rel="stylesheet" id="themeStylesheet" href="css/SamWResources.css">
 </head>
 <body>
-    <!-- Navigation -->
+
   <header>
-<div id="logo"><a href="index.html">GAIN TOWN</a></div>
+    <a id="logo" href="index.html">GAIN TOWN</a>
     <nav>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations & changelog</a>
-       <a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">Meet the Team</a>
+      <a href="index.html">Home</a>
+      <a href="subscriptions.html">Subscriptions</a>
+      <a href="customworkout.html">Custom Workout</a>
+      <a href="resources.html">Resources</a>
+      <a href="iterations.html">Iterations</a>
+      <a href="meettheteam.html">Meet the Team</a>
     </nav>
   </header>
 
-  <h1>Resource Finder</h1>
+  <h1>Workout Resources</h1>
 
   <div class="search-container">
     <input type="text" id="searchInput" placeholder="Search resources...">
     <button onclick="filterResources()">Search</button>
   </div>
-  <!-- NEED TO MAKE THE TAGS A JS SCRIPT SO THAT THE TAGS ACTIVELY REFLECT ANY ARTICLES PLACED IN THE DATABASE -->
+
   <div class="filters">
     <button onclick="setFilter('All')" class="active">All</button>
     <button onclick="setFilter('Upper Body')">Upper Body</button>
+    <button onclick="setFilter('Mid Body')">Mid Body</button>
+    <button onclick="setFilter('Lower Body')">Lower Body</button>
+    <button onclick="setFilter('Full Body')">Full Body</button>
     <button onclick="setFilter('Strength')">Strength</button>
-    <button onclick="setFilter('Flexability')">Flexibility</button>
     <button onclick="setFilter('Stamina')">Stamina</button>
+    <button onclick="setFilter('Flexibility')">Flexibility</button>
+    <button onclick="setFilter('Endurance')">Endurance</button>
   </div>
 
-  <div class="results" id="resultsContainer">
-    <!-- Resources show up here -->
-  </div>
+  <div id="resultsContainer"></div>
 
-   <footer>
-<hr>
- &copy; 2025 GAIN TOWN. All rights reserved.
-<br>
-<p>Change the style of this page:</p>
-<select id="themeSelector">
-    <option value="css/SamWResorces.css">Sam W</option>
-    <option value="css/navdeepSResources.css">Navdeep S</option>
-    <option value="css/quinnNResources.css">Quinn N</option>
-
-</select>
-
-    <script>
-        const selector = document.getElementById('themeSelector');
-        const themeLink = document.getElementById('themeStylesheet');
-
-        selector.addEventListener('change', function () {
-            const selectedTheme = this.value;
-            themeLink.href = selectedTheme;
-        });
-    </script>
+  <footer>
+    <p>Change the style of this page:</p>
+    <select id="themeSelector">
+      <option value="css/SamWResources.css">Sam W</option>
+      <option value="css/navdeepSResources.css">Navdeep S</option>
+      <option value="css/quinnNResources.css">Quinn N</option>
+    </select>
+    <br>&copy; 2025 GAIN TOWN
   </footer>
-<script type="module" src="js/resourcesPage.js"></script>
 
+  <script type="module" src="js/resourcesPage.js"></script>
 </body>
 </html>
