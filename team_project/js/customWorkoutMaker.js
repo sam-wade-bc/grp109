@@ -28,11 +28,6 @@ function loadMatchingResources(tags) {
   const container = document.getElementById('videoContainer');
   container.innerHTML = '';
 
-  if (!Array.isArray(resources)) {
-    container.innerHTML = '<p>Error loading resources.</p>';
-    return;
-  }
-
   const matches = resources.filter(resource =>
     tags.every(tag => resource.tags.includes(tag))
   ).slice(0, 2);
@@ -53,3 +48,4 @@ function loadMatchingResources(tags) {
     container.appendChild(div);
   });
 }
+
