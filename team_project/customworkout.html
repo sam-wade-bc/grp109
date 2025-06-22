@@ -8,121 +8,69 @@
 </head>
 <body>
 
-  <!-- Navigation -->
   <header>
     <a id="logo" href="index.html">GAIN TOWN</a>
     <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
-    <nav id="mainNav" aria-label="Primary navigation">
+    <nav id="mainNav">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
         <li><a href="subscriptions.html">Subscriptions</a></li>
         <li><a href="customworkout.html">Custom Workout</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="iterations.html">Iterations & changelog</a></li>
+        <li><a href="iterations.html">Iterations</a></li>
         <li><a href="meettheteam.html">About</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
     <h1>Create Your Custom Workout</h1>
     <p>Tailor your fitness journey to fit your goals, your body, and your schedule.</p>
   </section>
 
-  <!-- Workout Form -->
-  <form id="workoutForm">
-    <div class="form-group">
-      <label for="area">Choose Body Area</label>
-      <select id="area" name="area" required>
-        <option value="">-- Select --</option>
-        <option value="Upper Body">Upper Body</option>
-        <option value="Mid Body">Mid Body</option>
-        <option value="Lower Body">Lower Body</option>
-      </select>
-    </div>
+  <form id="workoutForm" action="customworkout.html" method="get">
+    <label for="area">Choose Body Area</label>
+    <select id="area" name="area" required>
+      <option value="">-- Select --</option>
+      <option value="Upper Body">Upper Body</option>
+      <option value="Mid Body">Mid Body</option>
+      <option value="Lower Body">Lower Body</option>
+    </select>
 
-    <div class="form-group">
-      <label for="goal">Choose Your Goal</label>
-      <select id="goal" name="goal" required>
-        <option value="">-- Select --</option>
-        <option value="Strength">Strength</option>
-        <option value="Stamina">Stamina</option>
-        <option value="Flexibility">Flexibility</option>
-      </select>
-    </div>
+    <label for="goal">Choose Your Goal</label>
+    <select id="goal" name="goal" required>
+      <option value="">-- Select --</option>
+      <option value="Strength">Strength</option>
+      <option value="Stamina">Stamina</option>
+      <option value="Flexibility">Flexibility</option>
+    </select>
 
-    <div class="form-group">
-      <label for="time">Daily Time Commitment</label>
-      <select id="time" name="time" required>
-        <option value="">-- Select --</option>
-        <option value="15-30 mins">15–30 mins</option>
-        <option value="45 mins - 1 hr">45 mins – 1 hr</option>
-        <option value="2+ hrs">2+ hrs</option>
-      </select>
-    </div>
+    <label for="time">Daily Time Commitment</label>
+    <select id="time" name="time" required>
+      <option value="">-- Select --</option>
+      <option value="15-30 mins">15–30 mins</option>
+      <option value="30-45 mins">30–45 mins</option>
+      <option value="45 mins - 1 hr">45 mins – 1 hr</option>
+      <option value="2+ hrs">2+ hrs</option>
+      <option value="<15 mins">&lt;15 mins</option>
+    </select>
 
     <button type="submit">Find My Workout</button>
   </form>
 
-  <!-- Results -->
+  <div id="tagsContainer"></div>
   <div id="videoContainer"></div>
 
-  <!-- Footer -->
   <footer>
-    <hr>
     <p>Change the style of this page:</p>
     <select id="themeSelector">
       <option value="css/samwcustomworkout.css">Default</option>
       <option value="css/navdeepscustomworkout.css">Navdeep S</option>
       <option value="css/accessiblecustomworkout.css">High Contrast</option>
     </select>
-    <br><br>
-    &copy; 2025 GAIN TOWN. All rights reserved.
+    <br>&copy; 2025 GAIN TOWN
   </footer>
 
-  <!-- Scripts -->
-  <script type="module">
-    import { workoutResources } from './js/workoutResources.js';
-
-    document.getElementById("themeSelector").addEventListener("change", function () {
-      document.getElementById("themeStylesheet").href = this.value;
-    });
-
-    document.getElementById("navToggle").addEventListener("click", () => {
-      const nav = document.getElementById("mainNav");
-      const isOpen = nav.classList.toggle("open");
-      document.getElementById("navToggle").setAttribute("aria-expanded", isOpen);
-    });
-
-    document.getElementById("workoutForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const area = document.getElementById("area").value;
-      const goal = document.getElementById("goal").value;
-      const time = document.getElementById("time").value;
-      const container = document.getElementById("videoContainer");
-
-      const matches = workoutResources.filter(item =>
-        item.area === area && item.goal === goal && item.time === time
-      );
-
-      container.innerHTML = "";
-
-      if (matches.length === 0) {
-        container.innerHTML = "<p>No matching workouts found. Try different options.</p>";
-        return;
-      }
-
-      matches.forEach(match => {
-        container.innerHTML += `
-          <div class="workout-card">
-            <h3>${match.title}</h3>
-            <iframe width="560" height="315" src="${match.video}" frameborder="0" allowfullscreen></iframe>
-          </div>
-        `;
-      });
-    });
-  </script>
+  <script type="module" src="js/customWorkoutMaker.js"></script>
 </body>
 </html>
