@@ -73,10 +73,26 @@
   <div id="tagsContainer"></div>
   <div id="videoContainer"></div>
 
+
+<!-- footer --> 
+<footer>
+<hr>
+  <p>
+      Change the style of this page:
+      <select id="themeSelector">
+        <option value="css/samwgoal.css">Sam W</option>
+        <option value="css/navdeepsgoal.css">Navdeep S</option>
+        <option value="css/accessiblegoal.css">High Contrast</option>
+      </select>
+    </p>
+
+    &copy; 2025 GAIN TOWN. All rights reserved.
+  </footer>
+  
   <!-- Script -->
   <script src="js/customWorkoutMaker.js" defer></script>
 
-  <script>
+<script>
     var selector = document.getElementById("themeSelector");
     var themeLink = document.getElementById("themeStylesheet");
 
@@ -98,7 +114,7 @@
         navToggle.setAttribute("aria-expanded", "false");
       }
     });
-  </script>
+</script>
 
 </body>
 </html>
