@@ -1,117 +1,216 @@
- @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
-  :root {
-      --primary: #F17300;
-      --accent:#607196 ;
-      --bg: #f2e4d3;
-      --text: #AF3E4D;
-      --card-bg: #F1F0EA;
+/* ============================= */
+/*         VARIABLE THEME        */
+/* ============================= */
+:root {
+  --primary: #F17300;
+  --accent: #607196;
+  --bg: #f2e4d3;
+  --text: #AF3E4D;
+  --card-bg: #F1F0EA;
+  --white: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --success: #4CAF50;
+  --gray-light: #eee;
+  --gray-dark: #555;
+}
 
+/* ============================= */
+/*         GLOBAL RESET          */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-   body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f5f5f5;
-    }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 2rem;
+}
 
-   #logo {
-      font-size: 200%;
-      font-family: "Badeen Display", system-ui;
-      font-weight:.5%;
-    }
+/* ============================= */
+/*           HEADER              */
+/* ============================= */
+header {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px var(--shadow);
+}
 
+#logo {
+  font-family: 'Badeen Display', system-ui;
+  font-size: 2rem;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
 
-    header {
-      background-color: var(--primary);
-      color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-   }
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
 
+nav a:hover {
+  color: var(--accent);
+}
 
-   nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: bold;
-    }
+/* ============================= */
+/*           HEADING             */
+/* ============================= */
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
 
-    h1 {
-      text-align: center;
-      color: #333;
-    }
+/* ============================= */
+/*         SEARCH BAR            */
+/* ============================= */
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  box-shadow: 0 2px 5px var(--shadow);
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-    .search-container {
-      max-width: 600px;
-      margin: auto;
-      display: flex;
-      margin-bottom: 20px;
-    }
+.search-container input {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
 
-    .search-container input {
-      flex: 1;
-      padding: 12px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-right: none;
-      border-radius: 4px 0 0 4px;
-    }
+.search-container button {
+  padding: 12px 20px;
+  background-color: var(--success);
+  color: var(--white);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-    .search-container button {
-      padding: 12px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-    }
+.search-container button:hover {
+  background-color: #43a047;
+}
 
-    .filters {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+/* ============================= */
+/*           FILTERS             */
+/* ============================= */
+.filters {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 
-    .filters button {
-      padding: 8px 12px;
-      margin: 4px;
-      border: 1px solid #ccc;
-      background-color: white;
-      cursor: pointer;
-      border-radius: 4px;
-    }
+.filters button {
+  padding: 10px 16px;
+  margin: 6px;
+  background-color: var(--white);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    .filters button.active {
-      background-color: #4CAF50;
-      color: white;
-    }
+.filters button:hover {
+  background-color: var(--accent);
+  color: var(--white);
+}
 
-    .results {
-      max-width: 800px;
-      margin: auto;
-    }
+.filters button.active {
+  background-color: var(--success);
+  color: var(--white);
+  border-color: var(--success);
+}
 
-    .resource {
-      background-color: white;
-      padding: 16px;
-      margin-bottom: 10px;
-      border-left: 4px solid #4CAF50;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
+/* ============================= */
+/*          RESOURCE CARDS       */
+/* ============================= */
+.results {
+  max-width: 900px;
+  margin: auto;
+}
 
-    .resource-title {
-      font-size: 18px;
-      font-weight: bold;
-    }
+.resource {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 6px solid var(--accent);
+  border-radius: 10px;
+  box-shadow: 0 3px 8px var(--shadow);
+  transition: transform 0.2s ease;
+}
 
-    .resource-description {
-      margin-top: 4px;
-      color: #555;
-    }
+.resource:hover {
+  transform: translateY(-4px);
+}
 
-    .resource-tags {
-      margin-top: 8px;
-      font-size: 12px;
-      color: #888;
-    }
+.resource-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 0.3rem;
+}
+
+.resource-description {
+  font-size: 0.95rem;
+  color: var(--gray-dark);
+}
+
+.resource-tags {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* ============================= */
+/*         MEDIA QUERIES         */
+/* ============================= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 1rem;
+  }
+
+  nav a {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+
+  .search-container {
+    flex-direction: column;
+  }
+
+  .search-container input,
+  .search-container button {
+    border-radius: 0;
+  }
+
+  .search-container input {
+    border-bottom: 1px solid var(--gray-light);
+  }
+}
