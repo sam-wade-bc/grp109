@@ -3,7 +3,6 @@
 /* ============================= */
 /*           VARIABLES           */
 /* ============================= */
-
 :root {
   --primary: #000000;
   --accent: #FFD700;
@@ -13,23 +12,29 @@
   --button-bg: #FFD700;
   --button-text: #000000;
   --link-hover: #00FF00;
+  --shadow: rgba(255, 255, 255, 0.1);
+  --focus-glow: #00FFBF;
 }
 
 /* ============================= */
 /*            BASE               */
 /* ============================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  margin: 0;
   background-color: var(--bg);
   color: var(--text);
+  line-height: 1.6;
 }
 
 /* ============================= */
 /*          HEADER / NAV         */
 /* ============================= */
-
 header {
   background-color: var(--primary);
   color: var(--accent);
@@ -38,13 +43,15 @@ header {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  border-bottom: 2px solid var(--accent);
 }
 
 #logo {
-  font-size: 200%;
+  font-size: 2rem;
   font-family: "Badeen Display", system-ui;
   color: var(--accent);
   text-decoration: none;
+  text-shadow: 0 0 6px var(--accent);
 }
 
 nav {
@@ -53,11 +60,10 @@ nav {
 
 .nav-list {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: flex-end;
   gap: 1.5rem;
+  padding: 0;
 }
 
 .nav-list li a {
@@ -68,8 +74,8 @@ nav {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
-  transition: background-color 0.3s ease;
   border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-list li a:hover,
@@ -79,6 +85,9 @@ nav {
   outline: none;
 }
 
+/* ============================= */
+/*          MOBILE NAV           */
+/* ============================= */
 #navToggle {
   display: none;
   font-size: 2rem;
@@ -88,7 +97,6 @@ nav {
   cursor: pointer;
 }
 
-/* Responsive navigation */
 @media (max-width: 768px) {
   #navToggle {
     display: block;
@@ -129,37 +137,37 @@ nav {
 /* ============================= */
 /*            HERO               */
 /* ============================= */
-
 .hero {
   background: linear-gradient(to right, #000000, #333333);
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   text-align: center;
   color: var(--accent);
+  box-shadow: 0 4px 12px var(--shadow);
 }
 
 .hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px var(--accent);
 }
 
 .hero p {
   font-size: 1.1rem;
   max-width: 700px;
   margin: 0 auto;
-  line-height:1.5;
+  line-height: 1.6;
 }
 
 /* ============================= */
 /*           FORM STYLES         */
 /* ============================= */
-
 form {
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 3rem auto;
   background-color: var(--card-bg);
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px var(--accent);
+  border-radius: 12px;
+  box-shadow: 0 0 15px var(--accent);
 }
 
 .form-group {
@@ -183,6 +191,13 @@ button {
   border: 1px solid var(--accent);
   background-color: #111;
   color: var(--text);
+  transition: box-shadow 0.2s ease;
+}
+
+select:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-glow);
 }
 
 button {
@@ -190,7 +205,7 @@ button {
   color: var(--button-text);
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 button:hover {
@@ -199,9 +214,8 @@ button:hover {
 }
 
 /* ============================= */
-/*   Tags and Video Container    */
+/*     TAGS & VIDEO CONTAINER    */
 /* ============================= */
-
 .tags,
 #videoContainer {
   max-width: 900px;
@@ -217,14 +231,23 @@ button:hover {
   border-radius: 20px;
   margin: 5px;
   font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.tag:hover {
+  background-color: var(--link-hover);
 }
 
 /* ============================= */
 /*           FOOTER              */
 /* ============================= */
-
 footer {
   background-color: #111;
   padding: 2rem;
-  line-height:1.5;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--accent);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--accent);
 }
