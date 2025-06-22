@@ -1,4 +1,4 @@
-const resources = [
+export var resources = [
   {
     title: "Upper Body Strength Workout",
     description: "A 30-minute dumbbell workout to build upper body strength.",
