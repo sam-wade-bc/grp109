@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <!-- Navigation -->
   <header>
     <a id="logo" href="index.html">GAIN TOWN</a>
     <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
@@ -23,11 +24,13 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <h1>Create Your Custom Workout</h1>
     <p>Tailor your fitness journey to fit your goals, your body, and your schedule.</p>
   </section>
 
+  <!-- Form -->
   <form id="workoutForm" action="customworkout.html" method="get">
     <label for="area">Choose Body Area</label>
     <select id="area" name="area" required>
@@ -43,16 +46,17 @@
       <option value="Strength">Strength</option>
       <option value="Stamina">Stamina</option>
       <option value="Flexibility">Flexibility</option>
+      <option value="Endurance">Endurance</option>
     </select>
 
     <label for="time">Daily Time Commitment</label>
     <select id="time" name="time" required>
       <option value="">-- Select --</option>
+      <option value="<15 mins">&lt;15 mins</option>
       <option value="15-30 mins">15–30 mins</option>
       <option value="30-45 mins">30–45 mins</option>
       <option value="45 mins - 1 hr">45 mins – 1 hr</option>
       <option value="2+ hrs">2+ hrs</option>
-      <option value="<15 mins">&lt;15 mins</option>
     </select>
 
     <button type="submit">Find My Workout</button>
@@ -61,14 +65,17 @@
   <div id="tagsContainer"></div>
   <div id="videoContainer"></div>
 
+  <!-- Footer -->
   <footer>
+    <hr />
     <p>Change the style of this page:</p>
     <select id="themeSelector">
       <option value="css/samwcustomworkout.css">Default</option>
       <option value="css/navdeepscustomworkout.css">Navdeep S</option>
       <option value="css/accessiblecustomworkout.css">High Contrast</option>
     </select>
-    <br>&copy; 2025 GAIN TOWN
+    <br><br>
+    &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
 
   <script type="module" src="js/customWorkoutMaker.js"></script>
