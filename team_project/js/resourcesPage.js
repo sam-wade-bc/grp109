@@ -1,17 +1,24 @@
-import resources from './database.js';
+import { resources } from './database.js';
 
 let currentFilter = "All";
 
-window.setFilter = function(tag) {
-  currentFilter = tag;
-  document.querySelectorAll(".filters button").forEach(btn => {
-    btn.classList.remove("active");
-    if (btn.textContent === tag) btn.classList.add("active");
-  });
-  filterResources();
-};
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
+  const resultsContainer = document.getElementById("resultsContainer");
 
-window.filterResources = function() {
+  if (!resultsContainer) {
+    console.error("Element with ID 'resultsContainer' not found.");
+    return;
+  }
+
+  // Initial render
+  filterResources();
+
+  // Optional: filter as the user types
+  searchInput.addEventListener("input", filterResources);
+});
+
+function filterResources() {
   const keyword = document.getElementById("searchInput").value.toLowerCase();
   const resultsContainer = document.getElementById("resultsContainer");
   resultsContainer.innerHTML = "";
@@ -38,6 +45,22 @@ window.filterResources = function() {
     `;
     resultsContainer.appendChild(div);
   });
-};
+}
 
-document.addEventListener("DOMContentLoaded", filterResources);
+function setFilter(tag) {
+  currentFilter = tag;
+  const buttons = document.querySelectorAll(".filters button");
+
+  buttons.forEach(btn => {
+    btn.classList.remove("active");
+    if (btn.textContent === tag) {
+      btn.classList.add("active");
+    }
+  });
+
+  filterResources();
+}
+
+// Make functions accessible to HTML
+window.setFilter = setFilter;
+window.filterResources = filterResources;
