@@ -9,20 +9,21 @@
   --bg: #000000;
   --text: #FFFFFF;
   --card-bg: #1A1A1A;
+  --highlight: #00FFFF;
   --button-bg: #FFD700;
   --button-text: #000000;
   --link-hover: #00FF00;
-  --shadow: rgba(255, 255, 255, 0.1);
-  --focus-glow: #00FFBF;
+  --shadow: rgba(255, 255, 255, 0.08);
+  --glow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
 /* ============================= */
 /*            BASE               */
 /* ============================= */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -30,6 +31,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
 /* ============================= */
@@ -51,7 +53,7 @@ header {
   font-family: "Badeen Display", system-ui;
   color: var(--accent);
   text-decoration: none;
-  text-shadow: 0 0 6px var(--accent);
+  text-shadow: var(--glow);
 }
 
 nav {
@@ -75,12 +77,12 @@ nav {
   display: inline-flex;
   align-items: center;
   border-radius: 6px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .nav-list li a:hover,
 .nav-list li a:focus {
-  background-color: var(--link-hover);
+  background-color: var(--highlight);
   color: var(--primary);
   outline: none;
 }
@@ -138,105 +140,168 @@ nav {
 /*            HERO               */
 /* ============================= */
 .hero {
-  background: linear-gradient(to right, #000000, #333333);
-  padding: 4rem 2rem;
   text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(90deg, var(--primary), #333);
   color: var(--accent);
-  box-shadow: 0 4px 12px var(--shadow);
+  box-shadow: inset 0 -2px 6px var(--shadow);
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
-  text-shadow: 0 0 8px var(--accent);
+  text-shadow: var(--glow);
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   max-width: 700px;
   margin: 0 auto;
-  line-height: 1.6;
 }
 
 /* ============================= */
-/*           FORM STYLES         */
+/*           SECTION             */
 /* ============================= */
-form {
-  max-width: 600px;
-  margin: 3rem auto;
-  background-color: var(--card-bg);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 15px var(--accent);
+.section {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: auto;
 }
 
-.form-group {
+.section h2 {
   margin-bottom: 1.5rem;
-  text-align: left;
+  text-align: center;
+  color: var(--highlight);
+  text-decoration: underline;
 }
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: var(--accent);
+/* ============================= */
+/*             CARDS             */
+/* ============================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
-select,
-button {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid var(--accent);
-  background-color: #111;
+.card {
+  background-color: var(--card-bg);
+  border: 2px solid var(--accent);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
   color: var(--text);
-  transition: box-shadow 0.2s ease;
+  box-shadow: var(--glow);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-select:focus,
-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px var(--focus-glow);
+.card:hover {
+  transform: translateY(-5px);
+  background-color: #222;
 }
 
-button {
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* ============================= */
+/*         CALL TO ACTION        */
+/* ============================= */
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.5rem;
   background-color: var(--button-bg);
   color: var(--button-text);
   font-weight: bold;
-  cursor: pointer;
+  text-decoration: none;
+  border-radius: 6px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-button:hover {
+.cta-button:hover {
   background-color: var(--link-hover);
   color: var(--primary);
 }
 
 /* ============================= */
-/*     TAGS & VIDEO CONTAINER    */
+/*           CAROUSEL            */
 /* ============================= */
-.tags,
-#videoContainer {
-  max-width: 900px;
-  margin: 2rem auto;
+#carousel {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+  background: var(--card-bg);
+  border: 5px solid var(--accent);
+  border-radius: 12px;
+  box-shadow: var(--glow);
+}
+
+#carousel h2 {
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+}
+
+#controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#container {
+  position: relative;
+  width: 100%;
   text-align: center;
 }
 
-.tag {
-  display: inline-block;
-  background: var(--accent);
-  color: var(--primary);
-  padding: 8px 14px;
-  border-radius: 20px;
-  margin: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
+#slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.tag:hover {
-  background-color: var(--link-hover);
+#previous,
+#next {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  transition: color 0.2s ease;
+}
+
+#previous:hover,
+#next:hover {
+  color: var(--highlight);
+}
+
+#slideshow {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* ============================= */
+/*         SLIDEBOX CARD         */
+/* ============================= */
+.slidebox {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  color: var(--text);
+  box-shadow: 0 2px 8px var(--accent);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
 }
 
 /* ============================= */
@@ -244,10 +309,9 @@ button:hover {
 /* ============================= */
 footer {
   background-color: #111;
-  padding: 2rem;
-  line-height: 1.5;
   text-align: center;
-  color: var(--accent);
-  font-size: 0.95rem;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: var(--text);
   border-top: 1px solid var(--accent);
 }
