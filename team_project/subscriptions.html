@@ -207,19 +207,29 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <div id="logo"><a href="index.html">GAIN TOWN</a></div>
-    <nav id="mainNav">
+    <a id="logo" href="index.html">GAIN TOWN</a>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
       <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
-        <li><a href="customworkout.html">Custom Workout</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="iterations.html">Iterations & changelog</a></li>
-        <li><a href="meettheteam.html">Meet the Team</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
       </ul>
     </nav>
   </header>
+
 
   <div class="container">
     <h1>Our Subscriptions</h1>
@@ -274,7 +284,18 @@
     </div>
   </div>
 
-  <footer>
+<!--Footer-->
+<footer>
+<hr>
+  <p>
+      Change the style of this page:
+      <select id="themeSelector">
+        <option value="css/samwsubscriptions.css">Sam W</option>
+        <option value="css/navdeepssubscriptions.css">Navdeep S</option>
+        <option value="css/accessiblesubscriptions.css">High Contrast</option>
+      </select>
+    </p>
+
     &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
 
@@ -315,5 +336,28 @@
       };
     });
   </script>
+<script>
+    var selector = document.getElementById("themeSelector");
+    var themeLink = document.getElementById("themeStylesheet");
+
+    selector.addEventListener("change", function () {
+      themeLink.href = this.value;
+    });
+
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
+
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+</script>
 </body>
 </html>
