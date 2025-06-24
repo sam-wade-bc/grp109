@@ -1,12 +1,20 @@
+/* ============================= */
+/*           VARIABLES           */
+/* ============================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
 :root {
-  --primary: #000000;
-  --accent: #FFD700;
-  --bg: #000000;
-  --text: #FFFFFF;
-  --card-bg: #1A1A1A;
+  --primary: #F17300;
+  --accent: #607196;
+  --bg: #f2e4d3;
+  --text: #AF3E4D;
+  --card-bg: #F1F0EA;
 }
+
+/* ============================= */
+/*            BASE               */
+/* ============================= */
 
 body {
   margin: 0;
@@ -18,12 +26,11 @@ body {
 #logo {
   font-size: 200%;
   font-family: "Badeen Display", system-ui;
-  color: var(--accent);
 }
 
 header {
   background-color: var(--primary);
-  color: var(--accent);
+  color: white;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -31,7 +38,7 @@ header {
 }
 
 nav a {
-  color: var(--accent);
+  color: white;
   text-decoration: none;
   margin-left: 1.5rem;
   font-weight: bold;
@@ -46,36 +53,35 @@ nav a {
 
 h1 {
   font-size: 225%;
-  color: var(--accent);
 }
 
 .iteration {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ccc;
   padding: 20px;
 }
 
 .contentsection {
-  background-color: #1f1f1f;
-  padding: 10px 20px;
+  background-color: #f9f3eb;
+  padding: 10px;
+  padding-left: 20px;
   margin-top: 15px;
-  color: var(--text);
 }
 
 .sam {
-  color: var(--text);
-  background: #FFD700;
+  color: #2596be;
+  background: #da6941;
   font-weight: bold;
 }
 
 .navdeep {
-  color: #000;
-  background: #FFD700;
+  color: #A183E0;
+  background: #C2E083;
   font-weight: bold;
 }
 
 .both {
-  color: #000;
-  background: #fff;
+  color: #000000;
+  background: #ffffff;
   font-weight: bold;
 }
 
@@ -88,27 +94,20 @@ h1 {
 .card {
   background-color: var(--card-bg);
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   padding: 1.5rem;
   text-align: center;
   transition: transform 0.2s ease-in-out;
-  color: var(--text);
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  background-color: #222;
 }
 
 footer {
   text-align: center;
   padding: 2rem;
   font-size: 0.9rem;
-  color: var(--accent);
+  color: #888;
 }
 
 img {
   width: 225px;
   height: 225px;
-  border-radius: 8px;
 }
