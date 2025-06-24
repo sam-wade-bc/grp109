@@ -2,33 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GAIN TOWN</title>
+  <title>Home - Gain Town</title>
   <link id="themeStylesheet" rel="stylesheet" href="css/samwhome.css">
-  <script src="js/homepagecaro.js" defer></script>
+  <style>
+    .nav-link.active {
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Navigation -->
   <header>
-    <a id="logo" href="index.html">GAIN TOWN</a>
-
-    <!-- Hamburger menu button for small screens -->
-    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
-      &#9776;
-    </button>
-
-    <nav id="mainNav" aria-label="Primary navigation">
-      <ul class="nav-list">
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
-      </ul>
+    <nav id="mainNav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="subscriptions.html" class="nav-link">Subscriptions</a>
+      <a href="customworkout.html" class="nav-link">Custom Workout</a>
+      <a href="contact.html" class="nav-link">Contact</a>
     </nav>
   </header>
 
@@ -36,7 +28,7 @@
   <section class="hero">
     <h1>Find Your Flow, From Home</h1>
     <p>Discover new workouts, stay active, and feel amazing – all from your living room.</p>
-    <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html" class="cta-button">Create Your Custom Workout</a>
+    <a href="customworkout.html" class="cta-button">Create Your Custom Workout</a>
   </section>
 
   <!-- Featured Workouts -->
@@ -116,11 +108,11 @@
         <option value="css/accessiblehome.css">High Contrast</option>
       </select>
     </p>
-
     &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
 
   <script>
+    // Theme Selector
     var selector = document.getElementById("themeSelector");
     var themeLink = document.getElementById("themeStylesheet");
 
@@ -128,18 +120,31 @@
       themeLink.href = this.value;
     });
 
+    // Mobile nav toggle
     var navToggle = document.getElementById("navToggle");
     var mainNav = document.getElementById("mainNav");
 
-    navToggle.addEventListener("click", function () {
-      var isOpen = mainNav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", isOpen);
-    });
+    if (navToggle) {
+      navToggle.addEventListener("click", function () {
+        var isOpen = mainNav.classList.toggle("open");
+        navToggle.setAttribute("aria-expanded", isOpen);
+      });
 
-    document.addEventListener("click", function (e) {
-      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        mainNav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
+      document.addEventListener("click", function (e) {
+        if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+          mainNav.classList.remove("open");
+          navToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    // Highlight active page in nav
+    const currentPage = window.location.pathname.split("/").pop();
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
       }
     });
   </script>
