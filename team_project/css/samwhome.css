@@ -45,18 +45,6 @@ nav {
   flex-grow: 1;
 }
 
-.nav-list li a.active {
-  background-color: white;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  border-radius: 10px;
-  font-family: "Badeen Display", system-ui;
-  font-weight: bold;
-  padding: 0.5rem 0.75rem;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
 .nav-list {
   list-style: none;
   margin: 0;
