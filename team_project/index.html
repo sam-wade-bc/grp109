@@ -2,33 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home - Gain Town</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GAIN TOWN</title>
   <link id="themeStylesheet" rel="stylesheet" href="css/samwhome.css">
-  <style>
-    .nav-link.active {
-      background-color: white;
-      color: black;
-      border-radius: 5px;
-      padding: 5px 10px;
-    }
-  </style>
+  <script src="js/homepagecaro.js" defer></script>
 </head>
 <body>
+
+  <!-- Navigation -->
   <header>
-    <nav id="mainNav">
-     <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
+    <a id="logo" href="index.html">GAIN TOWN</a>
+
+    <!-- Hamburger menu button for small screens -->
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      &#9776;
+    </button>
+
+    <nav id="mainNav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
         <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
         <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
         <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
         <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
         <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
       </ul>
     </nav>
   </header>
-
- </header>
 
   <!-- Hello Section -->
   <section class="hero">
@@ -118,6 +118,8 @@
     &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
 
+  <script src="js/homeInputExercise.js" defer></script>
+
   <script>
     var selector = document.getElementById("themeSelector");
     var themeLink = document.getElementById("themeStylesheet");
@@ -142,5 +144,4 @@
     });
   </script>
 </body>
-</html>
 </html>
