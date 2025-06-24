@@ -64,6 +64,11 @@ nav {
   background-color: var(--accent);
   outline: none;
 }
+
+.nav-list li a:active {
+      background-color: white;
+      color: var(--primary);
+    }
 #navToggle {
   display: none;
   font-size: 2rem;
