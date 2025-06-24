@@ -21,6 +21,9 @@ body {
   color: var(--text);
 }
 
+/* ============================= */
+/*          HEADER / NAV         */
+/* ============================= */
 header {
   background-color: var(--primary);
   color: white;
@@ -121,8 +124,8 @@ nav {
 .title {
   text-align: center;
   text-decoration: underline;
-  margin-bottom: 2px;
   margin-top: 20px;
+  margin-bottom: 2px;
 }
 
 h1 {
@@ -131,9 +134,9 @@ h1 {
 
 .contentsection {
   background-color: #f9f3eb;
-  padding: 10px;
-  padding-left: 20px;
+  padding: 10px 20px;
   margin-top: 15px;
+  border-radius: 10px;
 }
 
 ul.content {
@@ -177,9 +180,15 @@ ul.content {
   transition: transform 0.2s ease-in-out;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+}
+
 img {
   width: 225px;
   height: 225px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 /* ============================= */
