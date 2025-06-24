@@ -5,365 +5,407 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Subscriptions | Gain Town</title>
   <link href="https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap" rel="stylesheet">
- <style>
-  @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
-  /* ============================= */
-  /*           VARIABLES           */
-  /* ============================= */
+    /* ============================= */
+    /*           VARIABLES           */
+    /* ============================= */
+    :root {
+      --primary: #F17300;
+      --accent: #607196;
+      --bg: #f2e4d3;
+      --text: #AF3E4D;
+      --card-bg: #F1F0EA;
+      --button-bg: #F17300;
+      --button-text: #ffffff;
+      --link-hover: #f7c59f;
+    }
 
-  :root {
-    --primary: #F17300;
-    --accent: #FFFFFF;
-    --bg: #f2e4d3;
-    --text: #AF3E4D;
-    --card-bg: #F1F0EA;
-    --button-bg: #F17300;
-    --button-text: #ffffff;
-    --link-hover: #f7c59f;
-  }
+    /* ============================= */
+    /*            BASE               */
+    /* ============================= */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
 
-  /* ============================= */
-  /*            BASE               */
-  /* ============================= */
+    /* ============================= */
+    /*          HEADER / NAV         */
+    /* ============================= */
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    background-color: var(--bg);
-    color: var(--text);
-  }
+    #logo {
+      font-size: 200%;
+      font-family: "Badeen Display", system-ui;
+      color: white;
+      text-decoration: none;
+    }
 
-  header {
-    background-color: var(--primary);
-    color: var(--accent);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+    nav {
+      flex-grow: 1;
+    }
 
-  #logo a {
-    font-size: 2rem;
-    font-family: "Badeen Display", system-ui;
-    color: var(--accent);
-    text-decoration: none;
-  }
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1.5rem;
+    }
 
-  nav#mainNav {
-    flex-grow: 1;
-  }
+    .nav-list li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 0.75rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+      border-radius: 6px;
+    }
 
-  .nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    gap: 1.5rem;
-  }
+    .nav-list li a:hover,
+    .nav-list li a:focus {
+      background-color: var(--accent);
+      outline: none;
+    }
 
-  .nav-list li a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0.5rem 0.75rem;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    transition: background-color 0.3s ease;
-    border-radius: 6px;
-  }
+    .nav-list li a.active {
+      background-color: white;
+      color: var(--primary);
+    }
 
-  .nav-list li a:hover,
-  .nav-list li a:focus {
-    background-color: var(--link-hover);
-    color: var(--primary);
-    outline: none;
-  }
+    #navToggle {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
 
-  .nav-list li a.active {
-    background-color: var(--accent);
-    color: var(--primary);
-  }
-
-  .container {
-    padding: 2rem;
-    max-width: 1000px;
-    margin: auto;
-    text-align: center;
-  }
-
-  .plan {
-    background-color: var(--card-bg);
-    margin: 1rem auto;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(241, 115, 0, 0.2);
-    max-width: 350px;
-  }
-
-  .plan h3 {
-    color: var(--primary);
-  }
-
-  .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary);
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  ul li {
-    padding: 0.3rem 0;
-  }
-
-  .btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn:hover {
-    background-color: var(--link-hover);
-    color: var(--text);
-  }
-
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
-
-  .modal-content {
-    background-color: var(--card-bg);
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 400px;
-    box-shadow: 0 0 10px var(--primary);
-    color: var(--text);
-  }
-
-  .modal-content h2 {
-    margin-top: 0;
-    color: var(--primary);
-  }
-
-  .modal-content input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
-    border: 1px solid var(--primary);
-    background-color: #fff;
-    color: var(--text);
-    border-radius: 5px;
-  }
-
-  .modal-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-  }
-
-  .modal-buttons button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .btn-confirm {
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    font-weight: bold;
-  }
-
-  .btn-cancel {
-    background-color: #ccc;
-    color: var(--text);
-  }
-
-  footer {
-    background-color: var(--primary);
-    padding: 2rem;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #ffffff;
-  }
-</style>
-
-  <!-- Header -->
-  <header>
-    <a id="logo" href="index.html">GAIN TOWN</a>
-
-    <!-- Hamburger menu button for small screens -->
-    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
-      &#9776;
-    </button>
-
-    <nav id="mainNav" aria-label="Primary navigation">
-      <ul class="nav-list">
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/subscriptions.html">Subscriptions</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html">Custom Workout</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/resources.html">Resources</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/iterations.html">Iterations &amp; changelog</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/meettheteam.html">About</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/ppt.html">Presentation</a></li>
-        <li><a href="https://sam-wade-bc.github.io/grp109/team_project/goal.html">Goals</a></li>
-      </ul>
-    </nav>
-  </header>
-
-
-  <div class="container">
-    <h1>Our Subscriptions</h1>
-    <p>Simple plans for every fitness goal. No hidden fees. Cancel anytime.</p>
-
-    <div class="plan">
-      <h3>Starter (Free)</h3>
-      <p class="price">$0/month</p>
-      <ul>
-        <li>5 sample workouts</li>
-        <li>Track your progress</li>
-        <li>Access to basic resources</li>
-      </ul>
-      <a href="#" class="btn">Join Free</a>
-    </div>
-
-    <div class="plan">
-      <h3>Plus</h3>
-      <p class="price">$8/month</p>
-      <ul>
-        <li>Unlimited workouts</li>
-        <li>Custom workout builder</li>
-        <li>Downloadable workout guides</li>
-      </ul>
-      <a href="#" class="btn">Subscribe</a>
-    </div>
-
-    <div class="plan">
-      <h3>Coach</h3>
-      <p class="price">$15/month</p>
-      <ul>
-        <li>Everything in Plus</li>
-        <li>Monthly coach feedback</li>
-        <li>Exclusive live sessions</li>
-      </ul>
-      <a href="#" class="btn">Go Pro</a>
-    </div>
-  </div>
-
-  <div id="paymentModal" class="modal">
-    <div class="modal-content">
-      <h2>Enter Payment Details</h2>
-      <p id="planSelected"></p>
-      <input type="text" placeholder="Card Number" maxlength="19" />
-      <input type="text" placeholder="Name on Card" />
-      <input type="text" placeholder="Expiry (MM/YY)" maxlength="5" />
-      <input type="text" placeholder="CVV" maxlength="4" />
-      <div class="modal-buttons">
-        <button class="btn-confirm">Confirm</button>
-        <button class="btn-cancel">Cancel</button>
-      </div>
-    </div>
-  </div>
-
-<!--Footer-->
-<footer>
-<hr>
-  <p>
-      Change the style of this page:
-      <select id="themeSelector">
-        <option value="css/samwsubscriptions.css">Sam W</option>
-        <option value="css/navdeepssubscriptions.css">Navdeep S</option>
-        <option value="css/accessiblesubscriptions.css">High Contrast</option>
-      </select>
-    </p>
-
-    &copy; 2025 GAIN TOWN. All rights reserved.
-  </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const modal = document.getElementById("paymentModal");
-      const planDisplay = document.getElementById("planSelected");
-      const buttons = document.querySelectorAll(".btn");
-
-      buttons.forEach(button => {
-        button.addEventListener("click", event => {
-          event.preventDefault();
-          const plan = button.closest(".plan").querySelector("h3").innerText;
-
-          if (plan === "Plus" || plan === "Coach") {
-            planDisplay.innerText = `Plan: ${plan}`;
-            modal.style.display = "block";
-            sessionStorage.setItem("selectedPlan", plan);
-          } else {
-            alert(`You selected the "${plan}" plan!`);
-          }
-        });
-      });
-
-      document.querySelector(".btn-cancel").onclick = () => {
-        modal.style.display = "none";
-      };
-
-      document.querySelector(".btn-confirm").onclick = () => {
-        modal.style.display = "none";
-        alert("Payment submitted successfully! Welcome aboard.");
-      };
-
-      window.onclick = function(event) {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
-    });
-  </script>
-<script>
-    var selector = document.getElementById("themeSelector");
-    var themeLink = document.getElementById("themeStylesheet");
-
-    selector.addEventListener("change", function () {
-      themeLink.href = this.value;
-    });
-
-    var navToggle = document.getElementById("navToggle");
-    var mainNav = document.getElementById("mainNav");
-
-    navToggle.addEventListener("click", function () {
-      var isOpen = mainNav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", isOpen);
-    });
-
-    document.addEventListener("click", function (e) {
-      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        mainNav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
+    @media (max-width: 768px) {
+      #navToggle {
+        display: block;
       }
+
+      nav#mainNav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 220px;
+        background-color: var(--primary);
+        padding-top: 4rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+      }
+
+      nav#mainNav.open {
+        transform: translateX(0);
+      }
+
+      .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+        padding-left: 1.5rem;
+      }
+
+      .nav-list li a {
+        font-size: 1.2rem;
+        padding: 0.75rem 0;
+      }
+    }
+
+    /* ============================= */
+    /*        SUBSCRIPTION PLANS     */
+    /* ============================= */
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .plan {
+      background-color: var(--card-bg);
+      margin: 1rem auto;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(241, 115, 0, 0.2);
+      max-width: 350px;
+    }
+
+    .plan h3 {
+      color: var(--primary);
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      padding: 0.3rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--link-hover);
+      color: var(--text);
+    }
+
+    /* ============================= */
+    /*            MODAL              */
+    /* ============================= */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-content {
+      background-color: var(--card-bg);
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 10px var(--primary);
+      color: var(--text);
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid var(--primary);
+      background-color: #fff;
+      color: var(--text);
+      border-radius: 5px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .modal-buttons button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-confirm {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      font-weight: bold;
+    }
+
+    .btn-cancel {
+      background-color: #ccc;
+      color: var(--text);
+    }
+
+    /* ============================= */
+    /*            FOOTER             */
+    /* ============================= */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a id="logo" href="index.html">GAIN TOWN</a>
+  <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
+  <nav id="mainNav" aria-label="Primary navigation">
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
+      <li><a href="customworkout.html">Custom Workout</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="iterations.html">Iterations &amp; changelog</a></li>
+      <li><a href="meettheteam.html">About</a></li>
+      <li><a href="ppt.html">Presentation</a></li>
+      <li><a href="goal.html">Goals</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <h1>Our Subscriptions</h1>
+  <p>Simple plans for every fitness goal. No hidden fees. Cancel anytime.</p>
+
+  <div class="plan">
+    <h3>Starter (Free)</h3>
+    <p class="price">$0/month</p>
+    <ul>
+      <li>5 sample workouts</li>
+      <li>Track your progress</li>
+      <li>Access to basic resources</li>
+    </ul>
+    <a href="#" class="btn">Join Free</a>
+  </div>
+
+  <div class="plan">
+    <h3>Plus</h3>
+    <p class="price">$8/month</p>
+    <ul>
+      <li>Unlimited workouts</li>
+      <li>Custom workout builder</li>
+      <li>Downloadable workout guides</li>
+    </ul>
+    <a href="#" class="btn">Subscribe</a>
+  </div>
+
+  <div class="plan">
+    <h3>Coach</h3>
+    <p class="price">$15/month</p>
+    <ul>
+      <li>Everything in Plus</li>
+      <li>Monthly coach feedback</li>
+      <li>Exclusive live sessions</li>
+    </ul>
+    <a href="#" class="btn">Go Pro</a>
+  </div>
+</div>
+
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <h2>Enter Payment Details</h2>
+    <p id="planSelected"></p>
+    <input type="text" placeholder="Card Number" maxlength="19" />
+    <input type="text" placeholder="Name on Card" />
+    <input type="text" placeholder="Expiry (MM/YY)" maxlength="5" />
+    <input type="text" placeholder="CVV" maxlength="4" />
+    <div class="modal-buttons">
+      <button class="btn-confirm">Confirm</button>
+      <button class="btn-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <hr />
+  <p>
+    Change the style of this page:
+    <select id="themeSelector">
+      <option value="css/samwsubscriptions.css">Sam W</option>
+      <option value="css/navdeepssubscriptions.css">Navdeep S</option>
+      <option value="css/accessiblesubscriptions.css">High Contrast</option>
+    </select>
+  </p>
+  &copy; 2025 GAIN TOWN. All rights reserved.
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("paymentModal");
+    const planDisplay = document.getElementById("planSelected");
+    const buttons = document.querySelectorAll(".btn");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", event => {
+        event.preventDefault();
+        const plan = button.closest(".plan").querySelector("h3").innerText;
+        if (plan === "Plus" || plan === "Coach") {
+          planDisplay.innerText = `Plan: ${plan}`;
+          modal.style.display = "block";
+        } else {
+          alert(`You selected the "${plan}" plan!`);
+        }
+      });
     });
+
+    document.querySelector(".btn-cancel").onclick = () => {
+      modal.style.display = "none";
+    };
+
+    document.querySelector(".btn-confirm").onclick = () => {
+      modal.style.display = "none";
+      alert("Payment submitted successfully! Welcome aboard.");
+    };
+
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  });
+
+  var selector = document.getElementById("themeSelector");
+  selector.addEventListener("change", function () {
+    alert("Dynamic CSS switching requires separate linked stylesheets.");
+  });
+
+  var navToggle = document.getElementById("navToggle");
+  var mainNav = document.getElementById("mainNav");
+
+  navToggle.addEventListener("click", function () {
+    var isOpen = mainNav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen);
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+      mainNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
 </script>
 </body>
 </html>
