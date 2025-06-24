@@ -1,18 +1,17 @@
-// js/customWorkoutMaker.js
 import { resources } from './database.js';
 
 document.addEventListener('DOMContentLoaded', function () {
-  var form = document.getElementById('workoutForm');
+  const form = document.getElementById('workoutForm');
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    var area = document.getElementById('area').value;
-    var goal = document.getElementById('goal').value;
-    var time = document.getElementById('time').value;
+    const area = document.getElementById('area').value;
+    const goal = document.getElementById('goal').value;
+    const time = document.getElementById('time').value;
 
     if (area && goal && time) {
-      var tags = [area, goal, time];
+      const tags = [area, goal, time];
       displayTags(tags);
       loadMatchingResources(tags);
     }
@@ -20,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function displayTags(tags) {
-  var container = document.getElementById('tagsContainer');
+  const container = document.getElementById('tagsContainer');
   container.innerHTML = '';
-  tags.forEach(function (tag) {
-    var span = document.createElement('span');
+  tags.forEach(tag => {
+    const span = document.createElement('span');
     span.className = 'tag';
     span.textContent = tag;
     container.appendChild(span);
@@ -31,27 +30,26 @@ function displayTags(tags) {
 }
 
 function loadMatchingResources(tags) {
-  var container = document.getElementById('videoContainer');
+  const container = document.getElementById('videoContainer');
   container.innerHTML = '';
 
-  var matches = resources.filter(function (resource) {
-    return tags.every(function (tag) {
-      return resource.tags.includes(tag);
-    });
-  }).slice(0, 2);
+  const matches = resources.filter(resource =>
+    tags.every(tag => resource.tags.includes(tag))
+  ).slice(0, 2);
 
   if (matches.length === 0) {
     container.innerHTML = '<p>No matching resources found.</p>';
     return;
   }
 
-  matches.forEach(function (resource) {
-    var div = document.createElement('div');
+  matches.forEach(resource => {
+    const div = document.createElement('div');
     div.className = 'resource';
-    div.innerHTML =
-      '<h3><a href="' + resource.link + '" target="_blank">' + resource.title + '</a></h3>' +
-      '<p>' + resource.description + '</p>' +
-      '<p><strong>Tags:</strong> ' + resource.tags.join(', ') + '</p>';
+    div.innerHTML = `
+      <h3><a href="${resource.link}" target="_blank">${resource.title}</a></h3>
+      <p>${resource.description}</p>
+      <p><strong>Tags:</strong> ${resource.tags.join(', ')}</p>
+    `;
     container.appendChild(div);
   });
 }
