@@ -1,191 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Meet the Team</title>
-  <link rel="stylesheet" href="css/about.css" id="themeStylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meet the Team | Gain Town</title>
   <link href="https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
+
+    :root {
+      --primary: #F17300;
+      --accent: #607196;
+      --bg: #f2e4d3;
+      --text: #AF3E4D;
+      --card-bg: #F1F0EA;
+      --button-bg: #F17300;
+      --button-text: #ffffff;
+      --link-hover: #f7c59f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    #logo {
+      color: white;
+      text-decoration: none;
+      font-size: 200%;
+      font-family: "Badeen Display", cursive;
+      font-weight: bold;
+    }
+
+    #navToggle {
+      background: none;
+      color: white;
+      border: none;
+      font-size: 2rem;
+      display: none;
+      cursor: pointer;
+    }
+
+    nav {
+      flex-grow: 1;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+      justify-content: flex-end;
+    }
+
+    .nav-list li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-list li a:hover,
+    .nav-list li a:focus {
+      background-color: var(--accent);
+      outline: none;
+    }
+
+    .nav-list li a.active {
+      background-color: white;
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      #navToggle {
+        display: block;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 220px;
+        background-color: var(--primary);
+        padding-top: 4rem;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+      }
+
+      nav.open {
+        transform: translateX(0);
+      }
+
+      .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+        padding-left: 1.5rem;
+      }
+
+      .nav-list li a {
+        font-size: 1.2rem;
+        padding: 0.75rem 0;
+      }
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .title {
+      font-size: 2em;
+      margin-bottom: 1em;
+      font-family: 'Badeen Display', cursive;
+    }
+
+    .contentsection .info-box {
+      background: var(--card-bg);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid var(--accent);
+      border-radius: 6px;
+    }
+
+    .contentsection .info-box strong {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    #carousel {
+      margin-top: 2rem;
+    }
+
+    #carouselContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    #slide {
+      text-align: center;
+      flex: 1 1 100%;
+    }
+
+    #carouselImage {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .slide-description {
+      margin-top: 0.5em;
+      font-style: italic;
+      color: #444;
+    }
+
+    #prevBtn,
+    #nextBtn {
+      background: none;
+      border: none;
+      font-size: 2em;
+      color: var(--accent);
+      cursor: pointer;
+      padding: 0 1em;
+    }
+
+    #timer {
+      text-align: center;
+      margin-top: 1em;
+      font-size: 1.2em;
+    }
+
+    footer {
+      padding: 2rem;
+      background: #e7d9c6;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    footer select {
+      margin-left: 0.5em;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <a id="logo" href="index.html">GAIN TOWN</a>
-    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
-    <nav id="mainNav" aria-label="Primary navigation">
-      <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="subscriptions.html">Subscriptions</a></li>
-        <li><a href="customworkout.html">Custom Workout</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="iterations.html">Iterations &amp; changelog</a></li>
-        <li><a href="meettheteam.html" class="active">About</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <a id="logo" href="index.html">GAIN TOWN</a>
+  <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
+  <nav id="mainNav" aria-label="Primary navigation">
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="subscriptions.html">Subscriptions</a></li>
+      <li><a href="customworkout.html">Custom Workout</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="iterations.html">Iterations &amp; changelog</a></li>
+      <li><a href="meettheteam.html" class="active">About</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <main>
-    <h1 class="title">About Gain Town</h1>
+<main>
+  <h1 class="title">About Gain Town</h1>
 
-    <section class="contentsection">
-      <h2>About the Project</h2>
+  <section class="contentsection">
+    <h2>About the Project</h2>
 
-      <div class="info-box"><strong>What is the group project?</strong>
-        <p>Our group project is a fitness-focused website called <em>GAIN TOWN</em>...</p>
+    <div class="info-box"><strong>What is the group project?</strong>
+      <p>Our group project is a fitness-focused website called <em>GAIN TOWN</em>...</p>
+    </div>
+
+    <div class="info-box"><strong>What inspired the site?</strong>
+      <p>We were inspired by the rise in home fitness trends...</p>
+    </div>
+
+    <div class="info-box"><strong>What is the site’s purpose?</strong>
+      <p>The purpose of the site is to provide a user-friendly platform...</p>
+    </div>
+
+    <div class="info-box"><strong>Who is the intended audience?</strong>
+      <p>Our goal is to attract primarily people who are new to fitness...</p>
+    </div>
+
+    <div class="info-box"><strong>What does the site do?</strong>
+      <p>The site uses user inputs and a database to find related resources...</p>
+    </div>
+
+    <div class="info-box"><strong>How does it fulfill the audience’s needs?</strong>
+      <p>The site provides a more seamless way for people to get into exercise...</p>
+    </div>
+
+    <div class="info-box"><strong>How and why is this site relevant today?</strong>
+      <p>Exercise never goes out of fashion...</p>
+    </div>
+  </section>
+
+  <section id="carousel">
+    <h2>Project Highlights</h2>
+    <div id="carouselContainer">
+      <button id="prevBtn" aria-label="Previous slide">&#10094;</button>
+      <div id="slide">
+        <img id="carouselImage" src="images/project1.jpg" alt="Man exercising with a GAIN TOWN watermark">
+        <div class="slide-description" id="carouselCaption">Exercising using GAINTOWN!</div>
       </div>
+      <button id="nextBtn" aria-label="Next slide">&#10095;</button>
+    </div>
+    <div id="timer">0s</div>
+  </section>
+</main>
 
-      <div class="info-box"><strong>What inspired the site?</strong>
-        <p>We were inspired by the rise in home fitness trends...</p>
-      </div>
+<footer>
+  <hr>
+  <p>
+    Change the style of this page:
+    <select id="themeSelector">
+      <option value="css/samwabout.css">Sam W</option>
+      <option value="css/navdeepsabout.css">Navdeep S</option>
+      <option value="css/accessibleabout.css">High Contrast</option>
+    </select>
+  </p>
+  &copy; 2025 GAIN TOWN. All rights reserved.
+</footer>
 
-      <div class="info-box"><strong>What is the site’s purpose?</strong>
-        <p>The purpose of the site is to provide a user-friendly platform...</p>
-      </div>
+<script>
+  const selector = document.getElementById("themeSelector");
+  selector.addEventListener("change", function () {
+    alert("Dynamic CSS switching requires separate linked stylesheets.");
+  });
 
-      <div class="info-box"><strong>Who is the intended audience?</strong>
-        <p>Our goal is to attract primarily people who are new to fitness...</p>
-      </div>
+  const navToggle = document.getElementById("navToggle");
+  const mainNav = document.getElementById("mainNav");
 
-      <div class="info-box"><strong>What does the site do?</strong>
-        <p>The site uses user inputs and a database to find related resources...</p>
-      </div>
+  navToggle.addEventListener("click", function () {
+    const navList = mainNav.querySelector("ul");
+    navList.classList.toggle("open");
+    this.setAttribute("aria-expanded", navList.classList.contains("open"));
+  });
 
-      <div class="info-box"><strong>How does it fulfill the audience’s needs?</strong>
-        <p>The site provides a more seamless way for people to get into exercise...</p>
-      </div>
-
-      <div class="info-box"><strong>How and why is this site relevant today?</strong>
-        <p>Exercise never goes out of fashion...</p>
-      </div>
-    </section>
-
-    <section id="carousel">
-      <h2>Project Highlights</h2>
-      <div id="carouselContainer">
-        <button id="prevBtn" aria-label="Previous slide">&#10094;</button>
-        <div id="slide">
-          <img id="carouselImage" src="images/project1.jpg" alt="Man exercising with a GAIN TOWN watermark">
-          <div class="slide-description" id="carouselCaption">Exercising using GAINTOWN!</div>
-        </div>
-        <button id="nextBtn" aria-label="Next slide">&#10095;</button>
-      </div>
-      <div id="timer">0s</div>
-    </section>
-  </main>
-
-  <footer>
-    <hr>
-    <p>
-      Change the style of this page:
-      <select id="themeSelector">
-        <option value="css/samwabout.css">Sam W</option>
-        <option value="css/navdeepsabout.css">Navdeep S</option>
-        <option value="css/accessibleabout.css">High Contrast</option>
-      </select>
-    </p>
-    &copy; 2025 GAIN TOWN. All rights reserved.
-  </footer>
-
-  <script>
-    const selector = document.getElementById("themeSelector");
-    const themeLink = document.getElementById("themeStylesheet");
-
-    selector.addEventListener("change", function () {
-      themeLink.href = this.value;
-    });
-
-    const navToggle = document.getElementById("navToggle");
-    const mainNav = document.getElementById("mainNav");
-
-    navToggle.addEventListener("click", function () {
+  document.addEventListener("click", function (e) {
+    if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
       const navList = mainNav.querySelector("ul");
-      navList.classList.toggle("open");
-      this.setAttribute("aria-expanded", navList.classList.contains("open"));
-    });
-
-    document.addEventListener("click", function (e) {
-      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-        const navList = mainNav.querySelector("ul");
-        navList.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    const images = [
-      {
-        src: "images/project1.jpg",
-        alt: "Man exercising with a GAIN TOWN watermark",
-        caption: "Exercising using GAINTOWN!"
-      },
-      {
-        src: "images/project2.jpg",
-        alt: "Man eating cereal",
-        caption: "Living using GAINTOWN!"
-      },
-      {
-        src: "images/project3.jpg",
-        alt: "Man at a fancy restaurant",
-        caption: "Loving using Gain town? <3"
-      }
-    ];
-
-    let currentIndex = 0;
-    let interval = 3000;
-    let timer = 0;
-    let autoScroll;
-    let counterInterval;
-
-    const img = document.getElementById("carouselImage");
-    const caption = document.getElementById("carouselCaption");
-    const timerDisplay = document.getElementById("timer");
-
-    function showSlide(index) {
-      img.src = images[index].src;
-      img.alt = images[index].alt;
-      caption.innerHTML = images[index].caption;
+      navList.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
     }
+  });
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showSlide(currentIndex);
-      resetTimer();
+  const images = [
+    {
+      src: "images/project1.jpg",
+      alt: "Man exercising with a GAIN TOWN watermark",
+      caption: "Exercising using GAINTOWN!"
+    },
+    {
+      src: "images/project2.jpg",
+      alt: "Man eating cereal",
+      caption: "Living using GAINTOWN!"
+    },
+    {
+      src: "images/project3.jpg",
+      alt: "Man at a fancy restaurant",
+      caption: "Loving using Gain town? <3"
     }
+  ];
 
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showSlide(currentIndex);
-      resetTimer();
-    }
+  let currentIndex = 0;
+  let interval = 3000;
+  let timer = 0;
+  let autoScroll;
+  let counterInterval;
 
-    function resetTimer() {
-      clearInterval(autoScroll);
-      clearInterval(counterInterval);
-      timer = 0;
+  const img = document.getElementById("carouselImage");
+  const caption = document.getElementById("carouselCaption");
+  const timerDisplay = document.getElementById("timer");
+
+  function showSlide(index) {
+    img.src = images[index].src;
+    img.alt = images[index].alt;
+    caption.innerHTML = images[index].caption;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+    resetTimer();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showSlide(currentIndex);
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(autoScroll);
+    clearInterval(counterInterval);
+    timer = 0;
+    timerDisplay.textContent = timer + "s";
+    autoScroll = setInterval(nextSlide, interval);
+    counterInterval = setInterval(() => {
+      timer++;
       timerDisplay.textContent = timer + "s";
-      autoScroll = setInterval(nextSlide, interval);
-      counterInterval = setInterval(() => {
-        timer++;
-        timerDisplay.textContent = timer + "s";
-      }, 1000);
-    }
+    }, 1000);
+  }
 
-    document.getElementById("nextBtn").addEventListener("click", nextSlide);
-    document.getElementById("prevBtn").addEventListener("click", prevSlide);
+  document.getElementById("nextBtn").addEventListener("click", nextSlide);
+  document.getElementById("prevBtn").addEventListener("click", prevSlide);
 
-    img.addEventListener("click", function (e) {
-      const rect = img.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const middle = rect.width / 2;
-      clickX < middle ? prevSlide() : nextSlide();
-    });
+  img.addEventListener("click", function (e) {
+    const rect = img.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const middle = rect.width / 2;
+    clickX < middle ? prevSlide() : nextSlide();
+  });
 
-    window.onload = () => {
-      showSlide(currentIndex);
-      autoScroll = setInterval(nextSlide, interval);
-      counterInterval = setInterval(() => {
-        timer++;
-        timerDisplay.textContent = timer + "s";
-      }, 1000);
-    };
-  </script>
+  window.onload = () => {
+    showSlide(currentIndex);
+    autoScroll = setInterval(nextSlide, interval);
+    counterInterval = setInterval(() => {
+      timer++;
+      timerDisplay.textContent = timer + "s";
+    }, 1000);
+  };
+</script>
 </body>
 </html>
