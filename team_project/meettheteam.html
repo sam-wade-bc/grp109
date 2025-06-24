@@ -304,15 +304,13 @@
   const mainNav = document.getElementById("mainNav");
 
   navToggle.addEventListener("click", function () {
-    const navList = mainNav.querySelector("ul");
-    navList.classList.toggle("open");
-    this.setAttribute("aria-expanded", navList.classList.contains("open"));
+    const isOpen = mainNav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen);
   });
 
   document.addEventListener("click", function (e) {
     if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-      const navList = mainNav.querySelector("ul");
-      navList.classList.remove("open");
+      mainNav.classList.remove("open");
       navToggle.setAttribute("aria-expanded", "false");
     }
   });
@@ -394,5 +392,3 @@
     }, 1000);
   };
 </script>
-</body>
-</html>
