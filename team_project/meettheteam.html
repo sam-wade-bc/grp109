@@ -74,18 +74,27 @@
   </div>
 </section>
 
-  <section id="carousel">
-    <h2>Project Highlights</h2>
-    <div id="carouselContainer">
-      <button id="prevBtn" aria-label="Previous slide">&#10094;</button>
-      <div id="slide">
-        <img id="carouselImage" src="images/project1.jpg" alt="Man exercising with a GAIN TOWN watermark">
-        <div class="slide-description" id="carouselCaption">Exercising using GAINTOWN!</div>
+<section id="carousel">
+  <h2>Project Highlights</h2>
+  <div id="carouselContainer">
+    <button id="prevBtn" aria-label="Previous slide">&#10094;</button>
+
+    <div id="slide">
+      <img id="carouselImage" src="images/project1.jpg" alt="Man exercising with a GAIN TOWN watermark">
+      <div class="slide-description" id="carouselCaption">
+        Exercising using GAINTOWN!
       </div>
-      <button id="nextBtn" aria-label="Next slide">&#10095;</button>
     </div>
-    <div id="timer">0s</div>
-  </section>
+
+    <button id="nextBtn" aria-label="Next slide">&#10095;</button>
+  </div>
+
+  <div id="timer">0s</div>
+
+  <!-- Preload audio -->
+  <audio id="soundLeft" src="sounds/click.mp3" preload="auto"></audio>
+  <audio id="soundRight" src="sounds/click.mp3" preload="auto"></audio>
+</section>
 </main>
 
 <footer>
@@ -124,82 +133,99 @@
       }
     });
 
-    var images = [
-        {
-          src: "images/project1.jpg",
-          alt: "Man exercising with a GAIN TOWN watermark",
-          caption: "Exercising using GAINTOWN!"
-        },
-        {
-          src: "images/project2.jpg",
-          alt: "Man eating cereal",
-          caption: "Living using GAINTOWN!"
-        },
-        {
-          src: "images/project3.jpg",
-          alt: "Man at a fancy restaurant",
-          caption: "Loving using Gain town? <3"
-        }
-    ];
-
-    var currentIndex = 0;
-    var interval = 3000;
-    var timer = 0;
-    var autoScroll;
-    var counterInterval;
-
-    var img = document.getElementById("carouselImage");
-    var caption = document.getElementById("carouselCaption");
-    var timerDisplay = document.getElementById("timer");
-
-    function showSlide(index) {
-      img.src = images[index].src;
-      img.alt = images[index].alt;
-      caption.innerHTML = images[index].caption;
+   var images = [
+    {
+      src: "images/project1.jpg",
+      alt: "Man exercising with a GAIN TOWN watermark",
+      caption: "Exercising using GAINTOWN!"
+    },
+    {
+      src: "images/project2.jpg",
+      alt: "Picture of a man eating cereal with a GAIN TOWN watermark",
+      caption: "Living using GAINTOWN!"
+    },
+    {
+      src: "images/project3.jpg",
+      alt: "A picture of a man at a fancy restaurant with a GAIN TOWN watermark", 
+      caption: "Loving using Gain town? <3"
     }
+  ];
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showSlide(currentIndex);
-      resetTimer();
+  var currentIndex = 0;
+  var interval = 3000;
+  var timer = 0;
+  var autoScroll;
+  var counterInterval;
+
+  var img = document.getElementById("carouselImage");
+  var caption = document.getElementById("carouselCaption");
+  var timerDisplay = document.getElementById("timer");
+
+  var soundLeft = document.getElementById("soundLeft");
+  var soundRight = document.getElementById("soundRight");
+
+  function showSlide(index) {
+    img.src = images[index].src;
+    img.alt = images[index].alt;
+    caption.innerHTML = images[index].caption;
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showSlide(currentIndex);
+    resetTimer();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showSlide(currentIndex);
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(autoScroll);
+    clearInterval(counterInterval);
+    timer = 0;
+    timerDisplay.innerHTML = timer + "s";
+    autoScroll = setInterval(nextSlide, interval);
+    counterInterval = setInterval(updateTimer, 1000);
+  }
+
+  function updateTimer() {
+    timer++;
+    timerDisplay.innerHTML = timer + "s";
+  }
+
+  document.getElementById("nextBtn").addEventListener("click", function () {
+    soundRight.play();
+    nextSlide();
+  });
+
+  document.getElementById("prevBtn").addEventListener("click", function () {
+    soundLeft.play();
+    prevSlide();
+  });
+
+  img.addEventListener("click", function (e) {
+    var rect = img.getBoundingClientRect();
+    var clickX = e.clientX - rect.left;
+    var middle = rect.width / 2;
+
+    if (clickX < middle) {
+      soundLeft.play();
+      prevSlide();
+    } else {
+      soundRight.play();
+      nextSlide();
     }
+  });
 
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showSlide(currentIndex);
-      resetTimer();
-    }
-
-    function resetTimer() {
-      clearInterval(autoScroll);
-      clearInterval(counterInterval);
-      timer = 0;
-      timerDisplay.textContent = timer + "s";
-      autoScroll = setInterval(nextSlide, interval);
-      counterInterval = setInterval(() => {
-        timer++;
-        timerDisplay.textContent = timer + "s";
-      }, 1000);
-    }
-
-    document.getElementById("nextBtn").addEventListener("click", nextSlide);
-    document.getElementById("prevBtn").addEventListener("click", prevSlide);
-
-    img.addEventListener("click", function (e) {
-      var rect = img.getBoundingClientRect();
-      var clickX = e.clientX - rect.left;
-      var middle = rect.width / 2;
-      clickX < middle ? prevSlide() : nextSlide();
-    });
-
-    window.onload = () => {
-      showSlide(currentIndex);
-      autoScroll = setInterval(nextSlide, interval);
-      counterInterval = setInterval(() => {
-        timer++;
-        timerDisplay.textContent = timer + "s";
-      }, 1000);
-    };
+ 
+  window.onload = function () {
+    showSlide(currentIndex);
+    autoScroll = setInterval(nextSlide, interval);
+    counterInterval = setInterval(updateTimer, 1000);
+  };
 </script>
 </body>
 </html>
