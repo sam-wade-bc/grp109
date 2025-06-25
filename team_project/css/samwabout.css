@@ -235,10 +235,15 @@ h2 {
 /*           FOOTER              */
 /* ============================= */
 footer {
-  text-align: center;
+  background-color: #f1f1f1;
   padding: 2rem;
+  text-align: center;
   font-size: 0.9rem;
-  color: #555;
-  background-color: #fff;
-  border-top: 1px solid #ccc;
+  color: #444;
+}
+
+select#themeSelector {
+  margin-top: 0.5rem;
+  padding: 6px;
+  font-size: 1rem;
 }
