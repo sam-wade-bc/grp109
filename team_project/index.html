@@ -33,14 +33,14 @@
   </header>
 
   <!-- Hello Section -->
-  <section class="hero">
+  <section class="hero" aria-label="Hero">
     <h1>Find Your Flow, From Home</h1>
     <p>Discover new workouts, stay active, and feel amazing – all from your living room.</p>
     <a href="https://sam-wade-bc.github.io/grp109/team_project/customworkout.html" class="cta-button">Create Your Custom Workout</a>
   </section>
 
   <!-- Featured Workouts -->
-  <section class="section" id="workouts">
+  <section class="section" id="workouts" aria-label="Workouts">
     <h2>FEATURED WORKOUTS</h2>
     <div class="cards">
       <div class="card">
@@ -59,7 +59,7 @@
   </section>
 
   <!-- Resources -->
-  <section class="section" id="resources">
+  <section class="section" id="resources" aria-label="Resources">
     <h2>HELPFUL RESOURCES</h2>
     <div class="cards">
       <div class="card">
@@ -78,12 +78,12 @@
   </section>
 
   <!-- Group Members -->
-  <section id="carousel">
+  <section id="carousel" aria-label="Meet the Team">
     <h2>MEET THE TEAM</h2>
 
     <div id="controls" class="slidebox">
       <div class="input">
-        <input id="auto" type="checkbox">Run automatically
+        <label for="auto">Run automatically:</label><input id="auto" type="checkbox">
       </div>
       <div id="timer">Automatic Slides Paused</div>
     </div>
@@ -109,7 +109,7 @@
   <footer>
     <hr>
     <p>
-      Change the style of this page:
+      <label for="themeSelector">Change the style of this page:</label>
       <select id="themeSelector">
         <option value="css/samwhome.css">Sam W</option>
         <option value="css/navdeepshome.css">Navdeep S</option>
