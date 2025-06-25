@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Badeen+Display&display=swap');
 
 /* ============================= */
@@ -185,7 +186,7 @@ label {
 }
 
 select,
-button {
+#submitForm {
   width: 100%;
   padding: 12px;
   font-size: 1rem;
@@ -193,7 +194,7 @@ button {
   border: 1px solid #ccc;
 }
 
-button {
+#submitForm {
   background-color: var(--primary);
   color: white;
   font-weight: bold;
@@ -201,7 +202,7 @@ button {
   transition: background-color 0.3s;
 }
 
-button:hover {
+#submitForm:hover {
   background-color: #d25a00;
 }
 
