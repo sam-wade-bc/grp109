@@ -102,8 +102,7 @@
 </footer>
 
 <script>
-  <script>
-     var selector = document.getElementById("themeSelector");
+    var selector = document.getElementById("themeSelector");
     var themeLink = document.getElementById("themeStylesheet");
 
     selector.addEventListener("change", function () {
@@ -125,80 +124,82 @@
       }
     });
 
-  var images = [
-    {
-      src: "images/project1.jpg",
-      alt: "Man exercising with a GAIN TOWN watermark",
-      caption: "Exercising using GAINTOWN!"
-    },
-    {
-      src: "images/project2.jpg",
-      alt: "Man eating cereal",
-      caption: "Living using GAINTOWN!"
-    },
-    {
-      src: "images/project3.jpg",
-      alt: "Man at a fancy restaurant",
-      caption: "Loving using Gain town? <3"
+    var images = [
+        {
+          src: "images/project1.jpg",
+          alt: "Man exercising with a GAIN TOWN watermark",
+          caption: "Exercising using GAINTOWN!"
+        },
+        {
+          src: "images/project2.jpg",
+          alt: "Man eating cereal",
+          caption: "Living using GAINTOWN!"
+        },
+        {
+          src: "images/project3.jpg",
+          alt: "Man at a fancy restaurant",
+          caption: "Loving using Gain town? <3"
+        }
+    ];
+
+    var currentIndex = 0;
+    var interval = 3000;
+    var timer = 0;
+    var autoScroll;
+    var counterInterval;
+
+    var img = document.getElementById("carouselImage");
+    var caption = document.getElementById("carouselCaption");
+    var timerDisplay = document.getElementById("timer");
+
+    function showSlide(index) {
+      img.src = images[index].src;
+      img.alt = images[index].alt;
+      caption.innerHTML = images[index].caption;
     }
-  ];
 
-  var currentIndex = 0;
-  var interval = 3000;
-  var timer = 0;
-  var autoScroll;
-  var counterInterval;
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showSlide(currentIndex);
+      resetTimer();
+    }
 
-  var img = document.getElementById("carouselImage");
-  var caption = document.getElementById("carouselCaption");
-  var timerDisplay = document.getElementById("timer");
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showSlide(currentIndex);
+      resetTimer();
+    }
 
-  function showSlide(index) {
-    img.src = images[index].src;
-    img.alt = images[index].alt;
-    caption.innerHTML = images[index].caption;
-  }
-
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % images.length;
-    showSlide(currentIndex);
-    resetTimer();
-  }
-
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showSlide(currentIndex);
-    resetTimer();
-  }
-
-  function resetTimer() {
-    clearInterval(autoScroll);
-    clearInterval(counterInterval);
-    timer = 0;
-    timerDisplay.textContent = timer + "s";
-    autoScroll = setInterval(nextSlide, interval);
-    counterInterval = setInterval(() => {
-      timer++;
+    function resetTimer() {
+      clearInterval(autoScroll);
+      clearInterval(counterInterval);
+      timer = 0;
       timerDisplay.textContent = timer + "s";
-    }, 1000);
-  }
+      autoScroll = setInterval(nextSlide, interval);
+      counterInterval = setInterval(() => {
+        timer++;
+        timerDisplay.textContent = timer + "s";
+      }, 1000);
+    }
 
-  document.getElementById("nextBtn").addEventListener("click", nextSlide);
-  document.getElementById("prevBtn").addEventListener("click", prevSlide);
+    document.getElementById("nextBtn").addEventListener("click", nextSlide);
+    document.getElementById("prevBtn").addEventListener("click", prevSlide);
 
-  img.addEventListener("click", function (e) {
-    var rect = img.getBoundingClientRect();
-    var clickX = e.clientX - rect.left;
-    var middle = rect.width / 2;
-    clickX < middle ? prevSlide() : nextSlide();
-  });
+    img.addEventListener("click", function (e) {
+      var rect = img.getBoundingClientRect();
+      var clickX = e.clientX - rect.left;
+      var middle = rect.width / 2;
+      clickX < middle ? prevSlide() : nextSlide();
+    });
 
-  window.onload = () => {
-    showSlide(currentIndex);
-    autoScroll = setInterval(nextSlide, interval);
-    counterInterval = setInterval(() => {
-      timer++;
-      timerDisplay.textContent = timer + "s";
-    }, 1000);
-  };
+    window.onload = () => {
+      showSlide(currentIndex);
+      autoScroll = setInterval(nextSlide, interval);
+      counterInterval = setInterval(() => {
+        timer++;
+        timerDisplay.textContent = timer + "s";
+      }, 1000);
+    };
 </script>
+</body>
+</html>
