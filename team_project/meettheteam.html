@@ -103,27 +103,27 @@
 
 <script>
   <script>
-    var selector = document.getElementById("themeSelector");
+     var selector = document.getElementById("themeSelector");
     var themeLink = document.getElementById("themeStylesheet");
 
     selector.addEventListener("change", function () {
       themeLink.href = this.value;
     });
 
-  var navToggle = document.getElementById("navToggle");
-  var mainNav = document.getElementById("mainNav");
+    var navToggle = document.getElementById("navToggle");
+    var mainNav = document.getElementById("mainNav");
 
-  navToggle.addEventListener("click", function () {
-    var isOpen = mainNav.classList.toggle("open");
-    navToggle.setAttribute("aria-expanded", isOpen);
-  });
+    navToggle.addEventListener("click", function () {
+      var isOpen = mainNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
 
-  document.addEventListener("click", function (e) {
-    if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
-      mainNav.classList.remove("open");
-      navToggle.setAttribute("aria-expanded", "false");
-    }
-  });
+    document.addEventListener("click", function (e) {
+      if (!mainNav.contains(e.target) && !navToggle.contains(e.target)) {
+        mainNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
 
   var images = [
     {
