@@ -1,4 +1,4 @@
-export var resources = [
+export const resources = [
   {
     title: "Upper Body Strength Workout",
     description: "A 30-minute dumbbell workout to build upper body strength.",
@@ -96,5 +96,3 @@ export var resources = [
     tags: ["Upper Body", "Strength", "15-30 mins"]
   }
 ];
-
-export default resources;
