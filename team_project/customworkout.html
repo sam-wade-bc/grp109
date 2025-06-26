@@ -11,12 +11,7 @@
   <!-- Header -->
   <header>
     <a id="logo" href="index.html">GAIN TOWN</a>
-
-    <!-- Hamburger menu button for small screens -->
-    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
-      &#9776;
-    </button>
-
+    <button id="navToggle" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
     <nav id="mainNav" aria-label="Primary navigation">
       <ul class="nav-list">
         <li><a href="https://sam-wade-bc.github.io/grp109/team_project/index.html">Home</a></li>
@@ -65,7 +60,7 @@
       <option value="45 mins - 1 hr">45 mins – 1 hr</option>
       <option value="2+ hrs">2+ hrs</option>
     </select>
-<br><br>
+    <br><br>
     <button type="submit" id="submitForm">Find My Workout</button>
   </form>
 
@@ -73,11 +68,10 @@
   <div id="tagsContainer"></div>
   <div id="videoContainer"></div>
 
-
-<!-- footer --> 
-<footer>
-<hr>
-  <p>
+  <!-- Footer -->
+  <footer>
+    <hr>
+    <p>
       Change the style of this page:
       <select id="themeSelector">
         <option value="css/samwcustomworkout.css">Sam W</option>
@@ -85,26 +79,24 @@
         <option value="css/accessiblecustomworkout.css">High Contrast</option>
       </select>
     </p>
-
     &copy; 2025 GAIN TOWN. All rights reserved.
   </footer>
-  
-  <!-- Script -->
-  <script src="js/customWorkoutMaker.js" defer></script>
 
-<script>
-    var selector = document.getElementById("themeSelector");
-    var themeLink = document.getElementById("themeStylesheet");
+  <!-- Scripts -->
+  <script type="module" src="js/customWorkoutMaker.js" defer></script>
+  <script>
+    const selector = document.getElementById("themeSelector");
+    const themeLink = document.getElementById("themeStylesheet");
 
     selector.addEventListener("change", function () {
       themeLink.href = this.value;
     });
 
-    var navToggle = document.getElementById("navToggle");
-    var mainNav = document.getElementById("mainNav");
+    const navToggle = document.getElementById("navToggle");
+    const mainNav = document.getElementById("mainNav");
 
     navToggle.addEventListener("click", function () {
-      var isOpen = mainNav.classList.toggle("open");
+      const isOpen = mainNav.classList.toggle("open");
       navToggle.setAttribute("aria-expanded", isOpen);
     });
 
@@ -114,7 +106,6 @@
         navToggle.setAttribute("aria-expanded", "false");
       }
     });
-</script>
-
+  </script>
 </body>
 </html>
