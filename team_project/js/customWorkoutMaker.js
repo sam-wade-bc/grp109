@@ -6,14 +6,16 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const area = document.getElementById('area').value;
-    const goal = document.getElementById('goal').value;
-    const time = document.getElementById('time').value;
+    const area = document.getElementById('area').value.trim();
+    const goal = document.getElementById('goal').value.trim();
+    const time = document.getElementById('time').value.trim();
 
     if (area && goal && time) {
-      const tags = [area, goal, time];
+      const tags = [area, goal, time].map(tag => tag.toLowerCase());
       displayTags(tags);
       loadMatchingResources(tags);
+    } else {
+      alert("Please select all three options.");
     }
   });
 });
@@ -34,10 +36,11 @@ function loadMatchingResources(tags) {
   container.innerHTML = '';
 
   const matches = resources
-    .map(resource => ({
-      resource,
-      score: tags.filter(tag => resource.tags.includes(tag)).length
-    }))
+    .map(resource => {
+      const resourceTags = resource.tags.map(t => t.toLowerCase());
+      const score = tags.filter(tag => resourceTags.includes(tag)).length;
+      return { resource, score };
+    })
     .filter(item => item.score > 0)
     .sort((a, b) => b.score - a.score)
     .map(item => item.resource)
