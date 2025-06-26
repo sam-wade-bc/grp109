@@ -33,12 +33,18 @@ function loadMatchingResources(tags) {
   const container = document.getElementById('videoContainer');
   container.innerHTML = '';
 
-  const matches = resources.filter(resource =>
-    tags.every(tag => resource.tags.includes(tag))
-  ).slice(0, 2);
+  const matches = resources
+    .map(resource => ({
+      resource,
+      score: tags.filter(tag => resource.tags.includes(tag)).length
+    }))
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map(item => item.resource)
+    .slice(0, 2);
 
   if (matches.length === 0) {
-    container.innerHTML = '<p>No matching resources found.</p>';
+    container.innerHTML = '<p>No matching resources found. Try adjusting your selections.</p>';
     return;
   }
 
